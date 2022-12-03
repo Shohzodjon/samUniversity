@@ -31,6 +31,12 @@ input {
   outline: none;
   border: none;
 }
+button {
+  border: none;
+  outline: none;
+  background: none;
+  cursor: pointer;
+}
 
 .container {
   max-width: 1400px;

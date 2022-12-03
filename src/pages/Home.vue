@@ -1,6 +1,6 @@
 <template>
   <section class="">
-    <HeaderSection />
+    <!-- <HeaderSection /> -->
     <AboutSection />
     <section class="news__section">
       <div class="container">
@@ -20,7 +20,9 @@
         </div>
       </div>
     </section>
+    <FaqSection />
     <FacultySection />
+    <ImgSection />
   </section>
 </template>
 <script setup>
@@ -30,6 +32,8 @@ import NewsCard from "@/components/cards/NewsCard.vue";
 import newsData from "@/fake-data/news.js";
 import IconBase from "@/components/IconBase.vue";
 import FacultySection from "@/views/FacultySection.vue";
+import ImgSection from "@/views/ImgSection.vue";
+import FaqSection from "../views/FaqSection.vue";
 </script>
 <style scoped>
 .news__section {

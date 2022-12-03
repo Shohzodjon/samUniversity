@@ -5,10 +5,12 @@
         <component :is="Component" />
       </transition>
     </RouterView>
+    <Footer />
   </section>
 </template>
 <script setup>
 import { RouterLink, RouterView } from "vue-router";
+import Footer from "@/views/Footer.vue";
 </script>
 
 <style>
