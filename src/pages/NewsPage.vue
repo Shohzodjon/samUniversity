@@ -2,28 +2,28 @@
   <section class="news__page">
     <div class="container">
       <h2 class="news__title">Yangiliklar</h2>
-      <h3>{{}}</h3>
+      <div>
+        <h3 class="slug__title">Xalqaro talabalar kuni</h3>
 
-      <div class="news__slug">
-        <div>
-          <img :src="img" alt="img" />
-          <span>NOYABR 17 . 2022</span>
+        <div class="news__slug">
+          <div>
+            <img :src="img" alt="img" />
+            <span>NOYABR 17 . 2022</span>
+          </div>
+          <p>
+            17-noyabr kuni TShIUda “Xalqaro talabalar kuni” munosabati bilan
+            Elektron hukumat loyihalarini boshqarish markazining talabalar bilan
+            ucharshuvi bo’lib o’tdi.Dastur davomida talabalar Yagona
+            identifikatsiya tizimi OneIDda ro’yxatdan o’tish tartibi, My.gov.uz
+            da joriy etilgan xizmatlar bilan tanishtirildi. Shuningdek, Elektron
+            hukumatning idoralararo integratsiya platformasi, ma’lumotlar bazasi
+            bitta xizmat misolida tahlil qilindi. Uchrashuv so’ngida esa,
+            talabalar bilan savol-javoblar o’tkazilib, ularga sovg’alar
+            ulashildi.
+          </p>
         </div>
-        <p>
-          17-noyabr kuni TShIUda “Xalqaro talabalar kuni” munosabati bilan
-          Elektron hukumat loyihalarini boshqarish markazining talabalar bilan
-          ucharshuvi bo’lib o’tdi.Dastur davomida talabalar Yagona
-          identifikatsiya tizimi OneIDda ro’yxatdan o’tish tartibi, My.gov.uz da
-          joriy etilgan xizmatlar bilan tanishtirildi. Shuningdek, Elektron
-          hukumatning idoralararo integratsiya platformasi, ma’lumotlar bazasi
-          bitta xizmat misolida tahlil qilindi. Uchrashuv so’ngida esa,
-          talabalar bilan savol-javoblar o’tkazilib, ularga sovg’alar ulashildi.
-        </p>
+        <register-btn link="/#div" class="news__btn" />
       </div>
-      <a href="#" class="section__btn">
-        <span>Ro‘yxatdan o‘tish </span>
-        <span> <IconBase name="small_arrow" /></span>
-      </a>
       <h2 class="news__info">Davomi ...</h2>
       <div class="news__grid">
         <NewsCard
@@ -32,7 +32,7 @@
           :news__img="item.img"
           :news__title="item.title"
           :news__create="item.date"
-          @click="fetch"
+          @click="fetch(item.id)"
         />
       </div>
     </div>
@@ -43,10 +43,21 @@ import img from "@/assets/images/img_3.png";
 import newsData from "@/fake-data/news.js";
 import NewsCard from "@/components/cards/NewsCard.vue";
 import IconBase from "@/components/IconBase.vue";
-import { reactive } from "vue";
-const fetch = () => {
-  alert("Hi");
+import newsSlug from "@/fake-data/news-data.js";
+import RegisterBtn from "@/components/cards/RegisterBtn.vue";
+import { computed, onMounted, reactive, ref } from "vue";
+
+const apiNum = ref(1);
+let apiData = reactive([]);
+
+const fetch = (id) => {
+  console.log(id);
+  apiNum.value = id;
 };
+onMounted(() => {
+  apiData = newsSlug.filter((item) => item.id === apiNum.value);
+  console.log(apiData);
+});
 </script>
 <style scoped>
 .news__page {
@@ -78,6 +89,13 @@ const fetch = () => {
   display: flex;
   gap: 30px;
 }
+.slug__title {
+  font-weight: 600;
+  font-size: 3.8rem;
+  line-height: 120%;
+  color: #000000;
+  margin-bottom: 3rem;
+}
 .news__slug img {
   max-width: 481px;
   max-height: 466px;
@@ -106,40 +124,7 @@ const fetch = () => {
   top: 0;
   left: -10px;
 }
-.section__btn {
-  display: flex;
-  width: max-content;
-  gap: 29px;
-  align-items: center;
-  background: #fece02;
-  border-radius: 10px;
-  padding: 26px 19px 26px 30px;
-  font-weight: 600;
-  font-size: 2rem;
-  line-height: 140%;
-  color: #222222;
-  position: relative;
-  overflow: hidden;
-  float: right;
-  top: -50px;
-}
-.section__btn::after {
-  content: "";
-  width: 1px;
-  height: 100%;
-  position: absolute;
-  right: 54px;
-  display: block;
-  top: 0;
-  background: rgba(95, 95, 95, 0.5);
-}
-.section__btn span:nth-child(2) {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 22px;
-  height: 22px;
-}
+
 .news__info {
   font-weight: 700;
   margin-top: 2rem;
@@ -147,11 +132,223 @@ const fetch = () => {
   font-size: 4rem;
   line-height: 140%;
   color: #000000;
+  position: relative;
+  width: max-content;
+}
+.news__info::before {
+  content: "";
+  width: 100%;
+  height: 2px;
+  bottom: -5px;
+  left: 0;
+  background: #fece02;
+  position: absolute;
+  display: block;
 }
 .news__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   row-gap: 4rem;
-  column-gap: 4.5rem;
+  column-gap: 3.5rem;
+}
+.news__grid div {
+  max-width: 430px;
+}
+.news__btn {
+  float: right;
+  top: -50px;
+}
+
+@media screen and (min-width: 370px) and (max-width: 576px) {
+  .news__page {
+    padding-top: 5.3rem;
+    padding-bottom: 6rem;
+  }
+  .news__title {
+    font-size: 2.8rem;
+    line-height: 120%;
+    margin: 0 auto;
+    margin-bottom: 5rem;
+  }
+  .slug__title {
+    font-size: 2.5rem;
+    line-height: 120%;
+    margin-bottom: 3rem;
+  }
+  .news__slug {
+    gap: 25px;
+    flex-direction: column;
+  }
+  .news__slug img {
+    max-width: 350px;
+    max-height: 300px;
+    min-width: 340px;
+  }
+  .news__slug span {
+    font-size: 1.5rem;
+    margin-top: 10px;
+    display: block;
+  }
+  .news__slug p {
+    font-size: 1.8rem;
+    line-height: 130%;
+  }
+  .news__btn {
+    float: none;
+    top: 0;
+    margin-top: 10px;
+  }
+  .news__info {
+    font-size: 2.8rem;
+    line-height: 130%;
+    margin: 5rem auto 3rem;
+    display: block;
+  }
+  .news__grid {
+    grid-template-columns: repeat(1, 350px);
+    row-gap: 2rem;
+    justify-content: center;
+  }
+}
+@media screen and (min-width: 577px) and (max-width: 768px) {
+  .news__page {
+    padding-top: 6.3rem;
+    padding-bottom: 6rem;
+  }
+  .news__title {
+    font-size: 3rem;
+    line-height: 120%;
+    margin: 0 auto;
+    margin-bottom: 5rem;
+  }
+  .slug__title {
+    font-size: 2.5rem;
+    line-height: 120%;
+    margin-bottom: 3rem;
+  }
+  .news__slug {
+    gap: 25px;
+    flex-direction: column;
+  }
+  .news__slug img {
+    max-width: 350px;
+    max-height: 300px;
+    min-width: 340px;
+  }
+  .news__slug span {
+    font-size: 1.5rem;
+    margin-top: 10px;
+    display: block;
+  }
+  .news__slug p {
+    font-size: 1.8rem;
+    line-height: 130%;
+  }
+  .news__btn {
+    float: none;
+    top: 0;
+    margin-top: 10px;
+  }
+  .news__info {
+    font-size: 3rem;
+    line-height: 130%;
+    margin: 2rem auto 3rem;
+  }
+  .news__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    justify-content: center;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .news__page {
+    padding-top: 6.5rem;
+    padding-bottom: 7rem;
+  }
+  .news__title {
+    font-size: 3.5rem;
+    line-height: 120%;
+    margin-bottom: 5rem;
+  }
+  .slug__title {
+    font-size: 2.8rem;
+  }
+  .news__slug {
+    gap: 25px;
+    flex-direction: row;
+  }
+  .news__slug img {
+    max-width: 350px;
+    max-height: 300px;
+    min-width: 340px;
+  }
+  .news__slug span {
+    font-size: 1.3rem;
+    margin-top: 10px;
+    display: block;
+  }
+  .news__slug p {
+    font-size: 1.8rem;
+    line-height: 130%;
+  }
+  .news__btn {
+    float: right;
+    top: -50px;
+    margin-top: 10px;
+    padding: 10px;
+  }
+  .news__info {
+    font-size: 3.5rem;
+    line-height: 130%;
+    margin: 5rem 0 3rem;
+  }
+  .news__grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+  }
+  .news__grid div {
+    min-height: 330px;
+  }
+}
+
+@media screen and (min-width: 991px) and (max-width: 1100px) {
+  .news__page {
+    padding-top: 7rem;
+    padding-bottom: 8rem;
+  }
+  .news__title {
+    font-size: 4rem;
+    margin-bottom: 5rem;
+  }
+  .slug__title {
+    font-size: 3rem;
+  }
+  .news__slug {
+    gap: 25px;
+    flex-direction: row;
+  }
+
+  .news__slug span {
+    font-size: 1.3rem;
+    margin-top: 10px;
+    display: block;
+  }
+  .news__slug p {
+    font-size: 1.8rem;
+    line-height: 130%;
+  }
+  .news__btn {
+    float: right;
+    top: -50px;
+  }
+  .news__info {
+    font-size: 3.5rem;
+    line-height: 130%;
+    margin: 5rem 0 3rem;
+  }
+  .news__grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
 }
 </style>

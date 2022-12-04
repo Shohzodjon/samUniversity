@@ -87,7 +87,7 @@ const linkData = [
   },
   {
     page: "Haqida",
-    link: "/",
+    link: "/news",
   },
   {
     page: "Fakultetlar",
@@ -99,7 +99,7 @@ const linkData = [
   },
   {
     page: "Ro‘yxatdan o’tish ",
-    link: "/",
+    link: "/#contact",
   },
 ];
 </script>
@@ -110,6 +110,7 @@ footer {
   background: linear-gradient(90deg, #085078, #85d8ce);
   padding-top: 8.2rem;
   color: #ffff;
+  padding-bottom: 30px;
 }
 .footer__flex {
   display: flex;
@@ -126,7 +127,7 @@ footer {
 }
 .footer__logo h4 {
   font-weight: 600;
-  font-size: 18px;
+  font-size: 1.8rem;
   line-height: 120%;
 }
 .contact__flex {
@@ -139,6 +140,9 @@ footer {
   font-weight: 500;
   font-size: 1.6rem;
   line-height: 130%;
+}
+.router-link-active {
+  color: #fece02;
 }
 .footer__map {
   max-width: 539px;
@@ -165,7 +169,7 @@ footer {
 .footer__navlink::before {
   content: "";
   width: 100%;
-  height: 1.5px !important;
+  height: 2px !important;
   background: #fece02;
   position: absolute;
   left: 0;
@@ -192,14 +196,170 @@ footer {
   display: flex;
   align-items: center;
   gap: 2.4rem;
-  margin-bottom: 30px;
+  height: max-content;
+}
+.social__media li {
+  height: max-content;
 }
 
 .footer__bottom span {
   font-weight: 500;
   font-size: 1.2rem;
   line-height: 19px;
-  color: #73737c;
+  color: #fff;
+  display: block;
+  height: max-content;
+}
+
+/* media query */
+@media screen and (min-width: 370px) and (max-width: 576px) {
+  footer {
+    padding-top: 5.2rem;
+  }
+  .footer__flex {
+    flex-direction: column;
+    gap: 30px;
+  }
+  .footer__logo {
+    align-items: center;
+    justify-content: center;
+  }
+  .footer__logo img {
+    width: 65px;
+    height: 65px;
+  }
+  .contact__flex {
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+  }
+  .footer__link {
+    font-size: 1.4rem;
+    line-height: 100%;
+  }
+  .footer__navlink {
+    margin: 20px 0;
+  }
+  .footer__navlink li {
+    font-weight: 500;
+    font-size: 1.4rem;
+    line-height: 20px;
+  }
+  .footer__map {
+    margin-top: 30px;
+    max-width: 100%;
+  }
+  .footer__bottom {
+    align-items: center;
+  }
+  .footer__bottom div {
+    display: none;
+  }
+  .footer__line {
+    margin: 3.7rem 0 2.5rem;
+  }
+}
+
+@media screen and (min-width: 577px) and (max-width: 768px) {
+  footer {
+    padding-top: 6.2rem;
+  }
+  .footer__flex {
+    flex-direction: column;
+    gap: 30px;
+  }
+  .footer__logo {
+    align-items: center;
+    justify-content: center;
+  }
+  .footer__logo img {
+    width: 70px;
+    height: 70px;
+  }
+  .contact__flex {
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+  }
+  .footer__link {
+    font-size: 1.6rem;
+    line-height: 130%;
+  }
+  .footer__navlink {
+    margin: 20px 0;
+  }
+  .footer__navlink li {
+    font-weight: 500;
+    font-size: 1.6rem;
+    line-height: 22px;
+  }
+  .footer__map {
+    max-width: 100%;
+    max-height: 300px;
+    margin-top: 30px;
+  }
+  .footer__map img {
+    height: 300px;
+  }
+  .footer__bottom {
+    align-items: center;
+  }
+  .footer__bottom div {
+    display: none;
+  }
+  .footer__line {
+    margin: 3.7rem 0 2.5rem;
+  }
+}
+@media screen and (min-width: 769px) and (max-width: 991px) {
+  footer {
+    padding-top: 7.2rem;
+  }
+  .footer__flex {
+    flex-direction: row;
+    gap: 50px;
+  }
+  .footer__logo {
+    align-items: center;
+    justify-content: center;
+  }
+  .footer__logo img {
+    width: 75px;
+    height: 75px;
+  }
+  .footer__logo h4 {
+    font-size: 1.6rem;
+    line-height: 120%;
+  }
+  .contact__flex {
+    gap: 8px;
+    align-items: center;
+  }
+  .footer__link {
+    font-size: 1.4rem;
+    line-height: 130%;
+  }
+  .footer__navlink {
+    margin: 20px 0;
+  }
+  .footer__navlink li {
+    font-weight: 500;
+    font-size: 1.5rem;
+    line-height: 22px;
+  }
+  .footer__map {
+    max-width: 539px;
+    margin-top: 30px;
+  }
+  .footer__bottom {
+    align-items: center;
+  }
+  .footer__bottom div {
+    display: none;
+  }
+  .footer__line {
+    margin: 3.7rem 0 2.5rem;
+  }
 }
 </style>
 <style>

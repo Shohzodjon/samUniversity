@@ -1,6 +1,11 @@
 <template>
   <section>
-    <div class="container">
+    <div
+      class="container"
+      data-aos="zoom-in"
+      data-aos-duration="1500"
+      data-aos-delay="500"
+    >
       <div class="section__two">
         <div class="section__title">
           <h2>Biz haqimizda</h2>
@@ -21,31 +26,28 @@
             o’z bilim va ko’nikmalarini talabalarimiz bilan bo’lishadilar
           </li>
         </ul>
-
-        <a href="#" class="section__btn">
-          <span>Ro‘yxatdan o‘tish </span>
-          <span> <IconBase name="small_arrow" /></span>
-        </a>
+        <register-btn link="#contact" />
       </div>
     </div>
   </section>
 </template>
 <script setup>
 import IconBase from "@/components/IconBase.vue";
+import RegisterBtn from "@/components/cards/RegisterBtn.vue";
 </script>
 <style scoped>
 section {
   width: 100%;
+  padding-top: 8rem;
 }
 .section__two {
-  background: url(../assets/images/section_img.png);
-  background-repeat: no-repeat;
-  background-size: cover;
-  /* max-width: 1200px; */
   width: 100%;
   min-height: 652px;
   border-radius: 12px;
   padding: 84px 50px 55px 50px;
+  background: url(../assets/images/about.png);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .section__title {
   position: relative;
@@ -75,36 +77,78 @@ section {
 .section__two ul {
   margin-bottom: 51px;
 }
-.section__btn {
-  display: flex;
-  width: max-content;
-  gap: 29px;
-  align-items: center;
-  background: #fece02;
-  border-radius: 10px;
-  padding: 26px 19px 26px 30px;
-  font-weight: 600;
-  font-size: 2rem;
-  line-height: 140%;
-  color: #222222;
-  position: relative;
-  overflow: hidden;
+
+@media screen and (min-width: 370px) and (max-width: 576px) {
+  section {
+    padding-top: 5rem;
+  }
+  .section__two {
+    min-height: 452px;
+    padding: 34px 25px 25px 25px;
+    background-size: 150% 130%;
+  }
+  .section__title {
+    margin-bottom: 30px;
+    width: max-content;
+  }
+  .section__title h2 {
+    font-size: 3rem;
+    line-height: 100%;
+  }
+  .section__two li {
+    font-size: 1.8rem;
+    line-height: 120%;
+  }
+  .section__two ul {
+    margin-bottom: 30px;
+  }
 }
-.section__btn::after {
-  content: "";
-  width: 1px;
-  height: 100%;
-  position: absolute;
-  right: 54px;
-  display: block;
-  top: 0;
-  background: rgba(95, 95, 95, 0.5);
+
+@media screen and (min-width: 577px) and (max-width: 768px) {
+  section {
+    padding-top: 5rem;
+  }
+  .section__two {
+    min-height: 450px;
+    padding: 40px 30px;
+    background-size: 150% 150%;
+  }
+  .section__title {
+    margin-bottom: 40px;
+    width: max-content;
+  }
+  .section__title h2 {
+    font-size: 3.5rem;
+    line-height: 100%;
+  }
+  .section__two li {
+    font-size: 1.9rem;
+    line-height: 140%;
+  }
+  .section__two ul {
+    margin-bottom: 30px;
+  }
 }
-.section__btn span:nth-child(2) {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 22px;
-  height: 22px;
+@media screen and (min-width: 767px) and (max-width: 991px) {
+  section {
+    padding-top: 6rem;
+  }
+  .section__two {
+    min-height: 500px;
+    padding: 45px 35px;
+    background-size: 140% 120%;
+  }
+  .section__title {
+    margin-bottom: 40px;
+    width: max-content;
+  }
+  .section__title h2 {
+    font-size: 4rem;
+    line-height: 100%;
+  }
+  .section__two li {
+    font-size: 2rem;
+    line-height: 140%;
+  }
 }
 </style>

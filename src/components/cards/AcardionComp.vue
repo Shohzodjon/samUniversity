@@ -59,4 +59,38 @@ const toggle = () => {
 .active {
   height: max-content;
 }
+
+@media screen and (min-width: 370px) and (max-width: 576px) {
+  .acardion__comp {
+    padding: 20px 28.29px 20px;
+  }
+  .acardion__header {
+    margin-bottom: 5px;
+  }
+  .acardion__header h3 {
+    font-size: 2.2rem;
+  }
+}
+@media screen and (min-width: 577px) and (max-width: 768px) {
+  .acardion__comp {
+    padding: 25px 28.29px 25px;
+  }
+  .acardion__header {
+    margin-bottom: 10px;
+  }
+  .acardion__header h3 {
+    font-size: 2.8rem;
+  }
+}
+@media screen and (min-width: 769px) and (max-width: 991px) {
+  .acardion__comp {
+    padding: 28px 28.29px;
+  }
+  .acardion__header {
+    margin-bottom: 10px;
+  }
+  .acardion__header h3 {
+    font-size: 3rem;
+  }
+}
 </style>

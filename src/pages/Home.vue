@@ -1,5 +1,5 @@
 <template>
-  <section class="">
+  <section class="home__page">
     <HeaderSection />
     <AboutSection />
     <section class="news__section">
@@ -11,6 +11,7 @@
               :news__img="news.img"
               :news__title="news.title"
               :news__create="news.date"
+              class="news__card-home"
             />
           </div>
         </div>
@@ -20,9 +21,9 @@
         </div>
       </div>
     </section>
-    <FaqSection />
     <FacultySection />
     <ImgSection />
+    <FaqSection />
   </section>
 </template>
 <script setup>
@@ -36,10 +37,15 @@ import ImgSection from "@/views/ImgSection.vue";
 import FaqSection from "../views/FaqSection.vue";
 </script>
 <style scoped>
+.home__page {
+  overflow: hidden;
+  width: 100%;
+}
 .news__section {
   background: #fff;
   margin-top: 160px;
   padding-bottom: 80px;
+  overflow: hidden;
 }
 .news__title {
   margin-bottom: 40px;
@@ -72,6 +78,79 @@ import FaqSection from "../views/FaqSection.vue";
   justify-content: center;
   gap: 30px;
 }
+
+@media screen and (min-width: 370px) and (max-width: 576px) {
+  .news__section {
+    margin-top: 50px;
+    padding-bottom: 30px;
+  }
+  .news__title {
+    font-size: 2.8rem;
+    line-height: 120%;
+    margin: 0 auto;
+    margin-bottom: 4rem;
+  }
+  .news__grid {
+    grid-template-columns: repeat(1, 350px);
+    row-gap: 30px;
+    justify-content: center;
+  }
+}
+@media screen and (min-width: 577px) and (max-width: 768px) {
+  .news__section {
+    margin-top: 70px;
+    padding-bottom: 40px;
+  }
+  .news__title {
+    font-size: 3rem;
+    line-height: 120%;
+    margin: 0 auto;
+    margin-bottom: 4rem;
+  }
+  .news__grid {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 20px;
+    column-gap: 20px;
+  }
+  .news__card-home {
+    min-height: 330px;
+  }
+}
+@media screen and (min-width: 769px) and (max-width: 900px) {
+  .news__section {
+    margin-top: 70px;
+    padding-bottom: 40px;
+  }
+  .news__title {
+    font-size: 3.5rem;
+    line-height: 120%;
+    margin-bottom: 4rem;
+  }
+  .news__grid {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 20px;
+    column-gap: 20px;
+  }
+}
+@media screen and (min-width: 901px) and (max-width: 1024px) {
+  .news__section {
+    margin-top: 100px;
+    padding-bottom: 60px;
+  }
+  .news__title {
+    font-size: 4rem;
+    line-height: 120%;
+    margin-bottom: 4rem;
+  }
+  .news__grid {
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 20px;
+    column-gap: 20px;
+  }
+  .news__card-home {
+    min-height: 380px;
+  }
+}
 </style>
 <style>
 .arrow__left svg path {
@@ -79,5 +158,15 @@ import FaqSection from "../views/FaqSection.vue";
 }
 .arrow__left {
   transform: rotate(-180deg);
+}
+@media screen and (min-width: 370px) and (max-width: 576px) {
+  .arrow__wrapp svg {
+    width: 30px;
+  }
+}
+@media screen and (min-width: 577px) and (max-width: 768px) {
+  .arrow__wrapp svg {
+    width: 40px;
+  }
 }
 </style>

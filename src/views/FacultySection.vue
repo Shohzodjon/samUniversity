@@ -1,14 +1,16 @@
 <template>
-  <section class="faculty__section">
+  <section class="">
     <div class="container">
-      <h2 class="faculty__title">Fakultetlar</h2>
-      <div class="faculty__grid">
-        <div v-for="item in facultyData" :key="item.id">
-          <FacultyCard
-            :title="item.title"
-            :icon_name="item.icon"
-            class="grid_item"
-          />
+      <div class="faculty__section">
+        <h2 class="faculty__title">Fakultetlar</h2>
+        <div class="faculty__grid">
+          <div v-for="item in facultyData" :key="item.id">
+            <FacultyCard
+              :title="item.title"
+              :icon_name="item.icon"
+              class="grid_item"
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -21,30 +23,16 @@ import facultyData from "@/fake-data/faculty.js";
 <style scoped>
 .faculty__section {
   width: 100%;
-  background: url(../assets/images/faculty.jpg);
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(../assets/images/faculty.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
-  padding-top: 80px;
-  padding-bottom: 120px;
-  max-width: 1600px;
+  padding: 30px 45px;
   margin: 0 auto;
+  border-radius: 12px;
 }
-.faculty__section::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  display: block;
-  background: linear-gradient(
-    89.44deg,
-    rgba(80, 221, 240, 0.3) 4.68%,
-    rgba(245, 244, 244, 0.2) 93.66%
-  );
-}
+
 .faculty__section .container {
   position: relative;
   z-index: 23;
@@ -62,7 +50,7 @@ import facultyData from "@/fake-data/faculty.js";
   display: block;
   position: absolute;
   width: 100%;
-  height: 1.5px;
+  height: 2px;
   background: #fece02;
   bottom: -2px;
   left: 0;
@@ -80,7 +68,83 @@ import facultyData from "@/fake-data/faculty.js";
   max-width: 400px;
 }
 .faculty__grid .grid_item:hover {
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.9);
   cursor: pointer;
+}
+
+@media screen and (min-width: 370px) and (max-width: 576px) {
+  .faculty__section {
+    background-size: cover;
+    padding: 40px 20px;
+  }
+  .faculty__title {
+    font-size: 2.8rem;
+    line-height: 120%;
+    margin: 0 auto;
+  }
+  .faculty__grid {
+    margin-top: 40px;
+    grid-template-columns: repeat(1, 300px);
+    row-gap: 20px;
+    justify-content: center;
+  }
+  .faculty__grid .grid_item {
+    height: 150px !important;
+    transition: all linear 0.4s;
+    max-width: 400px;
+  }
+}
+@media screen and (min-width: 577px) and (max-width: 768px) {
+  .faculty__section {
+    background-size: cover;
+    padding: 40px 20px;
+  }
+  .faculty__title {
+    font-size: 3rem;
+    line-height: 120%;
+    margin: 0 auto;
+  }
+  .faculty__grid {
+    margin-top: 40px;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 20px;
+  }
+  .faculty__grid .grid_item {
+    height: 170px !important;
+    transition: all linear 0.4s;
+    max-width: 400px;
+  }
+}
+@media screen and (min-width: 769px) and (max-width: 991px) {
+  .faculty__section {
+    background-size: cover;
+    padding: 40px 20px;
+  }
+  .faculty__title {
+    font-size: 3.5rem;
+    line-height: 120%;
+  }
+  .faculty__grid {
+    margin-top: 40px;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 20px;
+  }
+  .faculty__grid .grid_item {
+    height: 170px !important;
+    transition: all linear 0.4s;
+    max-width: 400px;
+  }
+}
+@media screen and (min-width: 992px) and (max-width: 1100px) {
+  .faculty__grid {
+    margin-top: 40px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+  }
+  .faculty__grid .grid_item {
+    height: 200px !important;
+    transition: all linear 0.4s;
+    max-width: 400px;
+  }
 }
 </style>

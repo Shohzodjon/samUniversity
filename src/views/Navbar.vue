@@ -14,65 +14,131 @@
             <router-link to="/">Bosh sahifa</router-link>
           </li>
           <li>
-            <router-link to="/">Biz haqimizda</router-link>
+            <router-link to="/news">Biz haqimizda</router-link>
           </li>
           <li>
-            <router-link to="/">Fakultetlar</router-link>
+            <router-link to="/faculty">Fakultetlar</router-link>
           </li>
           <li>
-            <router-link to="/">Fakultetlar</router-link>
-          </li>
-          <li>
-            <router-link to="/">Yangiliklar</router-link>
+            <router-link to="/news">Yangiliklar</router-link>
           </li>
         </ul>
-
         <div class="nav__last">
           <div class="change__lang">
             <div @click="toggle">
               <IconBase name="lang_icon" class="lang__icon" />
-              <sapn class="lang">UZ</sapn>
+              <sapn v-if="$i18n.locale === 'uz'" class="lang">UZ</sapn>
+              <sapn v-if="$i18n.locale === 'ru'" class="lang">RU</sapn>
+              <sapn v-if="$i18n.locale === 'en'" class="lang">UZ</sapn>
             </div>
             <ul class="lang__list" :class="[langChoose ? 'open' : 'close']">
-              <li>O'zbek</li>
-              <li>English</li>
-              <li>Русский</li>
+              <li @click="uzLang">O'zbek</li>
+              <li @click="engLang">English</li>
+              <li @click="ruLang">Русский</li>
             </ul>
           </div>
-          <div>
-            <a href="">shartnoma olish</a>
+          <div class="menu__wrap">
+            <a href="" class="take__document">shartnoma olish</a>
+            <icon-base
+              :name="[showNav ? 'close_menu' : 'menu_icon']"
+              class="menu__icon"
+              @click="openNav"
+            />
           </div>
         </div>
       </div>
     </div>
   </nav>
+
+  <div class="responsive__nav" :class="[showNav ? 'show__res' : 'close__res']">
+    <ul>
+      <li>
+        <router-link to="/">Bosh sahifa</router-link>
+      </li>
+      <li>
+        <router-link to="/news">Biz haqimizda</router-link>
+      </li>
+
+      <li>
+        <router-link to="/faculty">Fakultetlar</router-link>
+      </li>
+      <li>
+        <router-link to="/news">Yangiliklar</router-link>
+      </li>
+      <li>
+        <a href="" class="take__document res__document">shartnoma olish</a>
+        <div class="change__lang res__change">
+          <div @click="toggle">
+            <IconBase name="lang_icon" class="lang__icon" />
+            <sapn class="lang">UZ</sapn>
+          </div>
+          <ul
+            class="lang__list res__lang"
+            :class="[langChoose ? 'open' : 'close']"
+          >
+            <li>O'zbek</li>
+            <li>English</li>
+            <li>Русский</li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </div>
 </template>
 <script setup>
 import logo from "@/assets/images/logo.svg";
 import { RouterLink } from "vue-router";
 import IconBase from "@/components/IconBase.vue";
-import { ref } from "vue";
+import { useI18n } from "vue-i18n";
+import { onMounted, ref } from "vue";
+import i18n from "@/language/i18n.js";
 const langChoose = ref(false);
+const showNav = ref(false);
 const toggle = () => {
   langChoose.value = !langChoose.value;
 };
-const headerRef = ref(null);
-// current.classList
-window.addEventListener("scroll", () => {
-  if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
-    // headerRef.class("header__shrink");
-    console.log("ssss");
+
+const openNav = () => {
+  showNav.value = !showNav.value;
+
+  if (showNav.value) {
+    document.body.style.overflow = "hidden";
   } else {
-    // headerRef.current.classList.remove("header__shrink");
-    console.log("bbbb");
+    document.body.style.overflow = "auto";
   }
-  return () => window.removeEventListener("scroll");
+};
+const uzLang = () => {
+  i18n.locale = "uz";
+  console.log(useI18n);
+  langChoose.value = false;
+};
+const ruLang = () => {
+  // $i18n.locale = "ru";
+  langChoose.value = false;
+};
+const engLang = () => {
+  i18n.locale = "en";
+  langChoose.value = false;
+};
+
+const headerRef = ref(null);
+onMounted(() => {
+  window.addEventListener("scroll", () => {
+    if (
+      document.body.scrollTop > 80 ||
+      document.documentElement.scrollTop > 80
+    ) {
+      headerRef.value.classList.add("red");
+    } else {
+      headerRef.value.classList.remove("red");
+    }
+    return () => window.removeEventListener("scroll");
+  });
 });
 </script>
 <style scoped>
 .navbar {
-  background: rgba(133, 147, 152, 0.451);
-  /* background: linear-gradient(90deg, #085078, #85d8ce); */
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4));
   padding: 2rem 0;
   position: sticky;
   top: 0;
@@ -80,8 +146,8 @@ window.addEventListener("scroll", () => {
   right: 0;
   z-index: 9999;
 }
-.header__shrink {
-  background: red;
+.red {
+  background: linear-gradient(90deg, #085078, #85d8ce) !important;
 }
 .navbar__flex {
   display: flex;
@@ -91,7 +157,7 @@ window.addEventListener("scroll", () => {
 .nav__logo {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 1rem;
 }
 .nav__logo img {
   width: 80px;
@@ -106,9 +172,12 @@ window.addEventListener("scroll", () => {
   align-items: center;
   gap: 2.5rem;
 }
+.router-link-active {
+  color: #fece02;
+}
 .nav__link li {
   font-weight: 600;
-  font-size: 16px;
+  font-size: 1.6rem;
   line-height: 24px;
   color: #ffffff;
 }
@@ -118,7 +187,7 @@ window.addEventListener("scroll", () => {
   gap: 3rem;
 }
 .change__lang {
-  border: 1px solid #5f5f5f;
+  border: 1px solid #fff;
   position: relative;
   padding: 6px 10px;
   width: 70px;
@@ -145,9 +214,9 @@ window.addEventListener("scroll", () => {
   top: 25px;
   left: -1px;
   padding: 0 10px 4px;
-  border-bottom: #5f5f5f 1px solid;
-  border-left: #5f5f5f 1px solid;
-  border-right: #5f5f5f 1px solid;
+  border-bottom: #fff 1px solid;
+  border-left: #fff 1px solid;
+  border-right: #fff 1px solid;
   border-bottom-left-radius: 6px;
   border-bottom-right-radius: 6px;
   width: 70px;
@@ -158,12 +227,191 @@ window.addEventListener("scroll", () => {
   font-size: 1.3rem;
   font-weight: 600;
 }
+.lang__list li:last-child {
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+.menu__wrap {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+.menu__icon {
+  display: none;
+}
+.responsive__nav {
+  background: #085078;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  position: fixed;
+  top: 100px;
+  left: 0;
+  z-index: 9999 !important;
+  width: 100%;
+  transition: all linear 0.4s;
+}
+.responsive__nav ul:nth-child(1) {
+  display: flex;
+  gap: 1.5rem;
+  flex-direction: column;
+}
+.responsive__nav ul li {
+  font-weight: 600;
+  font-size: 1.6rem;
+  color: #ffffff;
+}
+.responsive__nav .take__document {
+  margin-bottom: 10px;
+  display: block;
+}
+.responsive__nav .res__lang {
+  top: 28px;
+}
+
+.responsive__nav .lang__list li {
+  font-size: 1.3rem;
+  font-weight: 600;
+}
 .open {
   height: 60px;
+  overflow: hidden;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
 }
 .close {
   height: 0;
   overflow: hidden;
+}
+
+.show__res {
+  width: 100%;
+}
+.close__res {
+  width: 0%;
+  overflow: hidden;
+}
+
+/*  media query  */
+
+@media screen and (min-width: 370px) and (max-width: 576px) {
+  .navbar {
+    padding: 1rem 0;
+  }
+  .nav__logo img {
+    width: 60px;
+    height: 60px;
+  }
+  .nav__logo h2 {
+    font-size: 1.2rem;
+  }
+  .nav__link {
+    display: none;
+  }
+  .change__lang {
+    display: none;
+  }
+  .take__document {
+    display: none;
+  }
+  .res__change {
+    display: block;
+  }
+  .res__document {
+    display: block;
+  }
+  .menu__icon {
+    display: block;
+  }
+  .responsive__nav {
+    top: 14%;
+  }
+}
+@media screen and (min-width: 577px) and (max-width: 768px) {
+  .navbar {
+    padding: 1rem 0;
+  }
+  .nav__logo img {
+    width: 70px;
+    height: 70px;
+  }
+  .nav__logo h2 {
+    font-size: 1.3rem;
+  }
+  .nav__link {
+    display: none;
+  }
+  .take__document {
+    display: block;
+  }
+  .menu__icon {
+    display: block;
+  }
+  .res__change {
+    display: none;
+  }
+  .res__document {
+    display: none !important;
+  }
+  .responsive__nav {
+    top: 16.5%;
+  }
+}
+@media screen and (min-width: 769px) and (max-width: 991px) {
+  .navbar {
+    padding: 1rem 0;
+  }
+  .nav__logo img {
+    width: 80px;
+    height: 80px;
+  }
+  .nav__link {
+    display: none;
+  }
+  .menu__icon {
+    display: block;
+  }
+  .take__document {
+    display: block;
+  }
+  .res__change {
+    display: none;
+  }
+  .res__document {
+    display: none !important;
+  }
+}
+@media screen and (min-width: 992px) and (max-width: 1100px) {
+  .nav__logo img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .nav__link {
+    display: flex;
+    gap: 1.5rem;
+  }
+  .menu__icon {
+    display: none;
+  }
+  .take__document {
+    display: block;
+  }
+  .res__change {
+    display: none;
+  }
+  .res__document {
+    display: none !important;
+  }
+}
+@media screen and (min-width: 1101px) and (max-width: 2000px) {
+  .res__change {
+    display: none;
+  }
+  .res__document {
+    display: none !important;
+  }
 }
 </style>
 <style>

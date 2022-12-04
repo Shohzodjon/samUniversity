@@ -60,4 +60,44 @@ import inteligent from "@/assets/images/inteligent.svg";
   top: 5rem;
   z-index: 1;
 }
+
+@media screen and (min-width: 370px) and (max-width: 576px) {
+  .faq__title {
+    font-size: 2.8rem;
+    line-height: 120%;
+    font-weight: 600;
+    margin: 0 auto;
+    margin-bottom: 5.4rem;
+  }
+  .acardion__wrapp {
+    gap: 15px;
+  }
+  .faq__img {
+    position: absolute;
+    max-width: 300px;
+    max-height: 300px;
+    right: 10%;
+    top: 8rem;
+  }
+}
+
+@media screen and (min-width: 577px) and (max-width: 768px) {
+  .faq__title {
+    font-size: 3rem;
+    line-height: 120%;
+    font-weight: 600;
+    margin: 0 auto;
+    margin-bottom: 5.4rem;
+  }
+  .acardion__wrapp {
+    gap: 15px;
+  }
+  .faq__img {
+    position: absolute;
+    max-width: 400px;
+    max-height: 400px;
+    right: 10%;
+    top: 8rem;
+  }
+}
 </style>

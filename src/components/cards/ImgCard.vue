@@ -1,5 +1,5 @@
 <template>
-  <div class="img__card">
+  <div>
     <img :src="card__img" alt="img-card" />
   </div>
 </template>

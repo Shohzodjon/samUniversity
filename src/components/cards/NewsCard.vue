@@ -16,6 +16,12 @@
 </template>
 <script setup>
 import { RouterLink } from "vue-router";
+import { onMounted } from "vue";
+import AOS from "aos";
+
+onMounted(() => {
+  AOS.init();
+});
 defineProps({
   news__img: String,
   news__title: String,
@@ -32,9 +38,10 @@ defineProps({
   padding: 15px 15px 30px 15px;
 }
 .news__img {
-  max-width: 370px;
+  max-width: 380px;
   max-height: 228px;
   overflow: hidden;
+  margin: 0 auto;
   border-top-right-radius: 12px;
   border-top-left-radius: 12px;
 }
@@ -86,5 +93,68 @@ defineProps({
   font-size: 1.6rem;
   line-height: 140%;
   color: #5c5757;
+}
+
+@media screen and (min-width: 370px) and (max-width: 576px) {
+  .news__card {
+    max-width: 400px;
+    min-height: 350px;
+    max-height: 430px;
+    padding: 15px 15px 30px;
+  }
+  .news__info h3 {
+    flex-basis: 1;
+    font-size: 1.5rem;
+    word-break: break-word !important;
+    overflow: hidden !important;
+    display: -webkit-box !important;
+    -webkit-box-orient: vertical !important;
+    -webkit-line-clamp: 2;
+  }
+  .news__footer a {
+    padding: 8px 18px;
+    font-size: 1.4rem;
+    line-height: 120%;
+  }
+  .news__date {
+    font-size: 1.4rem;
+    line-height: 120%;
+  }
+}
+@media screen and (min-width: 577px) and (max-width: 768px) {
+  .news__card {
+    max-width: 400px;
+    min-height: 300px;
+    max-height: 380px !important;
+    padding: 15px 15px 30px;
+  }
+  .news__info h3 {
+    flex-basis: 1;
+    font-size: 1.5rem;
+    word-break: break-word !important;
+    overflow: hidden !important;
+    display: -webkit-box !important;
+    -webkit-box-orient: vertical !important;
+    -webkit-line-clamp: 2;
+  }
+  .news__footer a {
+    padding: 8px 18px;
+    font-size: 1.4rem;
+    line-height: 120%;
+  }
+  .news__date {
+    font-size: 1.4rem;
+    line-height: 120%;
+  }
+}
+@media screen and (min-width: 769px) and (max-width: 991px) {
+  .news__info h3 {
+    flex-basis: 1;
+    word-break: break-word !important;
+    overflow: hidden !important;
+    display: -webkit-box !important;
+    -webkit-box-orient: vertical !important;
+    -webkit-line-clamp: 2;
+  }
 }
 </style>

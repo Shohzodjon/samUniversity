@@ -38,8 +38,7 @@ const imgList = [
 .img__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-row-gap: 7px;
-  grid-column-gap: 2px;
+  gap: 10px;
 }
 .img__item img {
   width: 100%;
@@ -60,6 +59,53 @@ const imgList = [
   justify-content: center;
   width: 100%;
   gap: 30px;
+}
+
+@media screen and (min-width: 370px) and (max-width: 576px) {
+  .img__section {
+    padding-top: 80px;
+    padding-bottom: 27px;
+  }
+  .img__grid {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 10px;
+  }
+  .img__grid .img__item:nth-child(2) {
+    display: none;
+  }
+  .img__item img {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    display: block;
+    max-height: 250px;
+  }
+}
+@media screen and (min-width: 577px) and (max-width: 768px) {
+  .img__section {
+    padding-top: 80px;
+    padding-bottom: 27px;
+  }
+  .img__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  .img__grid .img__item:nth-child(2) {
+    display: none;
+  }
+  .img__item img {
+    width: 100%;
+    max-width: 400px;
+    max-height: 200px;
+    margin: 0 auto;
+    display: block;
+  }
+}
+@media screen and (min-width: 769px) and (max-width: 991px) {
+  .img__grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
 }
 </style>
 <style>
