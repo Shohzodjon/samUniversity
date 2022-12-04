@@ -573,6 +573,11 @@ ansi-styles@^4.1.0:
   dependencies:
     color-convert "^2.0.1"
 
+aos-animations@^0.0.7:
+  version "0.0.7"
+  resolved "https://registry.yarnpkg.com/aos-animations/-/aos-animations-0.0.7.tgz#ed7d2e7735550181783e722d0bc1eca708d8c1df"
+  integrity sha512-MR6KtemXGmIW/bMlNkho12g34jZTdOvEM//KrZVZd1aL+vhO7Ssg87xbtG4zJD1I+z/zl53yEZkmZtnVxEoc4Q==
+
 argparse@^2.0.1:
   version "2.0.1"
   resolved "https://registry.npmjs.org/argparse/-/argparse-2.0.1.tgz"

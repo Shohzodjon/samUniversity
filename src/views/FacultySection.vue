@@ -27,6 +27,8 @@ import facultyData from "@/fake-data/faculty.js";
   position: relative;
   padding-top: 80px;
   padding-bottom: 120px;
+  max-width: 1600px;
+  margin: 0 auto;
 }
 .faculty__section::after {
   content: "";
@@ -39,7 +41,7 @@ import facultyData from "@/fake-data/faculty.js";
   display: block;
   background: linear-gradient(
     89.44deg,
-    rgba(80, 221, 240, 0.6) 4.68%,
+    rgba(80, 221, 240, 0.3) 4.68%,
     rgba(245, 244, 244, 0.2) 93.66%
   );
 }
@@ -78,7 +80,7 @@ import facultyData from "@/fake-data/faculty.js";
   max-width: 400px;
 }
 .faculty__grid .grid_item:hover {
-  background: #fece02;
+  background: rgba(255, 255, 255, 0.8);
   cursor: pointer;
 }
 </style>

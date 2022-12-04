@@ -182,4 +182,40 @@ export default {
 </defs>
 </svg>
 `,
+  lang_icon: ` <svg
+width="20"
+height="20"
+viewBox="0 0 24 24"
+fill="none"
+xmlns="http://www.w3.org/2000/svg"
+>
+<path
+  d="M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21Z"
+  stroke="#184053"
+  stroke-width="1.6"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+/>
+<path
+  d="M3.6001 9H20.4001"
+  stroke="#184053"
+  stroke-width="1.6"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+/>
+<path
+  d="M3.6001 15H20.4001"
+  stroke="#184053"
+  stroke-width="1.6"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+/>
+<path
+  d="M11.4999 3C9.81525 5.69961 8.92212 8.81787 8.92212 12C8.92212 15.1821 9.81525 18.3004 11.4999 21M12.4999 3C14.1846 5.69961 15.0777 8.81787 15.0777 12C15.0777 15.1821 14.1846 18.3004 12.4999 21"
+  stroke="#184053"
+  stroke-width="1.6"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+/>
+</svg>`,
 };

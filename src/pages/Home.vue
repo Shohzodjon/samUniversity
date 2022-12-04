@@ -1,6 +1,6 @@
 <template>
   <section class="">
-    <!-- <HeaderSection /> -->
+    <HeaderSection />
     <AboutSection />
     <section class="news__section">
       <div class="container">

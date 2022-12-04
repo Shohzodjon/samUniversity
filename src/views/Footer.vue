@@ -13,21 +13,21 @@
             </h4>
           </li>
           <li class="contact__flex">
-            <IconBase name="location_icon" />
+            <IconBase name="location_icon" class="social_icon" />
             <span class="footer__link">
               Samarqand Shahri, Labzak ko’chasi
             </span>
           </li>
           <li class="contact__flex">
-            <IconBase name="phone_icon" />
+            <IconBase name="phone_icon" class="social_icon" />
             <a href="tel:+998712078989" class="footer__link">+998712078989</a>
           </li>
           <li class="contact__flex">
-            <IconBase name="phone_icon" />
+            <IconBase name="phone_icon" class="social_icon" />
             <a href="tel:+998712078989" class="footer__link">+998712078989</a>
           </li>
           <li class="contact__flex">
-            <IconBase name="envelop_icon" />
+            <IconBase name="envelop_icon" class="social_icon" />
             <a href="mailto:osiyouniver@gmail.com" class="footer__link"
               >osiyouniver@gmail.com</a
             >
@@ -53,22 +53,22 @@
       <ul class="social__media">
         <li>
           <a href="#">
-            <icon-base name="telegram_icon" />
+            <icon-base name="telegram_icon" class="social_icon" />
           </a>
         </li>
         <li>
           <a href="#">
-            <icon-base name="inst_icon" />
+            <icon-base name="inst_icon" class="social_icon" />
           </a>
         </li>
         <li>
           <a href="#">
-            <icon-base name="youtube_icon" />
+            <icon-base name="youtube_icon" class="social_icon" />
           </a>
         </li>
         <li>
           <a href="#">
-            <icon-base name="facebook_icon" />
+            <icon-base name="facebook_icon" class="social_icon" />
           </a>
         </li>
       </ul>
@@ -106,9 +106,10 @@ const linkData = [
 <style scoped>
 /* #50c9c3 */
 footer {
-  background: #96deda;
+  /* background: #96deda; */
+  background: linear-gradient(90deg, #085078, #85d8ce);
   padding-top: 8.2rem;
-  color: #5f5f5f;
+  color: #ffff;
 }
 .footer__flex {
   display: flex;
@@ -164,7 +165,7 @@ footer {
 .footer__navlink::before {
   content: "";
   width: 100%;
-  height: 2px;
+  height: 1.5px !important;
   background: #fece02;
   position: absolute;
   left: 0;
@@ -193,10 +194,23 @@ footer {
   gap: 2.4rem;
   margin-bottom: 30px;
 }
+
 .footer__bottom span {
   font-weight: 500;
   font-size: 1.2rem;
   line-height: 19px;
   color: #73737c;
+}
+</style>
+<style>
+.social_icon svg {
+  transition: all linear 0.6s;
+  cursor: pointer;
+}
+.social_icon svg:hover path {
+  fill: #fece02;
+}
+.social_icon svg path {
+  fill: #fff;
 }
 </style>

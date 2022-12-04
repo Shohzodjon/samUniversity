@@ -16,7 +16,8 @@ defineProps({
 
 <style>
 .faculty__card {
-  background: #fff;
+  background: rgba(255, 255, 255, 0.4);
+  filter: blur(0.5px);
   display: flex;
   flex-direction: column;
   justify-content: center;
