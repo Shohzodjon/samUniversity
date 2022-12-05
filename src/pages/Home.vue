@@ -8,6 +8,9 @@
         <div class="news__grid">
           <div v-for="news in newsData" :key="news.id">
             <NewsCard
+              data-aos="fade-right"
+              data-aos-duration="1000"
+              data-aos-delay="500"
               :news__img="news.img"
               :news__title="news.title"
               :news__create="news.date"

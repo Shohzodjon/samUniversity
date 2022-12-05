@@ -2,8 +2,8 @@
   <section>
     <div
       class="container"
-      data-aos="zoom-in"
-      data-aos-duration="1500"
+      data-aos="fade-right"
+      data-aos-duration="1000"
       data-aos-delay="500"
     >
       <div class="section__two">

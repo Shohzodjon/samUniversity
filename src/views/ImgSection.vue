@@ -1,7 +1,12 @@
 <template>
   <section class="img__section">
     <div class="container">
-      <div class="img__grid">
+      <div
+        class="img__grid"
+        data-aos="zoom-in"
+        data-aos-duration="1000"
+        data-aos-delay="500"
+      >
         <div class="img__item" v-for="item in imgList" :key="item.id">
           <img :src="item.img" :alt="item.desc" />
         </div>

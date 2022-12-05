@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section class="app">
     <Navbar />
     <RouterView v-slot="{ Component }">
       <transition name="fade" mode="out-in">

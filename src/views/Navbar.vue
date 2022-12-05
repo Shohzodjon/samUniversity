@@ -38,7 +38,9 @@
             </ul>
           </div>
           <div class="menu__wrap">
-            <a href="" class="take__document">shartnoma olish</a>
+            <a :href="document" class="take__document" download="document">
+              <icon-base name="download_icon" class="download_icon" />
+            </a>
             <icon-base
               :name="[showNav ? 'close_menu' : 'menu_icon']"
               class="menu__icon"
@@ -66,7 +68,13 @@
         <router-link to="/news">Yangiliklar</router-link>
       </li>
       <li>
-        <a href="" class="take__document res__document">shartnoma olish</a>
+        <a
+          :href="document"
+          download="document"
+          class="take__document res__document"
+        >
+          <icon-base name="download_icon" class="download_responsive" />
+        </a>
         <div class="change__lang res__change">
           <div @click="toggle">
             <IconBase name="lang_icon" class="lang__icon" />
@@ -92,20 +100,21 @@ import IconBase from "@/components/IconBase.vue";
 import { useI18n } from "vue-i18n";
 import { onMounted, ref } from "vue";
 import i18n from "@/language/i18n.js";
+import document from "@/assets/images/document.pdf";
+import downloadIcon from "@/assets/images/download.svg";
+import { watch } from "vue";
 const langChoose = ref(false);
 const showNav = ref(false);
 const toggle = () => {
   langChoose.value = !langChoose.value;
 };
-
 const openNav = () => {
   showNav.value = !showNav.value;
-
-  if (showNav.value) {
-    document.body.style.overflow = "hidden";
-  } else {
-    document.body.style.overflow = "auto";
-  }
+  // if (showNav.value) {
+  //   document.body.style.overflow = "hidden";
+  // } else {
+  //   document.body.style.overflow = "auto";
+  // }
 };
 const uzLang = () => {
   i18n.locale = "uz";
@@ -120,14 +129,22 @@ const engLang = () => {
   i18n.locale = "en";
   langChoose.value = false;
 };
-
 const headerRef = ref(null);
+watch(
+  window.screen.width,
+  () => {
+    if (window.screen.width > 991) {
+      showNav.value = false;
+      console.log(window.screen.width);
+    }
+  },
+  { deep: true }
+);
+
 onMounted(() => {
   window.addEventListener("scroll", () => {
-    if (
-      document.body.scrollTop > 80 ||
-      document.documentElement.scrollTop > 80
-    ) {
+    let scroll = window.scrollY;
+    if (scroll > 80) {
       headerRef.value.classList.add("red");
     } else {
       headerRef.value.classList.remove("red");
@@ -145,6 +162,7 @@ onMounted(() => {
   left: 0;
   right: 0;
   z-index: 9999;
+  width: 100%;
 }
 .red {
   background: linear-gradient(90deg, #085078, #85d8ce) !important;
@@ -212,6 +230,7 @@ onMounted(() => {
   transition: all linear 0.3s;
   position: absolute;
   top: 25px;
+  z-index: 999;
   left: -1px;
   padding: 0 10px 4px;
   border-bottom: #fff 1px solid;
@@ -240,7 +259,7 @@ onMounted(() => {
   display: none;
 }
 .responsive__nav {
-  background: #085078;
+  background: rgba(0, 0, 0, 0.9);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -248,7 +267,7 @@ onMounted(() => {
   position: fixed;
   top: 100px;
   left: 0;
-  z-index: 9999 !important;
+  z-index: 996 !important;
   width: 100%;
   transition: all linear 0.4s;
 }
@@ -283,6 +302,7 @@ onMounted(() => {
 .close {
   height: 0;
   overflow: hidden;
+  border-top: none !important;
 }
 
 .show__res {
@@ -325,7 +345,7 @@ onMounted(() => {
     display: block;
   }
   .responsive__nav {
-    top: 14%;
+    top: 80px;
   }
 }
 @media screen and (min-width: 577px) and (max-width: 768px) {
@@ -355,7 +375,7 @@ onMounted(() => {
     display: none !important;
   }
   .responsive__nav {
-    top: 16.5%;
+    top: 80px;
   }
 }
 @media screen and (min-width: 769px) and (max-width: 991px) {
@@ -417,5 +437,14 @@ onMounted(() => {
 <style>
 .lang__icon svg path {
   stroke: #fff;
+}
+.download_icon svg {
+  width: 20px;
+}
+.download_responsive svg {
+  width: 22px;
+}
+.download_responsive svg path {
+  fill: #fff;
 }
 </style>

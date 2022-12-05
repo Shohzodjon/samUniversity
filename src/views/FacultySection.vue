@@ -3,7 +3,12 @@
     <div class="container">
       <div class="faculty__section">
         <h2 class="faculty__title">Fakultetlar</h2>
-        <div class="faculty__grid">
+        <div
+          class="faculty__grid"
+          data-aos="fade-left"
+          data-aos-duration="1000"
+          data-aos-delay="500"
+        >
           <div v-for="item in facultyData" :key="item.id">
             <FacultyCard
               :title="item.title"

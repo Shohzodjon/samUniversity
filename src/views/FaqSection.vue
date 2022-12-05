@@ -1,8 +1,20 @@
 <template>
   <section class="faq__section">
     <div class="container relative">
-      <h2 class="faq__title">Eng ko’p beriladigan savollar</h2>
-      <div class="acardion__wrapp">
+      <h2
+        class="faq__title"
+        data-aos="fade-right"
+        data-aos-duration="1000"
+        data-aos-delay="500"
+      >
+        Eng ko’p beriladigan savollar
+      </h2>
+      <div
+        class="acardion__wrapp"
+        data-aos="fade-up-left"
+        data-aos-duration="1000"
+        data-aos-delay="500"
+      >
         <AcardionComp
           v-for="(item, i) in faqData"
           :key="i"
