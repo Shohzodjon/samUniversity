@@ -8,7 +8,7 @@
       <div class="news__footer">
         <span class="news__date">{{ news__create }}</span>
         <button>
-          <router-link to=""> Batafsil</router-link>
+          <router-link to="/news"> Batafsil</router-link>
         </button>
       </div>
     </div>
@@ -36,6 +36,13 @@ defineProps({
   border: 1px solid #e6e6e6;
   border-radius: 12px;
   padding: 15px 15px 30px 15px;
+  cursor: pointer;
+  transition: all linear 0.5s;
+}
+.news__card:hover {
+  box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px,
+    rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px,
+    rgba(0, 0, 0, 0.07) 0px 16px 16px;
 }
 .news__img {
   max-width: 380px;
@@ -86,13 +93,18 @@ defineProps({
   border: none;
 }
 .news__footer a {
-  padding: 10px 25px;
-  border: 1px solid #fece02;
+  padding: 8px 23px;
+  border: 1px solid rgb(41, 190, 183);
   border-radius: 12px;
   font-weight: 500;
   font-size: 1.6rem;
   line-height: 140%;
   color: #5c5757;
+  transition: all linear 0.4s;
+}
+.news__footer a:hover {
+  box-shadow: rgba(41, 190, 183, 0.4) 0px 5px 10px,
+    rgba(41, 190, 183, 0.4) 0px 6px 6px;
 }
 
 @media screen and (min-width: 370px) and (max-width: 576px) {

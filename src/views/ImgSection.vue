@@ -45,9 +45,17 @@ const imgList = [
   grid-template-columns: repeat(3, 1fr);
   gap: 10px;
 }
+.img__item {
+  overflow: hidden;
+  border-radius: 20px;
+}
 .img__item img {
   width: 100%;
   border-radius: 20px;
+  transition: all linear 0.3s;
+}
+.img__item img:hover {
+  transform: scale(1.07);
 }
 .img__grid .img__item:nth-child(2) {
   grid-column-start: 2;

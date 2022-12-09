@@ -1,7 +1,7 @@
 <template>
   <section class="faculty__page">
     <div class="container">
-      <h2 class="faculty__title">Yangiliklar</h2>
+      <h2 class="faculty__title">Fakultetlar</h2>
       <div class="faculty__slug">
         <h3 class="slug__title">Davolash ishi</h3>
         <div class="slug__flex">
@@ -55,14 +55,14 @@
 
       <div class="slug__grid">
         <faculty-card
-          v-for="i in data"
+          v-for="i in facultyData"
           :key="i.id"
           :icon_name="i.icon"
           :title="i.title"
           class="grid__item"
         />
-        <div class="last__item"><register-btn link="/#div" /></div>
       </div>
+      <div class="last__item"><register-btn link="/#registr" /></div>
     </div>
   </section>
 </template>
@@ -72,18 +72,14 @@ import facultyData from "@/fake-data/faculty.js";
 import { reactive } from "@vue/reactivity";
 import RegisterBtn from "@/components/cards/RegisterBtn.vue";
 import img from "@/assets/images/nursery.png";
-let data = reactive([]);
-
-data = facultyData.slice(1, 9);
-console.log(data);
 </script>
 <style scoped>
 .faculty__page {
-  padding: 7.3rem 0 8rem;
+  padding: 10rem 0 8rem;
 }
 
 .faculty__title {
-  font-weight: 700;
+  font-weight: 600;
   font-size: 4rem;
   line-height: 140%;
   color: #000000;
@@ -94,24 +90,25 @@ console.log(data);
 .faculty__title::after {
   content: "";
   width: 100%;
-  height: 2px;
-  background: #fece02;
+  height: 3px;
+  background: #085078;
   position: absolute;
   bottom: -4px;
+  border-radius: 3px;
   left: 0;
   display: block;
 }
 
 .slug__title {
   font-weight: 600;
-  font-size: 3.8rem;
+  font-size: 3.2rem;
   line-height: 120%;
   color: #000000;
   margin-bottom: 3rem;
 }
 .slug__flex {
   display: flex;
-  gap: 25px;
+  gap: 30px;
 }
 .slug__flex img {
   max-width: 529px;
@@ -119,30 +116,30 @@ console.log(data);
 }
 .slug__block {
   font-weight: 400;
-  font-size: 2.8rem;
+  font-size: 2.5rem;
   line-height: 140%;
   color: #000000;
   position: relative;
 }
 .slug__block::before {
   content: "";
-  width: 4px;
-  background: #fece02;
+  width: 3px;
+  background: #085078;
   height: 100%;
   position: absolute;
-  left: -5px;
+  left: -15px;
   top: 0;
   display: block;
 }
 .slug__desc {
   font-weight: 400;
-  font-size: 2.8rem;
+  font-size: 2.5rem;
   line-height: 140%;
   color: #000000;
   margin-top: 20px;
 }
 .faculty__info {
-  font-weight: 700;
+  font-weight: 600;
   margin-top: 2rem;
   margin-bottom: 5.5rem;
   font-size: 4rem;
@@ -154,8 +151,9 @@ console.log(data);
 .faculty__info::after {
   content: "";
   width: 100%;
-  height: 2px;
-  background: #fece02;
+  height: 3px;
+  border-radius: 3px;
+  background: #085078;
   position: absolute;
   bottom: -4px;
   left: 0;
@@ -169,17 +167,24 @@ console.log(data);
 .grid__item {
   border: 1px solid rgba(95, 95, 95, 0.5);
   cursor: pointer;
+  transition: all linear 0.4s;
+}
+.grid__item:hover {
+  box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px,
+    rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px,
+    rgba(0, 0, 0, 0.07) 0px 16px 16px;
 }
 
 .last__item {
   display: flex;
   justify-content: end;
   align-items: flex-end;
+  margin-top: 3rem;
 }
 
 @media screen and (min-width: 370px) and (max-width: 576px) {
   .faculty__page {
-    padding: 5.3rem 0 6rem;
+    padding: 11rem 0 6rem;
   }
   .faculty__title {
     font-size: 2.8rem;
@@ -213,18 +218,19 @@ console.log(data);
     margin: 2rem auto 5rem;
   }
   .slug__grid {
-    grid-template-columns: repeat(1, 350px);
+    grid-template-columns: repeat(1, 300px);
     gap: 3rem;
     justify-content: center;
   }
   .grid__item {
-    max-width: 400px;
+    max-width: 300px;
+    padding: 3rem 0;
   }
 }
 
 @media screen and (min-width: 577px) and (max-width: 768px) {
   .faculty__page {
-    padding: 6.3rem 0 7rem;
+    padding: 12rem 0 7rem;
   }
   .faculty__title {
     font-size: 3rem;
@@ -268,7 +274,7 @@ console.log(data);
 }
 @media screen and (min-width: 769px) and (max-width: 991px) {
   .faculty__page {
-    padding: 7.3rem 0 8rem;
+    padding: 12rem 0 8rem;
   }
   .faculty__title {
     font-size: 3.5rem;

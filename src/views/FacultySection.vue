@@ -43,9 +43,9 @@ import facultyData from "@/fake-data/faculty.js";
   z-index: 23;
 }
 .faculty__title {
-  font-weight: 700;
+  font-weight: 600;
   font-size: 4rem;
-  line-height: 120%;
+  line-height: 130%;
   color: #fff;
   position: relative;
   width: max-content;
@@ -55,9 +55,10 @@ import facultyData from "@/fake-data/faculty.js";
   display: block;
   position: absolute;
   width: 100%;
-  height: 2px;
-  background: #fece02;
-  bottom: -2px;
+  height: 3px;
+  border-radius: 4px;
+  background: #085078;
+  bottom: -5px;
   left: 0;
 }
 .faculty__grid {

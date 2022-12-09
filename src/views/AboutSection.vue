@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section id="about_us">
     <div
       class="container"
       data-aos="fade-right"
@@ -12,21 +12,25 @@
           <span class="line"></span>
         </div>
         <ul>
-          <li>Osiyo Innovatsion Universiteti 2022-yil ________________</li>
-          <li>asosida o’z faoliyati boshladi.</li>
+          <li>
+            Osiyo Innovatsion Universiteti 2022-yil asosida o’z faoliyati
+            boshladi ________________
+          </li>
           <li>
             Ushbu OTM ga asos solinishidan asosiy maqsad, yurtimizga sifatli va
             salohiyatli kadrlarni yetkazib berishdan iborat.
           </li>
-          <li>Adminstratsiya ______________________</li>
-          <li>Umumiy yo’nalish va kafedralar ____________________________</li>
-          <li>Ta’lim shakllari va tili ____________</li>
+          <li>
+            Adminstratsiya , umumiy yo’nalish va kafedralar , ta’lim shakllari
+            va tili ____________________________
+          </li>
           <li>
             Bizning oliygohda xalqaro miqyosdagi professorlar va fan nomzodlari
-            o’z bilim va ko’nikmalarini talabalarimiz bilan bo’lishadilar
+            o’z bilim va ko’nikmalarini talabalarimiz bilan
+            bo’lishadilar____________
           </li>
         </ul>
-        <register-btn link="#contact" />
+        <register-btn link="#registr" />
       </div>
     </div>
   </section>
@@ -65,14 +69,15 @@ section {
   bottom: -6px;
   left: 0;
   width: 100%;
-  height: 2px;
-  background: #fece02;
+  height: 3px;
+  background: #085078;
+  border-radius: 4px;
 }
 .section__two li {
-  font-weight: 400;
+  font-weight: 500;
   font-size: 2rem;
   line-height: 140%;
-  color: #ffffff;
+  color: #fff;
 }
 .section__two ul {
   margin-bottom: 51px;

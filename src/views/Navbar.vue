@@ -5,36 +5,37 @@
         <div class="nav__logo">
           <router-link to="/"> <img :src="logo" alt="nav_logo" /> </router-link>
           <h2>
-            OSIYO INNOVATSION <br />
+            OSIYO <br />
+            INNOVATSION <br />
             UNIVERSITET
           </h2>
         </div>
         <ul class="nav__link">
           <li>
-            <router-link to="/">Bosh sahifa</router-link>
+            <router-link to="/">{{ $t("home") }}</router-link>
           </li>
           <li>
-            <router-link to="/news">Biz haqimizda</router-link>
+            <a href="/#about_us" ref="about">{{ $t("about_us") }}</a>
           </li>
           <li>
-            <router-link to="/faculty">Fakultetlar</router-link>
+            <router-link to="/faculty">{{ $t("faculty") }}</router-link>
           </li>
           <li>
-            <router-link to="/news">Yangiliklar</router-link>
+            <router-link to="/news">{{ $t("news") }}</router-link>
           </li>
         </ul>
         <div class="nav__last">
           <div class="change__lang">
             <div @click="toggle">
               <IconBase name="lang_icon" class="lang__icon" />
-              <sapn v-if="$i18n.locale === 'uz'" class="lang">UZ</sapn>
-              <sapn v-if="$i18n.locale === 'ru'" class="lang">RU</sapn>
-              <sapn v-if="$i18n.locale === 'en'" class="lang">UZ</sapn>
+              <sapn v-if="i18n.global.locale === 'uz'" class="lang">UZ</sapn>
+              <sapn v-if="i18n.global.locale === 'ru'" class="lang">RU</sapn>
+              <sapn v-if="i18n.global.locale === 'en'" class="lang">EN</sapn>
             </div>
-            <ul class="lang__list" :class="[langChoose ? 'open' : 'close']">
-              <li @click="uzLang">O'zbek</li>
-              <li @click="engLang">English</li>
-              <li @click="ruLang">Русский</li>
+            <ul class="lang__list">
+              <li @click="uzLang">UZ</li>
+              <li @click="engLang">EN</li>
+              <li @click="ruLang">RU</li>
             </ul>
           </div>
           <div class="menu__wrap">
@@ -51,43 +52,45 @@
       </div>
     </div>
   </nav>
-
   <div class="responsive__nav" :class="[showNav ? 'show__res' : 'close__res']">
-    <ul>
+    <ul class="responsive__list">
       <li>
-        <router-link to="/">Bosh sahifa</router-link>
+        <router-link to="/" @click="openNav">{{ $t("home") }}</router-link>
       </li>
       <li>
-        <router-link to="/news">Biz haqimizda</router-link>
+        <a href="/#about_us" @click="openNav">{{ $t("about_us") }}</a>
       </li>
 
       <li>
-        <router-link to="/faculty">Fakultetlar</router-link>
+        <router-link to="/faculty" @click="openNav">{{
+          $t("faculty")
+        }}</router-link>
       </li>
       <li>
-        <router-link to="/news">Yangiliklar</router-link>
+        <router-link to="/news" @click="openNav">{{ $t("news") }}</router-link>
       </li>
-      <li>
-        <a
-          :href="document"
-          download="document"
-          class="take__document res__document"
-        >
+      <li class="responsive__lang">
+        <a :href="document" download="document" class="">
           <icon-base name="download_icon" class="download_responsive" />
         </a>
-        <div class="change__lang res__change">
-          <div @click="toggle">
+        <div class="responsive__lang__wrapp">
+          <div @click="toggle" class="lang__icon__wrapp">
             <IconBase name="lang_icon" class="lang__icon" />
-            <sapn class="lang">UZ</sapn>
+            <sapn v-if="i18n.global.locale === 'uz'" style="color: #fff"
+              >UZ</sapn
+            >
+            <sapn v-if="i18n.global.locale === 'ru'" style="color: #fff"
+              >RU</sapn
+            >
+            <sapn v-if="i18n.global.locale === 'en'" style="color: #fff"
+              >ENG</sapn
+            >
           </div>
-          <ul
-            class="lang__list res__lang"
-            :class="[langChoose ? 'open' : 'close']"
-          >
-            <li>O'zbek</li>
-            <li>English</li>
-            <li>Русский</li>
-          </ul>
+          <div class="lang__dropdown" :class="[langChoose ? 'open' : 'close']">
+            <span @click="uzLang">O'zbek</span>
+            <span @click="engLang">English</span>
+            <span @click="ruLang">Русский</span>
+          </div>
         </div>
       </li>
     </ul>
@@ -108,38 +111,23 @@ const showNav = ref(false);
 const toggle = () => {
   langChoose.value = !langChoose.value;
 };
+const about = ref(null);
 const openNav = () => {
   showNav.value = !showNav.value;
-  // if (showNav.value) {
-  //   document.body.style.overflow = "hidden";
-  // } else {
-  //   document.body.style.overflow = "auto";
-  // }
 };
 const uzLang = () => {
-  i18n.locale = "uz";
-  console.log(useI18n);
+  i18n.global.locale = "uz";
   langChoose.value = false;
 };
 const ruLang = () => {
-  // $i18n.locale = "ru";
+  i18n.global.locale = "ru";
   langChoose.value = false;
 };
 const engLang = () => {
-  i18n.locale = "en";
+  i18n.global.locale = "en";
   langChoose.value = false;
 };
 const headerRef = ref(null);
-watch(
-  window.screen.width,
-  () => {
-    if (window.screen.width > 991) {
-      showNav.value = false;
-      console.log(window.screen.width);
-    }
-  },
-  { deep: true }
-);
 
 onMounted(() => {
   window.addEventListener("scroll", () => {
@@ -156,9 +144,9 @@ onMounted(() => {
 <style scoped>
 .navbar {
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4));
-  padding: 2rem 0;
-  position: sticky;
-  top: 0;
+  padding: 1rem 0;
+  position: fixed;
+  top: 0 !important;
   left: 0;
   right: 0;
   z-index: 9999;
@@ -166,6 +154,7 @@ onMounted(() => {
 }
 .red {
   background: linear-gradient(90deg, #085078, #85d8ce) !important;
+  top: 0 !important;
 }
 .navbar__flex {
   display: flex;
@@ -178,17 +167,18 @@ onMounted(() => {
   gap: 1rem;
 }
 .nav__logo img {
-  width: 80px;
-  height: 80px;
+  width: 70px;
+  height: 70px;
 }
 .nav__logo h2 {
   color: #fff;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
+  line-height: 150%;
 }
 .nav__link {
   display: flex;
   align-items: center;
-  gap: 2.5rem;
+  gap: 8rem;
 }
 .router-link-active {
   color: #fece02;
@@ -207,44 +197,61 @@ onMounted(() => {
 .change__lang {
   border: 1px solid #fff;
   position: relative;
-  padding: 6px 10px;
-  width: 70px;
+  border-left: none !important;
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+  padding: 4px 10px;
+  padding-left: 4px;
+  width: 60px;
   border-radius: 6px;
-  border-bottom: none;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
   cursor: pointer;
 }
 .change__lang div {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  border-radius: 6px;
 }
 .change__lang .lang {
   color: #fff;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: 600;
 }
 .lang__list {
-  margin-top: 5px;
   transition: all linear 0.3s;
   position: absolute;
-  top: 25px;
+  top: -1px;
   z-index: 999;
-  left: -1px;
-  padding: 0 10px 4px;
-  border-bottom: #fff 1px solid;
-  border-left: #fff 1px solid;
-  border-right: #fff 1px solid;
-  border-bottom-left-radius: 6px;
-  border-bottom-right-radius: 6px;
-  width: 70px;
+  left: -60px;
+  height: 28px;
+  padding: 5px 0;
+  padding-left: 5px;
+  border: 1px solid #fff;
+  width: 60px;
   overflow: hidden;
+  border-right: none !important;
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+  border-radius: 6px;
   color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transform: translateX(55px);
+}
+.change__lang:hover .lang__list {
+  transform: translateX(0px);
 }
 .lang__list li {
-  font-size: 1.3rem;
-  font-weight: 600;
+  font-size: 1.2rem;
+  font-weight: 500;
+  opacity: 0;
+  display: none;
+  transition: all linear 0.3s;
+}
+.change__lang:hover .lang__list li {
+  opacity: 1;
+  display: block;
 }
 .lang__list li:last-child {
   border-bottom-left-radius: 6px;
@@ -261,37 +268,72 @@ onMounted(() => {
 .responsive__nav {
   background: rgba(0, 0, 0, 0.9);
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;
   height: 100%;
   position: fixed;
   top: 100px;
+  padding: 30px 0 0 20px;
   left: 0;
   z-index: 996 !important;
   width: 100%;
   transition: all linear 0.4s;
 }
-.responsive__nav ul:nth-child(1) {
+.responsive__list {
   display: flex;
   gap: 1.5rem;
   flex-direction: column;
+  width: 100%;
 }
-.responsive__nav ul li {
+.responsive__lang__wrapp {
+  position: relative;
+  width: 70px;
+}
+.responsive__lang__wrapp span {
+  color: #fff;
+}
+.lang__icon__wrapp {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border: 1px solid rgba(153, 153, 153, 0.568);
+  padding: 4px;
+  border-radius: 4px;
+}
+.lang__icon__wrapp span {
+  color: #fff !important;
+}
+.responsive__list li {
   font-weight: 600;
   font-size: 1.6rem;
-  color: #ffffff;
+  padding: 10px 12px;
+  width: 200px;
+  color: rgb(5, 74, 119);
+  background: rgba(214, 213, 213, 0.1);
+  border: 1px solid #333;
+  transition: all linear 0.4s;
+  border-radius: 6px;
+  cursor: pointer;
 }
-.responsive__nav .take__document {
-  margin-bottom: 10px;
-  display: block;
-}
-.responsive__nav .res__lang {
-  top: 28px;
+.responsive__list li:hover {
+  background: rgba(255, 255, 255, 0.9);
 }
 
-.responsive__nav .lang__list li {
-  font-size: 1.3rem;
-  font-weight: 600;
+.responsive__lang:hover {
+  background: transparent !important;
+}
+.responsive__lang {
+  display: none;
+}
+.lang__dropdown {
+  position: absolute;
+  left: 10px;
+  top: 25px;
+  display: flex;
+  flex-direction: column;
+  transition: all linear 0.4s;
+}
+.lang__dropdown span {
+  font-weight: 500 !important;
 }
 .open {
   height: 60px;
@@ -299,6 +341,7 @@ onMounted(() => {
   border-bottom-left-radius: 6px;
   border-bottom-right-radius: 6px;
 }
+
 .close {
   height: 0;
   overflow: hidden;
@@ -309,7 +352,8 @@ onMounted(() => {
   width: 100%;
 }
 .close__res {
-  width: 0%;
+  width: 0% !important;
+  padding-left: 0;
   overflow: hidden;
 }
 
@@ -318,6 +362,7 @@ onMounted(() => {
 @media screen and (min-width: 370px) and (max-width: 576px) {
   .navbar {
     padding: 1rem 0;
+    top: 0;
   }
   .nav__logo img {
     width: 60px;
@@ -346,6 +391,10 @@ onMounted(() => {
   }
   .responsive__nav {
     top: 80px;
+  }
+  .responsive__lang {
+    display: flex;
+    justify-content: space-between;
   }
 }
 @media screen and (min-width: 577px) and (max-width: 768px) {
@@ -376,6 +425,9 @@ onMounted(() => {
   }
   .responsive__nav {
     top: 80px;
+  }
+  .responsive__lang {
+    display: none;
   }
 }
 @media screen and (min-width: 769px) and (max-width: 991px) {
@@ -410,7 +462,7 @@ onMounted(() => {
 
   .nav__link {
     display: flex;
-    gap: 1.5rem;
+    gap: 4rem;
   }
   .menu__icon {
     display: none;
@@ -438,13 +490,23 @@ onMounted(() => {
 .lang__icon svg path {
   stroke: #fff;
 }
+.lang__icon svg {
+  width: 18px;
+}
 .download_icon svg {
   width: 20px;
+}
+.download_icon svg path {
+  fill: #fff;
 }
 .download_responsive svg {
   width: 22px;
 }
 .download_responsive svg path {
   fill: #fff;
+}
+.menu__icon svg {
+  width: 25px;
+  cursor: pointer;
 }
 </style>

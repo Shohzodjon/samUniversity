@@ -8,7 +8,8 @@
               <img :src="logo" alt="logo" class="logo"
             /></RouterLink>
             <h4>
-              OSIYO INNOVATSION <br />
+              OSIYO<br />
+              INNOVATSION <br />
               UNIVERSITET
             </h4>
           </li>
@@ -41,7 +42,35 @@
             </li>
           </ul>
           <div class="footer__map">
-            <img :src="map" alt="footer map" />
+            <div style="position: relative; overflow: hidden">
+              <!-- <a
+                href="https://yandex.uz/maps/10334/samarkand/?utm_medium=mapframe&utm_source=maps"
+                style="
+                  color: #eee;
+                  font-size: 12px;
+                  position: absolute;
+                  top: 0px;
+                "
+                >Samarqand</a
+              > -->
+              <!-- <a
+                href="https://yandex.uz/maps/10334/samarkand/?feedback=object%2Fadd&feedback-context=toponym.default&ll=66.950461%2C39.705818&utm_medium=mapframe&utm_source=maps&z=17.62"
+                style="
+                  color: #eee;
+                  font-size: 12px;
+                  position: absolute;
+                  top: 14px;
+                "
+                >Yandex Xarita</a> -->
+              <iframe
+                src="https://yandex.uz/map-widget/v1/-/CCUj7-WjSB"
+                width="100%"
+                height="272px"
+                frameborder="1"
+                allowfullscreen="true"
+                style="position: relative"
+              ></iframe>
+            </div>
           </div>
         </div>
       </div>
@@ -72,8 +101,8 @@
           </a>
         </li>
       </ul>
+      <div id="map"></div>
     </div>
-    <!-- <Map /> -->
   </footer>
 </template>
 <script setup>
@@ -81,7 +110,6 @@ import { RouterLink } from "vue-router";
 import IconBase from "@/components/IconBase.vue";
 import logo from "@/assets/images/logo.svg";
 import map from "@/assets/images/map.png";
-// import Map from "@/components/cards/Map.vue";
 const linkData = [
   {
     page: "Bosh sahifa",
@@ -89,7 +117,7 @@ const linkData = [
   },
   {
     page: "Haqida",
-    link: "/news",
+    link: "/",
   },
   {
     page: "Fakultetlar",
@@ -105,6 +133,7 @@ const linkData = [
   },
 ];
 </script>
+
 <style scoped>
 /* #50c9c3 */
 footer {
@@ -147,11 +176,15 @@ footer {
   color: #fece02;
 }
 .footer__map {
-  max-width: 539px;
+  width: 539px;
+  border-radius: 12px;
+  overflow: hidden;
 }
-.footer__map img {
-  width: 100%;
+.footer__map iframe {
+  border-radius: 12px;
+  border: none;
 }
+
 .footer__navlink {
   position: relative;
   margin: 23px 0;
@@ -374,5 +407,13 @@ footer {
 }
 .social_icon svg path {
   fill: #fff;
+}
+.gm-style .directions-card-medium-large {
+  height: 61px;
+  padding: 10px 11px;
+  display: none;
+}
+.gm-control-active {
+  display: none;
 }
 </style>

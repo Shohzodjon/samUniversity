@@ -35,6 +35,8 @@ import inteligent from "@/assets/images/inteligent.svg";
 .faq__section {
   background: #fff;
   padding: 6rem 0 5.8rem;
+  width: 100%;
+  overflow: hidden;
 }
 .relative {
   position: relative;
@@ -42,7 +44,7 @@ import inteligent from "@/assets/images/inteligent.svg";
 .faq__title {
   width: max-content;
   position: relative;
-  font-weight: 700;
+  font-weight: 600;
   font-size: 4rem;
   line-height: 120%;
   color: #3d3a3a;
@@ -52,9 +54,10 @@ import inteligent from "@/assets/images/inteligent.svg";
   content: "";
   position: absolute;
   width: 100%;
-  height: 2px;
-  background: #fece02;
-  bottom: -10px;
+  height: 3px;
+  background: #085078;
+  bottom: -9px;
+  border-radius: 4px;
   left: 0;
 }
 .acardion__wrapp {

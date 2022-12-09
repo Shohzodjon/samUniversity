@@ -1,7 +1,7 @@
 <template>
   <a :href="link" class="section__btn">
     <span>Ro‘yxatdan o‘tish </span>
-    <span> <IconBase name="small_arrow" /></span>
+    <span> <IconBase name="small_arrow" class="small__arrow" /></span>
   </a>
 </template>
 <script setup>
@@ -18,17 +18,28 @@ defineProps({
   width: max-content;
   gap: 29px;
   align-items: center;
-  background: #fece02;
+  background: #29beb7;
   border-radius: 10px;
-  padding: 26px 19px 26px 30px;
-  font-weight: 600;
+  padding: 20px 19px 20px 30px;
+  font-weight: 500;
   font-size: 2rem;
   line-height: 140%;
-  color: #222222;
+  color: #f5f5f5;
   position: relative;
   overflow: hidden;
   cursor: pointer;
+  transition: all linear 0.3s;
 }
+.section__btn:hover {
+  background: #40cec7;
+}
+.small__arrow {
+  transition: all linear 0.3s;
+}
+.section__btn:hover .small__arrow {
+  transform: translateX(5px);
+}
+
 .section__btn::after {
   content: "";
   width: 1px;
@@ -85,5 +96,10 @@ defineProps({
   .section__btn {
     padding: 22px;
   }
+}
+</style>
+<style>
+.small__arrow svg path {
+  fill: #fff;
 }
 </style>

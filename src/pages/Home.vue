@@ -26,6 +26,7 @@
     </section>
     <FacultySection />
     <ImgSection />
+    <ContactSection />
     <FaqSection />
   </section>
 </template>
@@ -38,11 +39,11 @@ import IconBase from "@/components/IconBase.vue";
 import FacultySection from "@/views/FacultySection.vue";
 import ImgSection from "@/views/ImgSection.vue";
 import FaqSection from "../views/FaqSection.vue";
+import ContactSection from "@/views/ContactSection.vue";
 </script>
 <style scoped>
 .home__page {
-  overflow: hidden;
-  width: 100%;
+  /* margin-top: -110px; */
 }
 .news__section {
   background: #fff;
@@ -65,8 +66,9 @@ import FaqSection from "../views/FaqSection.vue";
   position: absolute;
   left: 0;
   bottom: -4px;
-  background: #fece02;
-  height: 2px;
+  background: #085078;
+  height: 3px;
+  border-radius: 4px;
 }
 .news__grid {
   display: grid;
@@ -100,6 +102,9 @@ import FaqSection from "../views/FaqSection.vue";
   }
 }
 @media screen and (min-width: 577px) and (max-width: 768px) {
+  .home__page {
+    /* margin-top: -90px; */
+  }
   .news__section {
     margin-top: 70px;
     padding-bottom: 40px;
@@ -120,6 +125,9 @@ import FaqSection from "../views/FaqSection.vue";
   }
 }
 @media screen and (min-width: 769px) and (max-width: 900px) {
+  .home__page {
+    /* margin-top: -100px; */
+  }
   .news__section {
     margin-top: 70px;
     padding-bottom: 40px;
@@ -136,6 +144,9 @@ import FaqSection from "../views/FaqSection.vue";
   }
 }
 @media screen and (min-width: 901px) and (max-width: 1024px) {
+  .home__page {
+    /* margin-top: -100px; */
+  }
   .news__section {
     margin-top: 100px;
     padding-bottom: 60px;

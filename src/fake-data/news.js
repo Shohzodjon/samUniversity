@@ -21,7 +21,7 @@ const newsData = [
     id: 3,
     img: news3,
     title:
-      "TShIU Koreyaning “The Cyber University of Korea” bilan memorandum imzoladi",
+      "TShIU Koreyaning “The Cyber University of Korea” bilan uchrashuvida memorandum imzoladi",
     date: "Sana: 20.01.2022",
   },
   {

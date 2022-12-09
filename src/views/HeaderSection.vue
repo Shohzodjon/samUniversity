@@ -111,21 +111,21 @@ header video {
   height: 300px;
 }
 .header__title h1 {
-  font-weight: 700;
+  font-weight: 600;
   font-size: 5.4rem;
   line-height: 120%;
   color: #ffffff;
-  margin-left: 25px;
+  margin-left: 30px;
   position: relative;
 }
 .header__title h1::before {
   content: "";
   display: block;
   position: absolute;
-  left: -10px;
-  width: 5px;
+  left: -15px;
+  width: 4px;
   height: 100%;
-  background: #fece02;
+  background: #085078;
 }
 .swiper__btns {
   display: flex;
@@ -165,19 +165,22 @@ header video {
   }
   .header__title {
     left: 0;
-    top: 60px;
+    top: 80px;
     height: 50px;
   }
   .header__title h1::before {
     left: -10px;
-    width: 2px;
-    background: #fece02;
+    width: 3px;
+    background: #085078;
   }
   .header__title h1 {
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: 600;
-    line-height: 100%;
+    line-height: 130%;
     margin-left: 25px;
+  }
+  .swiper__btns {
+    top: 50%;
   }
 }
 @media screen and (min-width: 577px) and (max-width: 768px) {
@@ -196,13 +199,15 @@ header video {
   .header__title h1::before {
     left: -10px;
     width: 3px;
-    background: #fece02;
   }
   .header__title h1 {
     font-size: 3.4rem;
     font-weight: 600;
     line-height: 120%;
     margin-left: 25px;
+  }
+  .swiper__btns {
+    top: 45%;
   }
 }
 @media screen and (min-width: 769px) and (max-width: 991px) {
@@ -220,7 +225,6 @@ header video {
   }
   .header__title h1::before {
     width: 4px;
-    background: #fece02;
   }
   .header__title h1 {
     font-size: 4rem;
@@ -242,7 +246,6 @@ header video {
   }
   .header__title h1::before {
     width: 4px;
-    background: #fece02;
   }
   .header__title h1 {
     font-size: 4rem;

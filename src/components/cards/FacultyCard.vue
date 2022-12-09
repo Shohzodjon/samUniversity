@@ -28,13 +28,17 @@ defineProps({
 .card__icon {
   width: 74px;
   height: 74px;
+  transition: all 0.3s linear;
+}
+.faculty__card:hover .card__icon {
+  transform: translateY(-5px);
 }
 .card__icon svg {
   width: 100%;
   height: 100%;
 }
 .faculty__card h4 {
-  font-weight: 600;
+  font-weight: 500;
   font-size: 3.2rem;
   line-height: 120%;
   text-align: center;

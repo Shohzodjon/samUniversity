@@ -317,4 +317,35 @@ xmlns="http://www.w3.org/2000/svg"
 </svg>
 `,
   download_icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21,14a1,1,0,0,0-1,1v4a1,1,0,0,1-1,1H5a1,1,0,0,1-1-1V15a1,1,0,0,0-2,0v4a3,3,0,0,0,3,3H19a3,3,0,0,0,3-3V15A1,1,0,0,0,21,14Zm-9.71,1.71a1,1,0,0,0,.33.21.94.94,0,0,0,.76,0,1,1,0,0,0,.33-.21l4-4a1,1,0,0,0-1.42-1.42L13,12.59V3a1,1,0,0,0-2,0v9.59l-2.29-2.3a1,1,0,1,0-1.42,1.42Z"/></svg>`,
+  down_icon: `  <svg
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M6 9L12 15L18 9"
+    stroke="#000"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+</svg>`,
+  file_icon: `  <svg
+width="20"
+height="20"
+viewBox="0 0 24 24"
+fill="none"
+xmlns="http://www.w3.org/2000/svg"
+>
+<path
+  d="M9.31868 4.32001H0.959961V23.04H15.36V10.3613L9.31868 4.32001ZM9.11996 5.47873L14.2012 10.56H9.11996V5.47873Z"
+  fill="#6E7A7E"
+/>
+<path
+  d="M16.9989 0.960022H8.64014V3.36002H9.31886H9.7163L9.99758 3.6413L16.0389 9.68258L16.3201 9.96386V10.3613V19.68H23.0401V7.0013L16.9989 0.960022ZM16.8001 7.20002V2.11874L21.8814 7.20002H16.8001Z"
+  fill="#6E7A7E"
+/>
+</svg>`,
 };

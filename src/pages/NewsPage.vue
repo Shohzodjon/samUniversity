@@ -22,7 +22,7 @@
             ulashildi.
           </p>
         </div>
-        <register-btn link="/#div" class="news__btn" />
+        <register-btn link="/#registr" class="news__btn" />
       </div>
       <h2 class="news__info">Davomi ...</h2>
       <div class="news__grid">
@@ -39,7 +39,7 @@
   </section>
 </template>
 <script setup>
-import img from "@/assets/images/img_3.png";
+import img from "@/assets/images/news_slug.png";
 import newsData from "@/fake-data/news.js";
 import NewsCard from "@/components/cards/NewsCard.vue";
 import IconBase from "@/components/IconBase.vue";
@@ -61,13 +61,13 @@ onMounted(() => {
 </script>
 <style scoped>
 .news__page {
-  padding-top: 7.3rem;
+  padding-top: 11rem;
   width: 100%;
   background: #fff;
   padding-bottom: 8rem;
 }
 .news__title {
-  font-weight: 700;
+  font-weight: 600;
   font-size: 4rem;
   line-height: 140%;
   color: #000000;
@@ -78,8 +78,9 @@ onMounted(() => {
 .news__title::after {
   content: "";
   width: 100%;
-  height: 2px;
-  background: #fece02;
+  height: 3px;
+  border-radius: 3px;
+  background: #085078;
   position: absolute;
   bottom: -4px;
   left: 0;
@@ -91,7 +92,7 @@ onMounted(() => {
 }
 .slug__title {
   font-weight: 600;
-  font-size: 3.8rem;
+  font-size: 3.5rem;
   line-height: 120%;
   color: #000000;
   margin-bottom: 3rem;
@@ -104,8 +105,9 @@ onMounted(() => {
 }
 .news__slug span {
   font-weight: 500;
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   line-height: 120%;
+  margin-top: 10px;
   color: #3d3a3a;
 }
 .news__slug p {
@@ -117,16 +119,17 @@ onMounted(() => {
 }
 .news__slug p::before {
   content: "";
-  width: 2px;
+  width: 3px;
+  border-radius: 3px;
   height: 95%;
-  background: #fece02;
+  background: #085078;
   position: absolute;
   top: 0;
   left: -10px;
 }
 
 .news__info {
-  font-weight: 700;
+  font-weight: 600;
   margin-top: 2rem;
   margin-bottom: 5.5rem;
   font-size: 4rem;
@@ -138,10 +141,11 @@ onMounted(() => {
 .news__info::before {
   content: "";
   width: 100%;
-  height: 2px;
+  height: 3px;
+  border-radius: 3px;
   bottom: -5px;
   left: 0;
-  background: #fece02;
+  background: #085078;
   position: absolute;
   display: block;
 }
@@ -161,7 +165,7 @@ onMounted(() => {
 
 @media screen and (min-width: 370px) and (max-width: 576px) {
   .news__page {
-    padding-top: 5.3rem;
+    padding-top: 11rem;
     padding-bottom: 6rem;
   }
   .news__title {
@@ -212,7 +216,7 @@ onMounted(() => {
 }
 @media screen and (min-width: 577px) and (max-width: 768px) {
   .news__page {
-    padding-top: 6.3rem;
+    padding-top: 11rem;
     padding-bottom: 6rem;
   }
   .news__title {
@@ -262,7 +266,7 @@ onMounted(() => {
 }
 @media screen and (min-width: 768px) and (max-width: 991px) {
   .news__page {
-    padding-top: 6.5rem;
+    padding-top: 12rem;
     padding-bottom: 7rem;
   }
   .news__title {
@@ -313,7 +317,7 @@ onMounted(() => {
 
 @media screen and (min-width: 991px) and (max-width: 1100px) {
   .news__page {
-    padding-top: 7rem;
+    padding-top: 11rem;
     padding-bottom: 8rem;
   }
   .news__title {
