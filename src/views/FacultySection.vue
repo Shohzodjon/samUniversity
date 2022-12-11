@@ -97,7 +97,7 @@ import facultyData from "@/fake-data/faculty.js";
   .faculty__grid .grid_item {
     height: 150px !important;
     transition: all linear 0.4s;
-    max-width: 400px;
+    max-width: 280px;
   }
 }
 @media screen and (min-width: 577px) and (max-width: 768px) {

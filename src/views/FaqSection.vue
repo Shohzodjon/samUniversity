@@ -78,11 +78,12 @@ import inteligent from "@/assets/images/inteligent.svg";
 
 @media screen and (min-width: 300px) and (max-width: 576px) {
   .faq__title {
-    font-size: 2.8rem;
+    font-size: 2.4rem;
     line-height: 120%;
     font-weight: 600;
     margin: 0 auto;
     margin-bottom: 5.4rem;
+    word-break: break-all;
   }
   .acardion__wrapp {
     gap: 15px;

@@ -62,7 +62,7 @@ const toggle = () => {
 
 @media screen and (min-width: 300px) and (max-width: 576px) {
   .acardion__comp {
-    padding: 20px 28.29px 20px;
+    padding: 10px 20px;
   }
   .acardion__header {
     margin-bottom: 5px;

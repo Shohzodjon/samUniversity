@@ -21,12 +21,46 @@
                 <button class="contact__btn">
                   <a href="#registr">Register</a>
                 </button>
-                <button class="contact__btn">Biz bilan bog'lanish</button>
+                <button class="contact__btn" @click="handleSubmitOne">
+                  Biz bilan bog'lanish
+                </button>
               </div>
             </div>
           </div>
         </div>
-
+        <div
+          class="contact__modal-one"
+          :class="[openModalOne ? 'active__modal_one' : '']"
+        >
+          <div class="contact__us">
+            <h2>Biz bilan bog'laning</h2>
+            <form @submit.prevent="contactSubmit">
+              <input
+                type="text"
+                placeholder="First name ..."
+                v-model="contactData.user_name_val"
+                :class="[contactData.user__name_check ? '' : 'error_warm']"
+                class="contact__us-input"
+              />
+              <input
+                type="text"
+                placeholder="Phone number ..."
+                v-model="contactData.phone_number"
+                :class="[contactData.phone_number ? '' : 'error_warm']"
+                class="contact__us-input"
+                maxlength="13"
+              />
+              <textarea
+                name=""
+                id=""
+                cols="30"
+                rows="10"
+                placeholder="Message ..."
+              ></textarea>
+              <button class="contact__submit">Submit</button>
+            </form>
+          </div>
+        </div>
         <div class="registration" id="registr">
           <span class="circle-blue"></span>
           <span class="circle-yellow"></span>
@@ -220,6 +254,18 @@ const userNumber = reactive({
 const checkEdu = ref(true);
 const checkFacul = ref(true);
 const openModal = ref(false);
+const openModalOne = ref(false);
+const contactData = reactive({
+  user_name_val: "",
+  user__name_check: false,
+});
+const handleSubmitOne = () => {
+  openModalOne.value = true;
+};
+const contactSubmit = () => {
+  let re = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
+  openModalOne.value = false;
+};
 const handleToggle = (e) => {
   chooseEducation.value = !chooseEducation.value;
   const targetEl = e.target;
@@ -387,6 +433,72 @@ const faculties = [
 .active_progress {
   width: 100%;
 }
+/* contact us modal */
+.contact__modal-one {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: scale(0);
+  opacity: 0;
+  transition: all 0.4s linear;
+}
+.active__modal_one {
+  transform: scale(1);
+  opacity: 1;
+}
+.contact__us {
+  min-width: 600px;
+}
+.contact__us h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+  color: #fff;
+}
+.contact__us form {
+  width: 80%;
+  margin: 0 auto;
+  background: #fff;
+  box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px,
+    rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px,
+    rgba(0, 0, 0, 0.07) 0px 16px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+  padding: 2rem;
+  border-radius: 10px;
+}
+.contact__us .contact__us-input,
+.contact__us textarea {
+  flex-grow: 1;
+  border: 1px solid #184053;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 1.4rem;
+}
+.contact__us textarea {
+  outline: none;
+}
+.contact__us input:focus,
+.contact__us textarea:focus {
+  border-color: aqua;
+}
+.contact__submit {
+  background: #4082dc;
+  padding: 8px 18px;
+  width: max-content;
+  color: #fff;
+  border-radius: 6px;
+  align-self: flex-end;
+}
+
 .contact__section {
   padding-top: 2rem;
 }
@@ -732,6 +844,13 @@ const faculties = [
     align-items: flex-start;
     gap: 1.5rem;
   }
+  /* .contact__us {
+    min-width: 290px;
+  }
+  .contact__us form {
+    width: 98%;
+    margin: 0 auto;
+  } */
 }
 @media screen and (min-width: 300px) and (max-width: 576px) {
   .success__modal {
@@ -739,6 +858,13 @@ const faculties = [
   }
   .success__modal h2 {
     font-size: 1.7rem;
+  }
+  .contact__us {
+    min-width: 90%;
+  }
+  .contact__us form {
+    width: 96%;
+    margin: 0 auto;
   }
   .contact__title {
     font-size: 2.8rem;
