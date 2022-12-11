@@ -90,7 +90,6 @@ import ContactSection from "@/views/ContactSection.vue";
   .news__item {
     max-width: 280px;
     padding: 3rem 0;
-    border: 1px solid red;
     height: 360px !important;
   }
 }
