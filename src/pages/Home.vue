@@ -84,12 +84,14 @@ import ContactSection from "@/views/ContactSection.vue";
 @media screen and (min-width: 300px) and (max-width: 450px) {
   .news__grid {
     grid-template-columns: repeat(1, 250px);
-    gap: 3rem;
+    gap: 1rem;
     justify-content: center;
   }
   .news__item {
     max-width: 280px;
     padding: 3rem 0;
+    border: 1px solid red;
+    height: 360px !important;
   }
 }
 @media screen and (min-width: 451px) and (max-width: 576px) {
@@ -100,7 +102,8 @@ import ContactSection from "@/views/ContactSection.vue";
   }
   .news__item {
     max-width: 300px;
-    padding: 3rem 0;
+    padding: 1rem 0;
+    height: 360px !important;
   }
 }
 

@@ -8,7 +8,7 @@
       <div class="news__footer">
         <span class="news__date">{{ news__create }}</span>
         <button>
-          <router-link :to="news__link"> Batafsil</router-link>
+          <router-link :to="news__link"> {{ $t("in_order") }}</router-link>
         </button>
       </div>
     </div>

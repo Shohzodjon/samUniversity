@@ -11,7 +11,7 @@
         >
           <div v-for="item in facultyData" :key="item.id">
             <FacultyCard
-              :title="item.title"
+              :title="$t(item.title)"
               :icon_name="item.icon"
               class="grid_item"
             />

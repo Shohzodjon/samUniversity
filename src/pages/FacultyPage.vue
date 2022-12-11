@@ -1,7 +1,7 @@
 <template>
   <section class="faculty__page">
     <div class="container">
-      <h2 class="faculty__title">Fakultetlar</h2>
+      <h2 class="faculty__title">{{ $t("faculty") }}</h2>
       <div class="faculty__slug">
         <h3 class="slug__title">Davolash ishi</h3>
         <div class="slug__flex">
@@ -51,7 +51,7 @@
         </p>
       </div>
 
-      <h2 class="faculty__info">Davomi ...</h2>
+      <h2 class="faculty__info">{{ $t("go_on") }}</h2>
 
       <div class="slug__grid">
         <faculty-card

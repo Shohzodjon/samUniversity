@@ -1,6 +1,6 @@
 <template>
   <a :href="link" class="section__btn">
-    <span>Ro‘yxatdan o‘tish </span>
+    <span>{{ $t("register") }} </span>
     <span> <IconBase name="small_arrow" class="small__arrow" /></span>
   </a>
 </template>

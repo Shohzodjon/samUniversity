@@ -16,7 +16,7 @@
           <li class="contact__flex">
             <IconBase name="location_icon" class="social_icon" />
             <span class="footer__link">
-              Samarqand Shahri, Labzak ko’chasi
+              {{ $t("university_location") }}
             </span>
           </li>
           <li class="contact__flex">
@@ -37,11 +37,21 @@
         <!-- footer right -->
         <div>
           <ul class="footer__navlink">
-            <li><RouterLink to="/">Bosh sahifa</RouterLink></li>
-            <li><a href="/#about_us">Biz haqimizda</a></li>
-            <li><RouterLink to="/faculty">Fakultetlar </RouterLink></li>
-            <li><RouterLink to="/news">Yangiliklar</RouterLink></li>
-            <li><a href="/#registr">Ro‘yxatdan o’tish</a></li>
+            <li>
+              <RouterLink to="/">{{ $t("home") }}</RouterLink>
+            </li>
+            <li>
+              <a href="/#about_us">{{ $t("about_us") }}</a>
+            </li>
+            <li>
+              <RouterLink to="/faculty">{{ $t("faculty") }} </RouterLink>
+            </li>
+            <li>
+              <RouterLink to="/news">{{ $t("news") }}</RouterLink>
+            </li>
+            <li>
+              <a href="/#registr">{{ $t("register") }}</a>
+            </li>
           </ul>
           <div class="footer__map">
             <div style="position: relative; overflow: hidden">

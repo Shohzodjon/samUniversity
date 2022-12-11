@@ -7,7 +7,7 @@
         data-aos-duration="1000"
         data-aos-delay="500"
       >
-        Eng ko’p beriladigan savollar
+        {{ $t("faq") }}
       </h2>
       <div
         class="acardion__wrapp"

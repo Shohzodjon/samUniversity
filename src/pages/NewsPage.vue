@@ -1,7 +1,7 @@
 <template>
   <section class="news__page">
     <div class="container">
-      <h2 class="news__title">Yangiliklar</h2>
+      <h2 class="news__title">{{ $t("news") }}</h2>
       <div>
         <h3 class="slug__title">Xalqaro talabalar kuni</h3>
 
@@ -24,7 +24,7 @@
         </div>
         <register-btn link="/#registr" class="news__btn" />
       </div>
-      <h2 class="news__info">Davomi ...</h2>
+      <h2 class="news__info">{{ $t("go_on") }}</h2>
       <div class="news__grid">
         <NewsCard
           v-for="item in newsData"

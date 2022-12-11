@@ -2,7 +2,7 @@
   <section class="contact__section">
     <div class="container">
       <div class="contact__wrapp">
-        <h2 class="contact__title">Contact</h2>
+        <h2 class="contact__title">{{ $t("register") }}</h2>
         <div class="conatact__img">
           <router-link to="/">
             <img :src="contactImg" alt="conatact_img"
@@ -19,10 +19,10 @@
               </div>
               <div class="contact__btns">
                 <button class="contact__btn">
-                  <a href="#registr">Register</a>
+                  <a href="#registr">{{ $t("register") }}</a>
                 </button>
                 <button class="contact__btn" @click="handleSubmitOne">
-                  Biz bilan bog'lanish
+                  {{ $t("contact") }}
                 </button>
               </div>
             </div>
@@ -33,7 +33,7 @@
           :class="[openModalOne ? 'active__modal_one' : '']"
         >
           <div class="contact__us">
-            <h2>Biz bilan bog'laning</h2>
+            <h2>{{ $t("contact") }}</h2>
             <form @submit.prevent="contactSubmit">
               <input
                 type="text"
@@ -67,18 +67,20 @@
 
           <form class="registration__form" @submit.prevent="handleSubmit">
             <ul class="registration__list">
-              <li><h3>Registration</h3></li>
+              <li>
+                <h3>{{ $t("register") }}</h3>
+              </li>
               <li>
                 <input
                   type="text"
-                  placeholder="First name..."
+                  :placeholder="$t('user_name')"
                   class="user__name"
                   v-model="userName.name"
                   :class="[userName.checkName ? '' : 'error_warm']"
                 />
                 <input
                   type="text"
-                  placeholder="Last name..."
+                  :placeholder="$t('user_lastname')"
                   class="user__lastname"
                   v-model="lastName.last_name"
                   :class="[lastName.checkLastName ? '' : 'error_warm']"
@@ -112,7 +114,7 @@
                       type="text"
                       class="education__value"
                       ref="educationInput"
-                      placeholder="Talim turi"
+                      :placeholder="$t('type_edu')"
                       readonly
                     />
                     <IconBase
@@ -145,7 +147,7 @@
                       id="faculty__type"
                       class="faculty__value"
                       ref="facultyInput"
-                      placeholder="Fakultetlar"
+                      :placeholder="$t('faculty')"
                       readonly
                     />
                     <IconBase
@@ -198,7 +200,7 @@
                 </div>
               </li>
               <li>
-                <button class="register__btn">Register</button>
+                <button class="register__btn">{{ $t("register") }}</button>
               </li>
             </ul>
           </form>
@@ -822,9 +824,9 @@ const faculties = [
     rgba(0, 0, 0, 0.07) 0px 16px 16px;
 }
 .register__btn {
-  padding: 8px 10px;
+  padding: 8px 14px;
   background: #4082dc;
-  width: 100px;
+  width: max-content;
   font-size: 1.3rem;
   border-radius: 6px;
   align-self: flex-start;

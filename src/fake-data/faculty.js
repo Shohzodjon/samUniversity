@@ -1,16 +1,16 @@
 const facultyData = [
   {
-    title: "Davolash ishi",
+    title: "care",
     icon: "care_icon",
     id: 1,
   },
   {
-    title: "Biologiya",
+    title: "biology",
     icon: "bioligy_icon",
     id: 2,
   },
   {
-    title: "Amaliy psixologiya",
+    title: "psychology",
     icon: "psiholigy_icon",
     id: 3,
   },
@@ -25,7 +25,7 @@ const facultyData = [
     id: 5,
   },
   {
-    title: "Tarix",
+    title: "history",
     icon: "history_icon",
     id: 6,
   },
@@ -35,7 +35,7 @@ const facultyData = [
     id: 7,
   },
   {
-    title: "Turizm",
+    title: "tourism",
     icon: "map_icon",
     id: 8,
   },

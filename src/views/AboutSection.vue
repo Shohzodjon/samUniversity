@@ -8,7 +8,7 @@
     >
       <div class="section__two">
         <div class="section__title">
-          <h2>Biz haqimizda</h2>
+          <h2>{{ $t("about_us") }}</h2>
           <span class="line"></span>
         </div>
         <ul>
