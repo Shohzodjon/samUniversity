@@ -181,13 +181,17 @@ onMounted(() => {
   gap: 8rem;
 }
 .router-link-active {
-  color: #fece02;
+  color: #184053;
 }
 .nav__link li {
   font-weight: 600;
   font-size: 1.6rem;
   line-height: 24px;
   color: #ffffff;
+  transition: all linear 0.3s;
+}
+.nav__link li:hover {
+  color: #184053;
 }
 .nav__last {
   display: flex;
@@ -307,7 +311,7 @@ onMounted(() => {
   font-size: 1.6rem;
   padding: 10px 12px;
   width: 200px;
-  color: rgb(5, 74, 119);
+  color: #ffff;
   background: rgba(214, 213, 213, 0.1);
   border: 1px solid #333;
   transition: all linear 0.4s;
@@ -316,6 +320,7 @@ onMounted(() => {
 }
 .responsive__list li:hover {
   background: rgba(255, 255, 255, 0.9);
+  color: #184053;
 }
 
 .responsive__lang:hover {
@@ -359,17 +364,17 @@ onMounted(() => {
 
 /*  media query  */
 
-@media screen and (min-width: 370px) and (max-width: 576px) {
+@media screen and (min-width: 300px) and (max-width: 576px) {
   .navbar {
     padding: 1rem 0;
     top: 0;
   }
   .nav__logo img {
-    width: 60px;
-    height: 60px;
+    width: 5.8rem;
+    height: 5.8rem;
   }
   .nav__logo h2 {
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
   .nav__link {
     display: none;
@@ -390,11 +395,27 @@ onMounted(() => {
     display: block;
   }
   .responsive__nav {
-    top: 80px;
+    top: 70px;
   }
   .responsive__lang {
     display: flex;
     justify-content: space-between;
+  }
+  .responsive__list li {
+    font-size: 1.4rem;
+    padding: 1rem 12px;
+  }
+  .lang__icon__wrapp {
+    padding: 2px;
+  }
+  .responsive__lang__wrapp {
+    width: 55px;
+  }
+  .lang__icon__wrapp span {
+    font-size: 1.2rem;
+  }
+  .download_responsive {
+    width: 18px;
   }
 }
 @media screen and (min-width: 577px) and (max-width: 768px) {
@@ -424,7 +445,7 @@ onMounted(() => {
     display: none !important;
   }
   .responsive__nav {
-    top: 80px;
+    top: 84px;
   }
   .responsive__lang {
     display: none;
@@ -449,6 +470,9 @@ onMounted(() => {
   }
   .res__change {
     display: none;
+  }
+  .responsive__nav {
+    top: 90px;
   }
   .res__document {
     display: none !important;
@@ -506,7 +530,12 @@ onMounted(() => {
   fill: #fff;
 }
 .menu__icon svg {
-  width: 25px;
+  width: 20px;
   cursor: pointer;
+}
+@media screen and (min-width: 300px) and (max-width: 576px) {
+  .lang__icon svg {
+    width: 15px;
+  }
 }
 </style>

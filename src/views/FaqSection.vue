@@ -76,7 +76,7 @@ import inteligent from "@/assets/images/inteligent.svg";
   z-index: 1;
 }
 
-@media screen and (min-width: 370px) and (max-width: 576px) {
+@media screen and (min-width: 300px) and (max-width: 576px) {
   .faq__title {
     font-size: 2.8rem;
     line-height: 120%;

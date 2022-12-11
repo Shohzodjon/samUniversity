@@ -13,7 +13,7 @@
       </div>
       <div class="arrow__wrapp">
         <IconBase name="big_arrow" class="arrow__left" />
-        <IconBase name="big_arrow" />
+        <IconBase name="big_arrow" class="arrow__right" />
       </div>
     </div>
   </section>
@@ -74,7 +74,7 @@ const imgList = [
   gap: 30px;
 }
 
-@media screen and (min-width: 370px) and (max-width: 576px) {
+@media screen and (min-width: 300px) and (max-width: 576px) {
   .img__section {
     padding-top: 80px;
     padding-bottom: 27px;

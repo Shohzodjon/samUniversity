@@ -78,7 +78,7 @@ import facultyData from "@/fake-data/faculty.js";
   cursor: pointer;
 }
 
-@media screen and (min-width: 370px) and (max-width: 576px) {
+@media screen and (min-width: 300px) and (max-width: 576px) {
   .faculty__section {
     background-size: cover;
     padding: 40px 20px;
@@ -90,7 +90,7 @@ import facultyData from "@/fake-data/faculty.js";
   }
   .faculty__grid {
     margin-top: 40px;
-    grid-template-columns: repeat(1, 300px);
+    grid-template-columns: repeat(1, 280px);
     row-gap: 20px;
     justify-content: center;
   }
@@ -151,6 +151,12 @@ import facultyData from "@/fake-data/faculty.js";
     height: 200px !important;
     transition: all linear 0.4s;
     max-width: 400px;
+  }
+}
+</style>
+<style>
+@media screen and (min-width: 300px) and (max-width: 450px) {
+  .grid_item svg {
   }
 }
 </style>

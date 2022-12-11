@@ -32,6 +32,7 @@
           :news__img="item.img"
           :news__title="item.title"
           :news__create="item.date"
+          news__link="/news"
           @click="fetch(item.id)"
         />
       </div>
@@ -163,7 +164,7 @@ onMounted(() => {
   top: -50px;
 }
 
-@media screen and (min-width: 370px) and (max-width: 576px) {
+@media screen and (min-width: 300px) and (max-width: 576px) {
   .news__page {
     padding-top: 11rem;
     padding-bottom: 6rem;
@@ -184,9 +185,9 @@ onMounted(() => {
     flex-direction: column;
   }
   .news__slug img {
-    max-width: 350px;
+    max-width: 280px;
     max-height: 300px;
-    min-width: 340px;
+    min-width: 280px;
   }
   .news__slug span {
     font-size: 1.5rem;
@@ -209,7 +210,7 @@ onMounted(() => {
     display: block;
   }
   .news__grid {
-    grid-template-columns: repeat(1, 350px);
+    grid-template-columns: repeat(1, 280px);
     row-gap: 2rem;
     justify-content: center;
   }

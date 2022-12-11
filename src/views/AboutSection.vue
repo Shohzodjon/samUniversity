@@ -66,7 +66,7 @@ section {
 }
 .section__title .line {
   position: absolute;
-  bottom: -6px;
+  bottom: -8px;
   left: 0;
   width: 100%;
   height: 3px;
@@ -83,14 +83,43 @@ section {
   margin-bottom: 51px;
 }
 
-@media screen and (min-width: 370px) and (max-width: 576px) {
+@media screen and (min-width: 300px) and (max-width: 450px) {
   section {
-    padding-top: 5rem;
+    padding-top: 3rem;
+    width: 100%;
+    overflow: hidden;
   }
   .section__two {
     min-height: 452px;
     padding: 34px 25px 25px 25px;
-    background-size: 150% 130%;
+    background-size: 180% 100%;
+  }
+  .section__title {
+    margin-bottom: 30px;
+    width: max-content;
+  }
+  .section__title h2 {
+    font-size: 3rem;
+    line-height: 100%;
+  }
+  .section__two li {
+    font-size: 1.8rem;
+    line-height: 120%;
+  }
+  .section__two ul {
+    margin-bottom: 30px;
+  }
+}
+@media screen and (min-width: 451px) and (max-width: 576px) {
+  section {
+    padding-top: 5rem;
+    width: 100%;
+    overflow: hidden;
+  }
+  .section__two {
+    min-height: 452px;
+    padding: 34px 25px 25px 25px;
+    background-size: 180% 100%;
   }
   .section__title {
     margin-bottom: 30px;

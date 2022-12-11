@@ -6,7 +6,7 @@
       <div class="container">
         <h2 class="news__title">Yangiliklar</h2>
         <div class="news__grid">
-          <div v-for="news in newsData" :key="news.id">
+          <div v-for="news in newsData" :key="news.id" class="news__item">
             <NewsCard
               data-aos="fade-right"
               data-aos-duration="1000"
@@ -14,13 +14,14 @@
               :news__img="news.img"
               :news__title="news.title"
               :news__create="news.date"
+              news__link="/news"
               class="news__card-home"
             />
           </div>
         </div>
         <div class="arrow__wrapp">
           <IconBase name="big_arrow" class="arrow__left" />
-          <IconBase name="big_arrow" />
+          <IconBase name="big_arrow" class="arrow__right" />
         </div>
       </div>
     </section>
@@ -42,9 +43,6 @@ import FaqSection from "../views/FaqSection.vue";
 import ContactSection from "@/views/ContactSection.vue";
 </script>
 <style scoped>
-.home__page {
-  /* margin-top: -110px; */
-}
 .news__section {
   background: #fff;
   margin-top: 160px;
@@ -83,8 +81,30 @@ import ContactSection from "@/views/ContactSection.vue";
   justify-content: center;
   gap: 30px;
 }
+@media screen and (min-width: 300px) and (max-width: 450px) {
+  .news__grid {
+    grid-template-columns: repeat(1, 250px);
+    gap: 3rem;
+    justify-content: center;
+  }
+  .news__item {
+    max-width: 280px;
+    padding: 3rem 0;
+  }
+}
+@media screen and (min-width: 451px) and (max-width: 576px) {
+  .news__grid {
+    grid-template-columns: repeat(1, 350px);
+    gap: 3rem;
+    justify-content: center;
+  }
+  .news__item {
+    max-width: 300px;
+    padding: 3rem 0;
+  }
+}
 
-@media screen and (min-width: 370px) and (max-width: 576px) {
+@media screen and (min-width: 300px) and (max-width: 576px) {
   .news__section {
     margin-top: 50px;
     padding-bottom: 30px;
@@ -95,16 +115,8 @@ import ContactSection from "@/views/ContactSection.vue";
     margin: 0 auto;
     margin-bottom: 4rem;
   }
-  .news__grid {
-    grid-template-columns: repeat(1, 350px);
-    row-gap: 30px;
-    justify-content: center;
-  }
 }
 @media screen and (min-width: 577px) and (max-width: 768px) {
-  .home__page {
-    /* margin-top: -90px; */
-  }
   .news__section {
     margin-top: 70px;
     padding-bottom: 40px;
@@ -125,9 +137,6 @@ import ContactSection from "@/views/ContactSection.vue";
   }
 }
 @media screen and (min-width: 769px) and (max-width: 900px) {
-  .home__page {
-    /* margin-top: -100px; */
-  }
   .news__section {
     margin-top: 70px;
     padding-bottom: 40px;
@@ -144,9 +153,6 @@ import ContactSection from "@/views/ContactSection.vue";
   }
 }
 @media screen and (min-width: 901px) and (max-width: 1024px) {
-  .home__page {
-    /* margin-top: -100px; */
-  }
   .news__section {
     margin-top: 100px;
     padding-bottom: 60px;
@@ -169,6 +175,9 @@ import ContactSection from "@/views/ContactSection.vue";
 <style>
 .arrow__left svg path {
   fill: #5f5f5f;
+}
+.arrow__right svg path {
+  fill: #085078;
 }
 .arrow__left {
   transform: rotate(-180deg);

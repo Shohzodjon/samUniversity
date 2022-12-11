@@ -51,7 +51,15 @@
                 />
               </li>
               <li>
-                <input type="text" placeholder="+998..." class="user__number" />
+                <input
+                  type="tel"
+                  placeholder="+998"
+                  class="user__number"
+                  v-model="userNumber.number"
+                  :class="[userNumber.checkNum ? '' : 'error_warm']"
+                  maxlength="12"
+                  required
+                />
                 <input
                   type="email"
                   placeholder="Email..."
@@ -163,8 +171,21 @@
         </div>
       </div>
     </div>
-    <div class="contact__modal">
-      <div></div>
+    <div
+      class="contact__modal"
+      :class="[openModal ? 'active__contact__modal' : '']"
+    >
+      <div class="success__wrap">
+        <div class="success__modal">
+          <h2>Successfully Registration</h2>
+        </div>
+        <div class="success__progress">
+          <span
+            class="progress"
+            :class="[openModal ? 'active_progress' : '']"
+          ></span>
+        </div>
+      </div>
     </div>
   </section>
 </template>
@@ -192,8 +213,13 @@ const userEmail = reactive({
   email: "",
   checkEmail: true,
 });
+const userNumber = reactive({
+  number: "",
+  checkNum: true,
+});
 const checkEdu = ref(true);
 const checkFacul = ref(true);
+const openModal = ref(false);
 const handleToggle = (e) => {
   chooseEducation.value = !chooseEducation.value;
   const targetEl = e.target;
@@ -216,9 +242,9 @@ const onFileChangeTwo = (event) => {
   let fileData = event.target.files[0].name;
   fileName2.value = fileData;
 };
-
 const handleSubmit = () => {
   let mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+  let re = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
   if (userName.name.trim() === "") {
     userName.checkName = false;
   } else {
@@ -238,26 +264,36 @@ const handleSubmit = () => {
     checkEdu.value = false;
   } else {
     checkEdu.value = true;
-    console.log("kiii");
   }
   if (facultyInput.value.value === "") {
     checkFacul.value = false;
   } else {
     checkFacul.value = true;
   }
+  if (re.test(userNumber.number)) {
+    userNumber.checkNum = true;
+  } else {
+    userNumber.checkNum = false;
+  }
 
   if (
-    userName.checkName &&
-    lastName.checkLastName &&
-    userEmail.checkEmail &&
-    checkEdu.value &&
-    checkFacul.value
+    userName.checkName === true &&
+    lastName.checkLastName === true &&
+    userEmail.checkEmail === true &&
+    checkEdu.value === true &&
+    checkFacul.value === true &&
+    userNumber.checkNum === true
   ) {
     userName.name = "";
     lastName.last_name = "";
     userEmail.email = "";
     educationInput.value.value = "";
     facultyInput.value.value = "";
+    userNumber.number = "";
+    openModal.value = true;
+    setTimeout(() => {
+      openModal.value = false;
+    }, 3000);
   }
 };
 
@@ -301,6 +337,56 @@ const faculties = [
 ];
 </script>
 <style scoped>
+.contact__modal {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: scale(0);
+  opacity: 0;
+  transition: all 0.4s linear;
+}
+.active__contact__modal {
+  transform: scale(1);
+  opacity: 1;
+}
+.success__wrap {
+  width: max-content;
+}
+.success__modal {
+  background: #fff;
+  padding: 14px;
+  border-radius: 10px;
+}
+.success__modal h2 {
+  font-size: 2rem;
+  color: green;
+}
+.success__progress {
+  width: 100%;
+  height: 6px;
+  border: 1px solid #fff;
+  margin-top: 1.5rem;
+  border-radius: 2px;
+  display: flex;
+}
+.progress {
+  width: 0%;
+  height: 100%;
+  display: inline-block;
+  background: linear-gradient(90deg, #e73b50, #d430d4);
+  transition: all linear 3s;
+}
+
+.active_progress {
+  width: 100%;
+}
 .contact__section {
   padding-top: 2rem;
 }
@@ -446,8 +532,8 @@ const faculties = [
   padding: 1rem 2.5rem;
   background: rgba(255, 255, 255, 0.25);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  /* backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px); */
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
 }
@@ -564,6 +650,20 @@ const faculties = [
   height: 155px;
   overflow-y: scroll;
 }
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px rgb(86, 210, 219);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #23d3b6;
+  border-radius: 10px;
+}
+
 .choose__faculty-list span {
   padding: 4px 8px;
   transition: all linear 0.4s;
@@ -615,15 +715,31 @@ const faculties = [
   width: 100px;
   font-size: 1.3rem;
   border-radius: 6px;
-  align-self: flex-end;
+  align-self: flex-start;
   color: #fff;
   transition: all 0.4s linear;
+  position: relative;
+  z-index: 20;
 }
 .register__btn:hover {
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
 }
-
-@media screen and (min-width: 370px) and (max-width: 576px) {
+@media screen and (min-width: 300px) and (max-width: 350px) {
+  .contact__btns {
+    padding: 0 1.5rem;
+    margin-top: 12rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+}
+@media screen and (min-width: 300px) and (max-width: 576px) {
+  .success__modal {
+    padding: 18px 10px;
+  }
+  .success__modal h2 {
+    font-size: 1.7rem;
+  }
   .contact__title {
     font-size: 2.8rem;
     width: max-content;
@@ -652,10 +768,7 @@ const faculties = [
   .contact__info-header h2 {
     font-size: 1.2rem;
   }
-  .contact__btns {
-    padding: 0 1.5rem;
-    margin-top: 12rem;
-  }
+
   .contact__btn {
     border: 1px solid rgba(0, 0, 0, 0.8);
     padding: 6px 12px;
@@ -681,7 +794,6 @@ const faculties = [
   .user__lastname {
     width: 100%;
     padding: 8px;
-    border: 1px solid rgba(153, 153, 153, 0.5);
     font-size: 1.4rem;
     border-radius: 4px;
   }
@@ -689,7 +801,6 @@ const faculties = [
   .choose__faculty {
     width: 100%;
     padding: 2px;
-    border: 1px solid rgba(153, 153, 153, 0.5);
     font-size: 1.4rem;
     border-radius: 4px;
   }
@@ -761,7 +872,6 @@ const faculties = [
   .user__lastname {
     width: 100%;
     padding: 8px;
-    border: 1px solid rgba(153, 153, 153, 0.5);
     font-size: 1.4rem;
     border-radius: 4px;
   }
@@ -769,7 +879,6 @@ const faculties = [
   .choose__faculty {
     width: 100%;
     padding: 2px;
-    border: 1px solid rgba(153, 153, 153, 0.5);
     font-size: 1.4rem;
     border-radius: 4px;
   }

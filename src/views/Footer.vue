@@ -37,31 +37,14 @@
         <!-- footer right -->
         <div>
           <ul class="footer__navlink">
-            <li v-for="(item, i) in linkData" :key="i">
-              <RouterLink :to="item.link">{{ item.page }}</RouterLink>
-            </li>
+            <li><RouterLink to="/">Bosh sahifa</RouterLink></li>
+            <li><a href="/#about_us">Biz haqimizda</a></li>
+            <li><RouterLink to="/faculty">Fakultetlar </RouterLink></li>
+            <li><RouterLink to="/news">Yangiliklar</RouterLink></li>
+            <li><a href="/#registr">Ro‘yxatdan o’tish</a></li>
           </ul>
           <div class="footer__map">
             <div style="position: relative; overflow: hidden">
-              <!-- <a
-                href="https://yandex.uz/maps/10334/samarkand/?utm_medium=mapframe&utm_source=maps"
-                style="
-                  color: #eee;
-                  font-size: 12px;
-                  position: absolute;
-                  top: 0px;
-                "
-                >Samarqand</a
-              > -->
-              <!-- <a
-                href="https://yandex.uz/maps/10334/samarkand/?feedback=object%2Fadd&feedback-context=toponym.default&ll=66.950461%2C39.705818&utm_medium=mapframe&utm_source=maps&z=17.62"
-                style="
-                  color: #eee;
-                  font-size: 12px;
-                  position: absolute;
-                  top: 14px;
-                "
-                >Yandex Xarita</a> -->
               <iframe
                 src="https://yandex.uz/map-widget/v1/-/CCUj7-WjSB"
                 width="100%"
@@ -80,24 +63,24 @@
       <div></div>
       <span>© All rights reserved 2022</span>
       <ul class="social__media">
-        <li>
+        <li class="social__media__link">
           <a href="#">
-            <icon-base name="telegram_icon" class="social_icon" />
+            <icon-base name="telegram_icon" class="social_icon2" />
           </a>
         </li>
-        <li>
+        <li class="social__media__link">
           <a href="#">
-            <icon-base name="inst_icon" class="social_icon" />
+            <icon-base name="inst_icon" class="social_icon2" />
           </a>
         </li>
-        <li>
+        <li class="social__media__link">
           <a href="#">
-            <icon-base name="youtube_icon" class="social_icon" />
+            <icon-base name="youtube_icon" class="social_icon2" />
           </a>
         </li>
-        <li>
+        <li class="social__media__link">
           <a href="#">
-            <icon-base name="facebook_icon" class="social_icon" />
+            <icon-base name="facebook_icon" class="social_icon2" />
           </a>
         </li>
       </ul>
@@ -110,34 +93,11 @@ import { RouterLink } from "vue-router";
 import IconBase from "@/components/IconBase.vue";
 import logo from "@/assets/images/logo.svg";
 import map from "@/assets/images/map.png";
-const linkData = [
-  {
-    page: "Bosh sahifa",
-    link: "/",
-  },
-  {
-    page: "Haqida",
-    link: "/",
-  },
-  {
-    page: "Fakultetlar",
-    link: "/faculty",
-  },
-  {
-    page: "Yangiliklar",
-    link: "/news",
-  },
-  {
-    page: "Ro‘yxatdan o’tish ",
-    link: "/#contact",
-  },
-];
 </script>
 
 <style scoped>
 /* #50c9c3 */
 footer {
-  /* background: #96deda; */
   background: linear-gradient(90deg, #085078, #85d8ce);
   padding-top: 8.2rem;
   color: #ffff;
@@ -173,7 +133,7 @@ footer {
   line-height: 130%;
 }
 .router-link-active {
-  color: #fece02;
+  color: #184053;
 }
 .footer__map {
   width: 539px;
@@ -196,7 +156,7 @@ footer {
   content: "";
   width: 100%;
   height: 2px;
-  background: #fece02;
+  background: #0eaf6c;
   position: absolute;
   left: 0;
   top: -10px;
@@ -205,21 +165,26 @@ footer {
   content: "";
   width: 100%;
   height: 2px !important;
-  background: #fece02;
+  background: #0eaf6c;
   position: absolute;
   left: 0;
   bottom: -10px;
 }
 .footer__navlink li {
-  font-weight: 600;
+  font-weight: 500;
   font-size: 1.6rem;
   line-height: 24px;
+  transition: all linear 0.4s;
 }
+.footer__navlink li:hover {
+  color: #184053;
+}
+
 .footer__line {
   display: block;
   width: 100%;
   height: 2px;
-  background: #fece02;
+  background: #0eaf6c;
   margin: 6.7rem 0 3rem;
 }
 .footer__bottom {
@@ -233,10 +198,41 @@ footer {
   gap: 2.4rem;
   height: max-content;
 }
-.social__media li {
-  height: max-content;
-}
 
+.social__media__link {
+  position: relative;
+  width: 37px;
+  height: 37px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.social__media__link a {
+  position: relative;
+  z-index: 4;
+  display: inline-block;
+  margin-top: 1px;
+}
+.social__media__link::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: block;
+  background: linear-gradient(
+    90deg,
+    rgb(231, 59, 80) 0%,
+    rgb(212, 48, 212) 100%
+  );
+  top: 0;
+  left: 0;
+  z-index: 1;
+  border-radius: 50%;
+  transition: all linear 0.4s;
+}
+.social__media__link:hover::after {
+  transform: scale(0);
+}
 .footer__bottom span {
   font-weight: 500;
   font-size: 1.2rem;
@@ -247,37 +243,41 @@ footer {
 }
 
 /* media query */
-@media screen and (min-width: 370px) and (max-width: 576px) {
+@media screen and (min-width: 300px) and (max-width: 576px) {
   footer {
     padding-top: 5.2rem;
   }
   .footer__flex {
     flex-direction: column;
-    gap: 30px;
+    gap: 10px;
   }
   .footer__logo {
     align-items: center;
     justify-content: center;
   }
+  .footer__logo h4 {
+    font-size: 1.3rem;
+    line-height: 120%;
+  }
   .footer__logo img {
-    width: 65px;
-    height: 65px;
+    width: 6rem;
+    height: 6rem;
   }
   .contact__flex {
-    gap: 8px;
+    gap: 5px;
     align-items: center;
     justify-content: center;
+    margin: 3px 0;
   }
   .footer__link {
-    font-size: 1.4rem;
+    font-size: 0.9rem;
     line-height: 100%;
   }
   .footer__navlink {
     margin: 20px 0;
   }
   .footer__navlink li {
-    font-weight: 500;
-    font-size: 1.4rem;
+    font-size: 1rem;
     line-height: 20px;
   }
   .footer__map {
@@ -292,6 +292,18 @@ footer {
   }
   .footer__line {
     margin: 3.7rem 0 2.5rem;
+  }
+  .footer__bottom span {
+    font-size: 1rem;
+    line-height: 18px;
+    display: block;
+  }
+  .social__media {
+    gap: 2rem;
+  }
+  .social__media__link {
+    width: 27px;
+    height: 27px;
   }
 }
 
@@ -356,7 +368,6 @@ footer {
   }
   .footer__logo {
     align-items: center;
-    justify-content: center;
   }
   .footer__logo img {
     width: 75px;
@@ -383,7 +394,7 @@ footer {
     line-height: 22px;
   }
   .footer__map {
-    max-width: 539px;
+    max-width: 500px;
     margin-top: 30px;
   }
   .footer__bottom {
@@ -402,9 +413,22 @@ footer {
   transition: all linear 0.6s;
   cursor: pointer;
 }
-.social_icon svg:hover path {
-  fill: #fece02;
+.social_icon2 svg path {
+  fill: rgb(59, 213, 224);
+  transition: all linear 0.4s;
+  cursor: pointer;
 }
+.social_icon2 svg {
+  transition: all linear 0.4s;
+  transform: scale(0.9);
+}
+.social__media__link:hover .social_icon2 svg {
+  transform: scale(1.2);
+}
+.social__media__link:hover .social_icon2 svg path {
+  fill: #fff;
+}
+
 .social_icon svg path {
   fill: #fff;
 }
@@ -415,5 +439,13 @@ footer {
 }
 .gm-control-active {
   display: none;
+}
+@media screen and (min-width: 300px) and (max-width: 576px) {
+  .social_icon svg {
+    width: 14px;
+  }
+  .social_icon2 svg {
+    width: 16px;
+  }
 }
 </style>

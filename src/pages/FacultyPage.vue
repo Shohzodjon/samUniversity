@@ -181,8 +181,30 @@ import img from "@/assets/images/nursery.png";
   align-items: flex-end;
   margin-top: 3rem;
 }
+@media screen and (min-width: 300px) and (max-width: 450px) {
+  .slug__grid {
+    grid-template-columns: repeat(1, 280px);
+    gap: 3rem;
+    justify-content: center;
+  }
+  .grid__item {
+    max-width: 300px;
+    padding: 3rem 0;
+  }
+}
+@media screen and (min-width: 451px) and (max-width: 576px) {
+  .slug__grid {
+    grid-template-columns: repeat(1, 350px);
+    gap: 3rem;
+    justify-content: center;
+  }
+  .grid__item {
+    max-width: 350px;
+    padding: 3rem 0;
+  }
+}
 
-@media screen and (min-width: 370px) and (max-width: 576px) {
+@media screen and (min-width: 300px) and (max-width: 576px) {
   .faculty__page {
     padding: 11rem 0 6rem;
   }
@@ -216,15 +238,6 @@ import img from "@/assets/images/nursery.png";
   .faculty__info {
     font-size: 2.8rem;
     margin: 2rem auto 5rem;
-  }
-  .slug__grid {
-    grid-template-columns: repeat(1, 300px);
-    gap: 3rem;
-    justify-content: center;
-  }
-  .grid__item {
-    max-width: 300px;
-    padding: 3rem 0;
   }
 }
 

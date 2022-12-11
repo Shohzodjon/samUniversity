@@ -16,6 +16,10 @@ import Navbar from "@/views/Navbar.vue";
 </script>
 
 <style>
+.app {
+  width: 100%;
+  overflow-x: hidden;
+}
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0.2;

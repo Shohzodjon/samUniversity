@@ -8,7 +8,7 @@
       <div class="news__footer">
         <span class="news__date">{{ news__create }}</span>
         <button>
-          <router-link to="/news"> Batafsil</router-link>
+          <router-link :to="news__link"> Batafsil</router-link>
         </button>
       </div>
     </div>
@@ -26,6 +26,7 @@ defineProps({
   news__img: String,
   news__title: String,
   news__create: String,
+  news__link: String,
 });
 </script>
 <style scoped>
@@ -94,7 +95,7 @@ defineProps({
 }
 .news__footer a {
   padding: 8px 23px;
-  border: 1px solid rgb(41, 190, 183);
+  border: 1px solid #0eaf6c;
   border-radius: 12px;
   font-weight: 500;
   font-size: 1.6rem;
@@ -107,7 +108,7 @@ defineProps({
     rgba(41, 190, 183, 0.4) 0px 6px 6px;
 }
 
-@media screen and (min-width: 370px) and (max-width: 576px) {
+@media screen and (min-width: 300px) and (max-width: 576px) {
   .news__card {
     max-width: 400px;
     min-height: 350px;

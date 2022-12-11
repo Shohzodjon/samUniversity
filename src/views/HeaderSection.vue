@@ -155,9 +155,9 @@ header video {
 }
 
 /* media query */
-@media screen and (min-width: 370px) and (max-width: 576px) {
+@media screen and (min-width: 300px) and (max-width: 576px) {
   .header__section {
-    min-height: 150px;
+    min-height: 200px;
   }
   header video {
     width: 100%;
@@ -165,7 +165,7 @@ header video {
   }
   .header__title {
     left: 0;
-    top: 80px;
+    top: 47%;
     height: 50px;
   }
   .header__title h1::before {
@@ -174,13 +174,13 @@ header video {
     background: #085078;
   }
   .header__title h1 {
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: 600;
-    line-height: 130%;
+    line-height: 120%;
     margin-left: 25px;
   }
   .swiper__btns {
-    top: 50%;
+    top: 60%;
   }
 }
 @media screen and (min-width: 577px) and (max-width: 768px) {
@@ -207,7 +207,7 @@ header video {
     margin-left: 25px;
   }
   .swiper__btns {
-    top: 45%;
+    top: 50%;
   }
 }
 @media screen and (min-width: 769px) and (max-width: 991px) {
@@ -259,9 +259,16 @@ header video {
 </style>
 
 <style>
-@media screen and (min-width: 370px) and (max-width: 576px) {
+.shape svg {
+  transition: all linear 0.4s;
+}
+
+.arrow__icon svg path {
+  fill: rgb(85, 169, 218);
+}
+@media screen and (min-width: 300px) and (max-width: 576px) {
   .shape svg {
-    width: 20px;
+    width: 24px;
   }
 }
 @media screen and (min-width: 577px) and (max-width: 768px) {

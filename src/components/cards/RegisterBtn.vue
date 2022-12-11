@@ -58,7 +58,7 @@ defineProps({
   height: 22px;
 }
 
-@media screen and (min-width: 370px) and (max-width: 576px) {
+@media screen and (min-width: 300px) and (max-width: 576px) {
   .section__btn {
     padding: 13px;
     font-size: 1.9rem;

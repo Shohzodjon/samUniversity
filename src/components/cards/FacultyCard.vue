@@ -45,7 +45,7 @@ defineProps({
   color: #232323;
 }
 
-@media screen and (min-width: 370px) and (max-width: 576px) {
+@media screen and (min-width: 300px) and (max-width: 576px) {
   .faculty__card {
     max-height: 200px;
     padding: 15px 10px;

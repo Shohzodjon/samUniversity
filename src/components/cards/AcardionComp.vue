@@ -60,7 +60,7 @@ const toggle = () => {
   height: max-content;
 }
 
-@media screen and (min-width: 370px) and (max-width: 576px) {
+@media screen and (min-width: 300px) and (max-width: 576px) {
   .acardion__comp {
     padding: 20px 28.29px 20px;
   }
