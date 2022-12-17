@@ -81,7 +81,7 @@ onMounted(() => {
   width: 100%;
   height: 3px;
   border-radius: 3px;
-  background: #085078;
+  background: var(--second-blue);
   position: absolute;
   bottom: -4px;
   left: 0;
@@ -123,7 +123,7 @@ onMounted(() => {
   width: 3px;
   border-radius: 3px;
   height: 95%;
-  background: #085078;
+  background: var(--second-blue);
   position: absolute;
   top: 0;
   left: -10px;
@@ -146,7 +146,7 @@ onMounted(() => {
   border-radius: 3px;
   bottom: -5px;
   left: 0;
-  background: #085078;
+  background: var(--second-blue);
   position: absolute;
   display: block;
 }

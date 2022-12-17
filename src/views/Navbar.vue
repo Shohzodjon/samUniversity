@@ -23,6 +23,9 @@
           <li>
             <router-link to="/news">{{ $t("news") }}</router-link>
           </li>
+          <li>
+            <router-link to="/librery">{{ $t("librery") }}</router-link>
+          </li>
         </ul>
         <div class="nav__last">
           <div class="change__lang">
@@ -40,6 +43,7 @@
           </div>
           <div class="menu__wrap">
             <a :href="document" class="take__document" download="document">
+              <span>Shartnoma </span>
               <icon-base name="download_icon" class="download_icon" />
             </a>
             <icon-base
@@ -69,8 +73,12 @@
       <li>
         <router-link to="/news" @click="openNav">{{ $t("news") }}</router-link>
       </li>
+      <li>
+        <router-link to="/librery">{{ $t("librery") }}</router-link>
+      </li>
       <li class="responsive__lang">
-        <a :href="document" download="document" class="">
+        <a :href="document" download="document" class="rest__document">
+          <span>Shartnoma</span>
           <icon-base name="download_icon" class="download_responsive" />
         </a>
         <div class="responsive__lang__wrapp">
@@ -153,7 +161,8 @@ onMounted(() => {
   width: 100%;
 }
 .red {
-  background: linear-gradient(90deg, #085078, #85d8ce) !important;
+  /* background: linear-gradient(90deg, #085078, #85d8ce) !important; */
+  background: var(--main-blue);
   top: 0 !important;
 }
 .navbar__flex {
@@ -178,10 +187,10 @@ onMounted(() => {
 .nav__link {
   display: flex;
   align-items: center;
-  gap: 8rem;
+  gap: 6rem;
 }
 .router-link-active {
-  color: #184053;
+  color: var(--dark-blue);
 }
 .nav__link li {
   font-weight: 600;
@@ -191,7 +200,7 @@ onMounted(() => {
   transition: all linear 0.3s;
 }
 .nav__link li:hover {
-  color: #184053;
+  color: var(--dark-blue);
 }
 .nav__last {
   display: flex;
@@ -320,7 +329,7 @@ onMounted(() => {
 }
 .responsive__list li:hover {
   background: rgba(255, 255, 255, 0.9);
-  color: #184053;
+  color: var(--dark-blue);
 }
 
 .responsive__lang:hover {
@@ -361,7 +370,23 @@ onMounted(() => {
   padding-left: 0;
   overflow: hidden;
 }
-
+.take__document {
+  display: flex;
+  align-items: center;
+  border: 1px solid #fff;
+  padding: 4.5px 8px;
+  gap: 8px;
+  border-radius: 6px;
+  font-size: 1.2rem;
+  color: #fff;
+}
+.rest__document {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.2rem;
+  color: #fff;
+}
 /*  media query  */
 
 @media screen and (min-width: 300px) and (max-width: 576px) {
@@ -388,9 +413,7 @@ onMounted(() => {
   .res__change {
     display: block;
   }
-  .res__document {
-    display: block;
-  }
+
   .menu__icon {
     display: block;
   }
@@ -400,6 +423,9 @@ onMounted(() => {
   .responsive__lang {
     display: flex;
     justify-content: space-between;
+  }
+  .rest__document {
+    display: flex;
   }
   .responsive__list li {
     font-size: 1.4rem;
@@ -433,7 +459,7 @@ onMounted(() => {
     display: none;
   }
   .take__document {
-    display: block;
+    display: flex;
   }
   .menu__icon {
     display: block;
@@ -466,7 +492,7 @@ onMounted(() => {
     display: block;
   }
   .take__document {
-    display: block;
+    display: flex;
   }
   .res__change {
     display: none;
@@ -486,16 +512,19 @@ onMounted(() => {
 
   .nav__link {
     display: flex;
-    gap: 4rem;
+    gap: 3rem;
   }
   .menu__icon {
     display: none;
   }
   .take__document {
-    display: block;
+    display: flex;
   }
   .res__change {
     display: none;
+  }
+  .nav__last {
+    gap: 2rem;
   }
   .res__document {
     display: none !important;
@@ -518,7 +547,7 @@ onMounted(() => {
   width: 18px;
 }
 .download_icon svg {
-  width: 20px;
+  width: 17px;
 }
 .download_icon svg path {
   fill: #fff;

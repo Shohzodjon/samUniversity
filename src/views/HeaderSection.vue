@@ -125,7 +125,7 @@ header video {
   left: -15px;
   width: 4px;
   height: 100%;
-  background: #085078;
+  background: var(--second-blue);
 }
 .swiper__btns {
   display: flex;
@@ -171,7 +171,6 @@ header video {
   .header__title h1::before {
     left: -10px;
     width: 3px;
-    background: #085078;
   }
   .header__title h1 {
     font-size: 2rem;

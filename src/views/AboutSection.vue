@@ -70,7 +70,7 @@ section {
   left: 0;
   width: 100%;
   height: 3px;
-  background: #085078;
+  background: var(--second-blue);
   border-radius: 4px;
 }
 .section__two li {

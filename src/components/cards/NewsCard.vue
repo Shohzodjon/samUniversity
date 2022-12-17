@@ -95,7 +95,7 @@ defineProps({
 }
 .news__footer a {
   padding: 8px 23px;
-  border: 1px solid #0eaf6c;
+  border: 1px solid var(--main-blue);
   border-radius: 12px;
   font-weight: 500;
   font-size: 1.6rem;

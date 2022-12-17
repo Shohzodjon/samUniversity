@@ -18,9 +18,9 @@ defineProps({
   width: max-content;
   gap: 29px;
   align-items: center;
-  background: #29beb7;
+  background: var(--main-blue);
   border-radius: 10px;
-  padding: 20px 19px 20px 30px;
+  padding: 15px 19px 15px 30px;
   font-weight: 500;
   font-size: 2rem;
   line-height: 140%;
@@ -31,7 +31,7 @@ defineProps({
   transition: all linear 0.3s;
 }
 .section__btn:hover {
-  background: #40cec7;
+  background: var(--second-blue);
 }
 .small__arrow {
   transition: all linear 0.3s;

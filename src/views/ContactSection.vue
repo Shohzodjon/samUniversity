@@ -480,7 +480,7 @@ const faculties = [
 .contact__us .contact__us-input,
 .contact__us textarea {
   flex-grow: 1;
-  border: 1px solid #184053;
+  border: 1px solid var(--main-blue);
   padding: 6px 12px;
   border-radius: 4px;
   font-size: 1.4rem;
@@ -493,7 +493,7 @@ const faculties = [
   border-color: aqua;
 }
 .contact__submit {
-  background: #4082dc;
+  background: var(--main-blue);
   padding: 8px 18px;
   width: max-content;
   color: #fff;
@@ -519,7 +519,7 @@ const faculties = [
   left: 0;
   width: 100%;
   height: 3px;
-  background: #085078;
+  background: var(--second-blue);
   border-radius: 4px;
   content: "";
   display: block;
@@ -774,7 +774,7 @@ const faculties = [
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #23d3b6;
+  background: var(--main-blue);
   border-radius: 10px;
 }
 
@@ -825,7 +825,7 @@ const faculties = [
 }
 .register__btn {
   padding: 8px 14px;
-  background: #4082dc;
+  background: var(--main-blue);
   width: max-content;
   font-size: 1.3rem;
   border-radius: 6px;

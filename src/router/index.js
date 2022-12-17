@@ -22,6 +22,11 @@ const router = createRouter({
       name: "faculty",
       component: () => import("@/pages/FacultyPage.vue"),
     },
+    {
+      path: "/librery",
+      name: "librery",
+      component: () => import("@/pages/Books.vue"),
+    },
   ],
 });
 

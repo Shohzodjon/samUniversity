@@ -55,7 +55,7 @@ import inteligent from "@/assets/images/inteligent.svg";
   position: absolute;
   width: 100%;
   height: 3px;
-  background: #085078;
+  background: var(--second-blue);
   bottom: -9px;
   border-radius: 4px;
   left: 0;

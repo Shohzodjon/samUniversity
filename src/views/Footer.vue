@@ -108,7 +108,8 @@ import map from "@/assets/images/map.png";
 <style scoped>
 /* #50c9c3 */
 footer {
-  background: linear-gradient(90deg, #085078, #85d8ce);
+  /* background: linear-gradient(90deg, #085078, #85d8ce); */
+  background: var(--main-blue);
   padding-top: 8.2rem;
   color: #ffff;
   padding-bottom: 30px;
@@ -143,7 +144,7 @@ footer {
   line-height: 130%;
 }
 .router-link-active {
-  color: #184053;
+  color: var(--dark-blue);
 }
 .footer__map {
   width: 539px;
@@ -166,7 +167,7 @@ footer {
   content: "";
   width: 100%;
   height: 2px;
-  background: #0eaf6c;
+  background: var(--second-blue);
   position: absolute;
   left: 0;
   top: -10px;
@@ -175,7 +176,7 @@ footer {
   content: "";
   width: 100%;
   height: 2px !important;
-  background: #0eaf6c;
+  background: var(--second-blue);
   position: absolute;
   left: 0;
   bottom: -10px;
@@ -187,14 +188,14 @@ footer {
   transition: all linear 0.4s;
 }
 .footer__navlink li:hover {
-  color: #184053;
+  color: var(--dark-blue);
 }
 
 .footer__line {
   display: block;
   width: 100%;
   height: 2px;
-  background: #0eaf6c;
+  background: var(--second-blue);
   margin: 6.7rem 0 3rem;
 }
 .footer__bottom {
@@ -424,7 +425,7 @@ footer {
   cursor: pointer;
 }
 .social_icon2 svg path {
-  fill: rgb(59, 213, 224);
+  fill: #fff;
   transition: all linear 0.4s;
   cursor: pointer;
 }

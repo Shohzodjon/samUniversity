@@ -57,7 +57,7 @@ import facultyData from "@/fake-data/faculty.js";
   width: 100%;
   height: 3px;
   border-radius: 4px;
-  background: #085078;
+  background: var(--dark-blue);
   bottom: -5px;
   left: 0;
 }

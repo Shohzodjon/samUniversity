@@ -64,7 +64,7 @@ import ContactSection from "@/views/ContactSection.vue";
   position: absolute;
   left: 0;
   bottom: -4px;
-  background: #085078;
+  background: var(--second-blue);
   height: 3px;
   border-radius: 4px;
 }

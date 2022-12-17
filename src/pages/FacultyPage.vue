@@ -52,17 +52,18 @@
       </div>
 
       <h2 class="faculty__info">{{ $t("go_on") }}</h2>
-
-      <div class="slug__grid">
-        <faculty-card
-          v-for="i in facultyData"
-          :key="i.id"
-          :icon_name="i.icon"
-          :title="i.title"
-          class="grid__item"
-        />
+      <div class="grid__wrapp">
+        <div class="slug__grid">
+          <faculty-card
+            v-for="i in facultyData"
+            :key="i.id"
+            :icon_name="i.icon"
+            :title="i.title"
+            class="grid__item"
+          />
+        </div>
+        <div class="last__item"><register-btn link="/#registr" /></div>
       </div>
-      <div class="last__item"><register-btn link="/#registr" /></div>
     </div>
   </section>
 </template>
@@ -91,7 +92,7 @@ import img from "@/assets/images/nursery.png";
   content: "";
   width: 100%;
   height: 3px;
-  background: #085078;
+  background: var(--second-blue);
   position: absolute;
   bottom: -4px;
   border-radius: 3px;
@@ -124,7 +125,7 @@ import img from "@/assets/images/nursery.png";
 .slug__block::before {
   content: "";
   width: 3px;
-  background: #085078;
+  background: var(--second-blue);
   height: 100%;
   position: absolute;
   left: -15px;
@@ -153,11 +154,19 @@ import img from "@/assets/images/nursery.png";
   width: 100%;
   height: 3px;
   border-radius: 3px;
-  background: #085078;
+  background: var(--second-blue);
   position: absolute;
   bottom: -4px;
   left: 0;
   display: block;
+}
+.grid__wrapp {
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(../assets/images/faculty.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 4rem 1.5rem 2rem;
+  border-radius: 12px;
 }
 .slug__grid {
   display: grid;
@@ -173,6 +182,7 @@ import img from "@/assets/images/nursery.png";
   box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px,
     rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px,
     rgba(0, 0, 0, 0.07) 0px 16px 16px;
+  background: rgba(255, 255, 255, 0.9);
 }
 
 .last__item {
