@@ -8,6 +8,7 @@
               type="text"
               id="book__search"
               placeholder="Book searching ..."
+              v-model="searchVal"
             />
             <icon-base name="search_icon" class="search__icon" />
           </label>
@@ -19,6 +20,7 @@
             @click="showMenu"
           />
         </div>
+
         <div class="left__sidebar" :class="[show ? 'active__leftside' : '']">
           <ul>
             <icon-base
@@ -61,8 +63,9 @@
 import BookCard from "@/components/cards/BookCard.vue";
 // import bookData from "@/fake-data/librery-data.js";
 import IconBase from "@/components/IconBase.vue";
-import { ref } from "vue";
+import { ref, computed } from "vue";
 const show = ref(false);
+const searchVal = ref("");
 const bookData = ref([
   {
     id: Math.random() * 1000,
@@ -158,24 +161,37 @@ const bookData = ref([
 const showMenu = () => {
   show.value = !show.value;
 };
-
 const filterBookIlmiy = (id) => {
   let newArr = bookData.value.filter((item) => item.filter == id);
   bookData.value = newArr;
+  show.value = false;
 };
 bookData.value = bookData.value;
 const filterBookOquv = (id) => {
   let newArr = bookData.value.filter((item) => item.filter == id);
   bookData.value = newArr;
+  show.value = false;
 };
 const filterBookJahon = (id) => {
   let newArr = bookData.value.filter((item) => item.filter == id);
   bookData.value = newArr;
+  show.value = false;
 };
 const filterBookPre = (id) => {
   let newArr = bookData.value.filter((item) => item.filter == id);
   bookData.value = newArr;
+  show.value = false;
 };
+
+const ddd = computed(() => {
+  if (!searchVal.value) {
+    return bookData.value;
+  } else {
+    let searched = bookData.value.filter((item) =>
+      item.title.toLowerCase().includes(searchVal.value.toLowerCase())
+    );
+  }
+});
 </script>
 <style scoped>
 .books__section {
@@ -236,6 +252,7 @@ const filterBookPre = (id) => {
   top: 10.5rem;
   left: 2.5rem;
   display: none;
+  cursor: pointer;
 }
 .left__sidebar {
   width: 250px;
@@ -307,7 +324,8 @@ const filterBookPre = (id) => {
     width: 5px;
   }
   .search__bar {
-    width: 270px;
+    width: 250px;
+    left: 53%;
   }
   .right__sidebar {
     width: 100%;
@@ -323,7 +341,7 @@ const filterBookPre = (id) => {
   .left__sidebar {
     display: block;
     position: fixed;
-    width: 40%;
+    width: 65%;
     top: 8rem;
     padding-top: 20px;
     clip-path: polygon(0 0, 0 0, 0 99%, 0 99%);
@@ -334,6 +352,8 @@ const filterBookPre = (id) => {
   }
   .book__menu {
     display: block;
+    top: 95px;
+    left: 13px;
   }
   .left__sidebar ul {
     gap: 1rem;
@@ -531,6 +551,11 @@ const filterBookPre = (id) => {
   }
   .book__item div img {
     width: 100px !important;
+  }
+}
+@media screen and (min-width: 1251px) and (max-width: 1399px) {
+  .container {
+    padding-left: 0 !important;
   }
 }
 </style>

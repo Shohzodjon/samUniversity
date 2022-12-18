@@ -74,7 +74,9 @@
         <router-link to="/news" @click="openNav">{{ $t("news") }}</router-link>
       </li>
       <li>
-        <router-link to="/librery">{{ $t("librery") }}</router-link>
+        <router-link to="/librery" @click="openNav">{{
+          $t("librery")
+        }}</router-link>
       </li>
       <li class="responsive__lang">
         <a :href="document" download="document" class="rest__document">
