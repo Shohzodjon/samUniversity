@@ -102,7 +102,6 @@
 import { RouterLink } from "vue-router";
 import IconBase from "@/components/IconBase.vue";
 import logo from "@/assets/images/logo.svg";
-import map from "@/assets/images/map.png";
 </script>
 
 <style scoped>
