@@ -150,7 +150,7 @@ onMounted(() => {
     let scroll = window.scrollY;
     if (scroll > 80) {
       if (route.path == "/librery") {
-        headerRef.value.classList.add("");
+        headerRef.value.classList.add("ss");
       } else {
         headerRef.value.classList.add("red");
       }

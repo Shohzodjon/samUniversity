@@ -52,6 +52,9 @@
             <li>
               <a href="/#registr">{{ $t("register") }}</a>
             </li>
+            <li>
+              <router-link to="/librery">{{ $t("librery") }}</router-link>
+            </li>
           </ul>
           <div class="footer__map">
             <div style="position: relative; overflow: hidden">
@@ -145,7 +148,7 @@ footer {
   color: var(--dark-blue);
 }
 .footer__map {
-  width: 539px;
+  width: 600px;
   border-radius: 12px;
   overflow: hidden;
 }
@@ -160,6 +163,7 @@ footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 1.5rem;
 }
 .footer__navlink::after {
   content: "";
