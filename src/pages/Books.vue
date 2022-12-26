@@ -299,17 +299,22 @@ const ddd = computed(() => {
 /*  right side bar */
 .right__sidebar {
   width: calc(100%-250px);
-  padding-top: 2rem;
+  padding-top: 6rem;
 }
 .book__grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 2rem;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.5rem;
   width: max-content;
   margin: 0 auto;
 }
 .colse__book {
   display: none;
+}
+.book__item:nth-child(5) > div {
+  width: 180px;
+  height: 264px;
+  overflow: hidden;
 }
 
 @media screen and (min-width: 300px) and (max-width: 576px) {
@@ -383,7 +388,7 @@ const ddd = computed(() => {
     width: 100%;
   }
   .book__grid {
-    grid-template-columns: repeat(2, 235px);
+    grid-template-columns: repeat(2, 200px);
     row-gap: 2.5rem;
   }
   .book__item {
@@ -540,7 +545,7 @@ const ddd = computed(() => {
   }
   .book__grid {
     grid-template-columns: repeat(4, 220px);
-    gap: 0.6rem;
+    gap: 1.3rem;
   }
   .book__item {
     width: max-content;

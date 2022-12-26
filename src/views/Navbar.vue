@@ -1,5 +1,9 @@
 <template>
-  <nav class="navbar" ref="headerRef">
+  <nav
+    class="navbar"
+    ref="headerRef"
+    :class="[route.path == '/librery' ? 'red' : '']"
+  >
     <div class="container">
       <div class="navbar__flex">
         <div class="nav__logo">
@@ -116,6 +120,8 @@ import i18n from "@/language/i18n.js";
 import document from "@/assets/images/document.pdf";
 import downloadIcon from "@/assets/images/download.svg";
 import { watch } from "vue";
+import { useRoute } from "vue-router";
+const route = useRoute();
 const langChoose = ref(false);
 const showNav = ref(false);
 const toggle = () => {
@@ -143,9 +149,17 @@ onMounted(() => {
   window.addEventListener("scroll", () => {
     let scroll = window.scrollY;
     if (scroll > 80) {
-      headerRef.value.classList.add("red");
+      if (route.path == "/librery") {
+        headerRef.value.classList.add("");
+      } else {
+        headerRef.value.classList.add("red");
+      }
     } else {
-      headerRef.value.classList.remove("red");
+      if (route.path == "/librery") {
+        headerRef.value.classList.add("red");
+      } else {
+        headerRef.value.classList.remove("red");
+      }
     }
     return () => window.removeEventListener("scroll");
   });
@@ -163,7 +177,6 @@ onMounted(() => {
   width: 100%;
 }
 .red {
-  /* background: linear-gradient(90deg, #085078, #85d8ce) !important; */
   background: var(--main-blue);
   top: 0 !important;
 }

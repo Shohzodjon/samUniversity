@@ -94,7 +94,6 @@
           </a>
         </li>
       </ul>
-      <div id="map"></div>
     </div>
   </footer>
 </template>

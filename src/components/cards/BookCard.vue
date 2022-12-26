@@ -4,7 +4,7 @@
       <img src="@/assets/images/book1.png" alt="book-img" />
     </div>
     <div class="book__info">
-      <h3>{{ book_title }}</h3>
+      <h3 class="line-clamp-1">{{ book_title }}</h3>
       <button class="book__btn">{{ $t("in_order") }}</button>
     </div>
   </div>
@@ -24,6 +24,7 @@ defineProps({
   cursor: pointer;
   transition: all linear 0.4s;
   overflow: hidden;
+  height: max-content;
 }
 .book__card:hover {
   box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px,
@@ -31,7 +32,7 @@ defineProps({
     rgba(0, 0, 0, 0.07) 0px 16px 16px;
 }
 .book__img {
-  max-width: 200px;
+  max-width: 160px;
 }
 .book__img img {
   width: 100%;
@@ -42,15 +43,22 @@ defineProps({
   font-weight: 600;
   font-style: italic;
   transition: 0.7s linear all;
-  transform: translateX(-50%);
   text-align: center;
-  opacity: 0;
+  opacity: 1;
   color: var(--dark-blue);
 }
-.book__card:hover .book__info h3 {
+.line-clamp-1 {
+  word-break: break-word !important;
+  overflow: hidden !important;
+  display: -webkit-box !important;
+  -webkit-box-orient: vertical !important;
+  -webkit-line-clamp: 1;
+}
+
+/* .book__card:hover .book__info h3 {
   transform: translateX(0);
   opacity: 1;
-}
+} */
 .book__btn {
   padding: 8px 10px;
   border: 2px solid rgba(24, 64, 83, 0.4);
@@ -69,5 +77,10 @@ defineProps({
   border-color: transparent;
   transform: translateX(0);
   opacity: 1;
+}
+@media screen and (min-width: 300px) and (max-width: 576px) {
+  .book__img {
+    max-width: 150px;
+  }
 }
 </style>
