@@ -50,9 +50,10 @@
           rahbarlari bilan faxirlanadi.
         </p>
       </div>
-
-      <h2 class="faculty__info">{{ $t("go_on") }}</h2>
-      <div class="grid__wrapp">
+    </div>
+    <div class="grid__wrapp">
+      <div class="container">
+        <h2 class="faculty__info">{{ $t("go_on") }}</h2>
         <div class="slug__grid">
           <faculty-card
             v-for="i in facultyData"
@@ -76,7 +77,7 @@ import img from "@/assets/images/nursery.png";
 </script>
 <style scoped>
 .faculty__page {
-  padding: 10rem 0 8rem;
+  padding: 10rem 0 4rem;
 }
 
 .faculty__title {
@@ -165,8 +166,9 @@ import img from "@/assets/images/nursery.png";
     url(../assets/images/faculty.jpg);
   background-repeat: no-repeat;
   background-size: cover;
-  padding: 4rem 1.5rem 2rem;
-  border-radius: 12px;
+  padding: 2rem 1.5rem 3rem;
+  max-width: 1770px;
+  margin: 3rem auto 0;
 }
 .slug__grid {
   display: grid;
@@ -216,7 +218,7 @@ import img from "@/assets/images/nursery.png";
 
 @media screen and (min-width: 300px) and (max-width: 576px) {
   .faculty__page {
-    padding: 11rem 0 6rem;
+    padding: 11rem 0 2rem;
   }
   .faculty__title {
     font-size: 2.8rem;
@@ -253,7 +255,7 @@ import img from "@/assets/images/nursery.png";
 
 @media screen and (min-width: 577px) and (max-width: 768px) {
   .faculty__page {
-    padding: 12rem 0 7rem;
+    padding: 12rem 0 4rem;
   }
   .faculty__title {
     font-size: 3rem;
@@ -297,7 +299,7 @@ import img from "@/assets/images/nursery.png";
 }
 @media screen and (min-width: 769px) and (max-width: 991px) {
   .faculty__page {
-    padding: 12rem 0 8rem;
+    padding: 12rem 0 4rem;
   }
   .faculty__title {
     font-size: 3.5rem;

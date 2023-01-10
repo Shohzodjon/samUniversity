@@ -1,5 +1,5 @@
 <template>
-  <section class="">
+  <section class="faculty__section">
     <div class="container">
       <div class="faculty__section">
         <h2 class="faculty__title">Fakultetlar</h2>
@@ -26,16 +26,18 @@ import FacultyCard from "@/components/cards/FacultyCard.vue";
 import facultyData from "@/fake-data/faculty.js";
 </script>
 <style scoped>
-.faculty__section {
+section {
   width: 100%;
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url(../assets/images/faculty.jpg);
   background-repeat: no-repeat;
   background-size: cover;
+  padding: 30px 45px 50px;
+  max-width: 1770px;
+}
+.faculty__section {
   position: relative;
-  padding: 30px 45px;
   margin: 0 auto;
-  border-radius: 12px;
 }
 
 .faculty__section .container {

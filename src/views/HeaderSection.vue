@@ -6,7 +6,7 @@
       :slides-per-view="1"
       :space-between="0"
       v-bind="settings"
-      :autoplay="true"
+      :autoplay="false"
       :navigation="{
         nextEl: '.swiper-next',
         prevEl: '.swiper-prev',
@@ -89,8 +89,9 @@ const onSlideChange = () => {
 </script>
 <style scoped>
 .header__section {
-  max-width: 1600px;
   min-height: 678px;
+  max-height: 1000px;
+  max-width: 1770px;
   position: relative;
   margin: 0 auto;
   overflow: hidden;
@@ -99,7 +100,8 @@ const onSlideChange = () => {
 
 header video {
   width: 100%;
-  height: 100%;
+  height: 100% !important;
+  /* max-height: 1000px !important; */
 }
 .header__title {
   position: absolute !important;

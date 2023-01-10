@@ -107,13 +107,13 @@ import logo from "@/assets/images/logo.svg";
 </script>
 
 <style scoped>
-/* #50c9c3 */
 footer {
-  /* background: linear-gradient(90deg, #085078, #85d8ce); */
   background: var(--main-blue);
   padding-top: 8.2rem;
   color: #ffff;
   padding-bottom: 30px;
+  max-width: 1770px;
+  margin: 0 auto;
 }
 .footer__flex {
   display: flex;

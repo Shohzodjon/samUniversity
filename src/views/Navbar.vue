@@ -171,7 +171,9 @@ onMounted(() => {
   padding: 1rem 0;
   position: fixed;
   top: 0 !important;
-  left: 0;
+  max-width: 1770px;
+  left: 50%;
+  transform: translateX(-50%);
   right: 0;
   z-index: 9999;
   width: 100%;

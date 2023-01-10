@@ -42,16 +42,17 @@ import RegisterBtn from "@/components/cards/RegisterBtn.vue";
 <style scoped>
 section {
   width: 100%;
+  max-width: 1770px;
+  margin: 0 auto;
   padding-top: 8rem;
+  background: url(../assets/images/about.png);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .section__two {
   width: 100%;
   min-height: 652px;
-  border-radius: 12px;
   padding: 84px 50px 55px 50px;
-  background: url(../assets/images/about.png);
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 .section__title {
   position: relative;
