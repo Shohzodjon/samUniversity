@@ -233,7 +233,6 @@ import logo from "@/assets/images/logo.svg";
 import { RouterLink } from "vue-router";
 import IconBase from "@/components/IconBase.vue";
 import { reactive, ref } from "@vue/reactivity";
-import { VueTelInput } from "vue-tel-input";
 const educationInput = ref(null);
 const facultyInput = ref(null);
 const chooseEducation = ref(false);
