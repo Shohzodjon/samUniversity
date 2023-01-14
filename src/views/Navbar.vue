@@ -215,7 +215,7 @@ onMounted(() => {
   top: 0;
   left: -8px;
   display: block;
-  z-index: 999;
+  z-index: 998;
 }
 .nav__link {
   display: flex;
