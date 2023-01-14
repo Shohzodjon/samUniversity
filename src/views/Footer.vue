@@ -7,7 +7,7 @@
             <RouterLink to="/">
               <img :src="logo" alt="logo" class="logo"
             /></RouterLink>
-            <h4>
+            <h4 class="logo__title">
               OSIYO<br />
               INNOVATSION <br />
               UNIVERSITET
@@ -41,7 +41,9 @@
               <RouterLink to="/">{{ $t("home") }}</RouterLink>
             </li>
             <li>
-              <a href="/#about_us">{{ $t("about_us") }}</a>
+              <RouterLink to="/#about_us">
+                {{ $t("about_us") }}
+              </RouterLink>
             </li>
             <li>
               <RouterLink to="/faculty">{{ $t("faculty") }} </RouterLink>
@@ -50,7 +52,9 @@
               <RouterLink to="/news">{{ $t("news") }}</RouterLink>
             </li>
             <li>
-              <a href="/#registr">{{ $t("register") }}</a>
+              <RouterLink to="/#registr">
+                {{ $t("register") }}
+              </RouterLink>
             </li>
             <li>
               <router-link to="/librery">{{ $t("librery") }}</router-link>
@@ -112,7 +116,7 @@ footer {
   padding-top: 8.2rem;
   color: #ffff;
   padding-bottom: 30px;
-  max-width: 1770px;
+  max-width: 100%;
   margin: 0 auto;
 }
 .footer__flex {
@@ -132,6 +136,17 @@ footer {
   font-weight: 600;
   font-size: 1.8rem;
   line-height: 120%;
+  position: relative;
+}
+.logo__title::before {
+  content: "";
+  width: 1.5px;
+  height: 100%;
+  background: rgb(207, 172, 14);
+  display: block;
+  position: absolute;
+  left: -8px;
+  top: 0;
 }
 .contact__flex {
   display: flex;

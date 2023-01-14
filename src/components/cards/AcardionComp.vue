@@ -1,7 +1,7 @@
 <template>
   <div class="acardion__comp">
     <div class="acardion__header">
-      <h3>{{ title }}</h3>
+      <h3>{{ $t(title) }}</h3>
       <button @click="toggle()">
         <IconBase :name="[show ? 'close_icon' : 'plus_icon']" />
       </button>

@@ -33,7 +33,7 @@ section {
   background-repeat: no-repeat;
   background-size: cover;
   padding: 30px 45px 50px;
-  max-width: 1770px;
+  /* max-width: 1770px; */
 }
 .faculty__section {
   position: relative;

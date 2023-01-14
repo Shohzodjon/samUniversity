@@ -1136,6 +1136,11 @@
     "prelude-ls" "^1.2.1"
     "type-check" "~0.4.0"
 
+"libphonenumber-js@^1.10.12", "libphonenumber-js@^1.10.18", "libphonenumber-js@^1.9.44":
+  "integrity" "sha512-NS4ZEgNhwbcPz1gfSXCGFnQm0xEiyTSPRthIuWytDzOiEG9xnZ2FbLyfJC4tI2BMAAXpoWbNxHYH75pa3Dq9og=="
+  "resolved" "https://registry.npmjs.org/libphonenumber-js/-/libphonenumber-js-1.10.18.tgz"
+  "version" "1.10.18"
+
 "locate-path@^6.0.0":
   "integrity" "sha512-iPZK6eYjbxRu3uB4/WZ3EsEIMJFMqAoopl3R+zuq0UjcAm/MO6KCweDgPfP3elTztoKP3KtnVHxTn2NHBSDVUw=="
   "resolved" "https://registry.npmjs.org/locate-path/-/locate-path-6.0.0.tgz"
@@ -1181,6 +1186,11 @@
   "integrity" "sha512-4WLZnYCkgsUfSC0pftldd0YrLNupSqVIEdxL979f3sXVMBHTUOF3gDa6cEuOk2z8UGyVGcANiNZgvVc333mrHA=="
   "resolved" "https://registry.npmjs.org/marker-clusterer-plus/-/marker-clusterer-plus-2.1.4.tgz"
   "version" "2.1.4"
+
+"maz-ui@^3.6.9":
+  "integrity" "sha512-qZSVuzGfYmdHSJS5ez+SbBX146rLa08BLOaCBhR+giPQCpX8ZOM5R10PDCYiaVLQeuXUjp1Axe93o5/CBnUaMw=="
+  "resolved" "https://registry.npmjs.org/maz-ui/-/maz-ui-3.6.9.tgz"
+  "version" "3.6.9"
 
 "minimatch@^3.0.5", "minimatch@^3.1.1", "minimatch@^3.1.2":
   "integrity" "sha512-J7p63hRiAjw1NDEww1W7i37+ByIrOWO5XQQAzZ3VOcL0PNybwpfmV/N05zFAzwQ9USyEcX6t3UO+K5aqBQOIHw=="
@@ -1548,19 +1558,26 @@
     "@intlify/vue-devtools" "9.2.2"
     "@vue/devtools-api" "^6.2.1"
 
-"vue-router@^4.1.6":
+"vue-router@^4.0.0", "vue-router@^4.1.6":
   "integrity" "sha512-DYWYwsG6xNPmLq/FmZn8Ip+qrhFEzA14EI12MsMgVxvHFDYvlr4NXpVF5hrRH1wVcDP8fGi5F4rxuJSl8/r+EQ=="
   "resolved" "https://registry.npmjs.org/vue-router/-/vue-router-4.1.6.tgz"
   "version" "4.1.6"
   dependencies:
     "@vue/devtools-api" "^6.4.5"
 
+"vue-tel-input@^6.0.5":
+  "integrity" "sha512-7eTug2Yyo3bfLRlc//eSBu94YbXWB8PrBEe6/j48A0G51HUCUScZCJS0Kr4Sz5fV7jFtZ2jSCpGzb5fDZL7qYw=="
+  "resolved" "https://registry.npmjs.org/vue-tel-input/-/vue-tel-input-6.0.5.tgz"
+  "version" "6.0.5"
+  dependencies:
+    "libphonenumber-js" "^1.10.12"
+
 "vue-yandex-maps@^0.11.13":
   "integrity" "sha512-MyIBkKU2rX1vcypy6VEckdhL0NFVlRGTFmYItsqzcb0a43yhHbnAshcLI3FDRbByMsOp6kWFAuDMBJffg6W7jw=="
   "resolved" "https://registry.npmjs.org/vue-yandex-maps/-/vue-yandex-maps-0.11.13.tgz"
   "version" "0.11.13"
 
-"vue@^2.6.14 || ^3.2.0", "vue@^3.0.0", "vue@^3.0.0-0 || ^2.6.0", "vue@^3.2.0", "vue@^3.2.25", "vue@^3.2.45", "vue@3.2.45":
+"vue@^2.6.14 || ^3.2.0", "vue@^3.0.0", "vue@^3.0.0-0 || ^2.6.0", "vue@^3.2.0", "vue@^3.2.25", "vue@^3.2.37", "vue@^3.2.45", "vue@3.2.45":
   "integrity" "sha512-9Nx/Mg2b2xWlXykmCwiTUCWHbWIj53bnkizBxKai1g61f2Xit700A1ljowpTIM11e3uipOeiPcSqnmBg6gyiaA=="
   "resolved" "https://registry.npmjs.org/vue/-/vue-3.2.45.tgz"
   "version" "3.2.45"

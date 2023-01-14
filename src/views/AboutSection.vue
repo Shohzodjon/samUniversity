@@ -42,8 +42,8 @@ import RegisterBtn from "@/components/cards/RegisterBtn.vue";
 <style scoped>
 section {
   width: 100%;
-  max-width: 1770px;
-  margin: 0 auto;
+  /* max-width: ; */
+
   padding-top: 8rem;
   background: url(../assets/images/about.png);
   background-repeat: no-repeat;
@@ -184,6 +184,11 @@ section {
   .section__two li {
     font-size: 2rem;
     line-height: 140%;
+  }
+}
+@media screen and (min-width: 1400px) and (max-width: 3000px) {
+  section {
+    margin-top: 5px;
   }
 }
 </style>

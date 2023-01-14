@@ -1,211 +1,213 @@
 <template>
   <section class="contact__section">
-    <div class="container">
-      <div class="contact__wrapp">
+    <div class="contact__wrapp">
+      <div class="container">
         <h2 class="contact__title">{{ $t("register") }}</h2>
         <div class="conatact__img">
-          <router-link to="/">
-            <img :src="contactImg" alt="conatact_img"
-          /></router-link>
           <div class="contact__info">
-            <div>
-              <div class="contact__info-header">
-                <img :src="logo" alt="logo" />
-                <h2>
-                  OSIYO<br />
-                  INNOVATSION<br />
-                  UNIVERSITET
-                </h2>
-              </div>
-              <div class="contact__btns">
-                <button class="contact__btn">
-                  <a href="#registr">{{ $t("register") }}</a>
-                </button>
-                <button class="contact__btn" @click="handleSubmitOne">
-                  {{ $t("contact") }}
-                </button>
-              </div>
+            <router-link to="/" class="contact__info-header">
+              <img :src="logo" alt="logo" />
+              <h2 class="logo__title">
+                OSIYO<br />
+                INNOVATSION<br />
+                UNIVERSITET
+              </h2>
+            </router-link>
+            <div class="contact__btns">
+              <button class="contact__btn">
+                <a href="#registr">{{ $t("register") }}</a>
+              </button>
+              <button class="contact__btn" @click="handleSubmitOne">
+                {{ $t("contact") }}
+              </button>
             </div>
           </div>
         </div>
-        <div
-          class="contact__modal-one"
-          :class="[openModalOne ? 'active__modal_one' : '']"
-        >
-          <div class="contact__us">
-            <h2>{{ $t("contact") }}</h2>
-            <form @submit.prevent="contactSubmit">
-              <input
-                type="text"
-                placeholder="First name ..."
-                v-model="contactData.user_name_val"
-                :class="[contactData.user__name_check ? '' : 'error_warm']"
-                class="contact__us-input"
-              />
-              <input
-                type="text"
-                placeholder="Phone number ..."
-                v-model="contactData.phone_number"
-                :class="[contactData.phone_number ? '' : 'error_warm']"
-                class="contact__us-input"
-                maxlength="13"
-              />
-              <textarea
-                name=""
-                id=""
-                cols="30"
-                rows="10"
-                placeholder="Message ..."
-              ></textarea>
-              <button class="contact__submit">Submit</button>
-            </form>
-          </div>
-        </div>
-        <div class="registration" id="registr">
-          <span class="circle-blue"></span>
-          <span class="circle-yellow"></span>
-
-          <form class="registration__form" @submit.prevent="handleSubmit">
-            <ul class="registration__list">
-              <li>
-                <h3>{{ $t("register") }}</h3>
-              </li>
-              <li>
-                <input
-                  type="text"
-                  :placeholder="$t('user_name')"
-                  class="user__name"
-                  v-model="userName.name"
-                  :class="[userName.checkName ? '' : 'error_warm']"
-                />
-                <input
-                  type="text"
-                  :placeholder="$t('user_lastname')"
-                  class="user__lastname"
-                  v-model="lastName.last_name"
-                  :class="[lastName.checkLastName ? '' : 'error_warm']"
-                />
-              </li>
-              <li>
-                <input
-                  type="tel"
-                  placeholder="+998"
-                  class="user__number"
-                  v-model="userNumber.number"
-                  :class="[userNumber.checkNum ? '' : 'error_warm']"
-                  maxlength="12"
-                  required
-                />
-                <input
-                  type="email"
-                  placeholder="Email..."
-                  class="user__email"
-                  v-model="userEmail.email"
-                  :class="[userEmail.checkEmail ? '' : 'error_warm']"
-                />
-              </li>
-              <li>
-                <div
-                  class="choose__education"
-                  :class="[checkEdu ? '' : 'error_warm']"
-                >
-                  <label for="type__education">
-                    <input
-                      type="text"
-                      class="education__value"
-                      ref="educationInput"
-                      :placeholder="$t('type_edu')"
-                      readonly
-                    />
-                    <IconBase
-                      name="down_icon"
-                      class="down__icon"
-                      :class="[chooseEducation ? 'open__modal' : '']"
-                      @click="handleToggle"
-                    />
-                  </label>
-                  <div
-                    class="choose__education-list"
-                    :class="[chooseEducation ? 'open__education__list' : '']"
-                  >
-                    <span @click="handleToggle">Kunduzgi</span>
-                    <span @click="handleToggle">Kechgi</span>
-                    <span @click="handleToggle">Sirtqi</span>
-                    <span @click="handleToggle">Zavuchniy</span>
-                  </div>
-                </div>
-                <div
-                  class="choose__faculty"
-                  :class="[checkFacul ? '' : 'error_warm']"
-                >
-                  <label
-                    for="faculty__type"
-                    :class="[checkFacul ? '' : 'error_warm']"
-                  >
-                    <input
-                      type="text"
-                      id="faculty__type"
-                      class="faculty__value"
-                      ref="facultyInput"
-                      :placeholder="$t('faculty')"
-                      readonly
-                    />
-                    <IconBase
-                      name="down_icon"
-                      class="down__icon"
-                      :class="[chooseFaculty ? 'open__modal' : '']"
-                      @click="handleToggleTwo"
-                    />
-                  </label>
-                  <div
-                    class="choose__faculty-list"
-                    :class="[chooseFaculty ? 'faculty__list-active' : '']"
-                  >
-                    <span
-                      v-for="item in faculties"
-                      :key="item.id"
-                      @click="handleToggleTwo"
-                    >
-                      {{ item.faculty }}
-                    </span>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <div class="atetsat__btn">
-                  <label for="fileId">
-                    <IconBase name="file_icon" />
-                    <span>Atestatsiyani yuklash</span>
-                  </label>
-                  <input
-                    type="file"
-                    name="attachment[]"
-                    id="fileId"
-                    @change="onFileChange"
-                  />
-                  <span class="file__name">{{ fileName1 }}</span>
-                </div>
-                <div class="atetsat__btn">
-                  <label for="fileId2">
-                    <IconBase name="file_icon" />
-                    <span>Pasport yuklash</span>
-                  </label>
-                  <input
-                    type="file"
-                    name="attachment[]"
-                    id="fileId2"
-                    @change="onFileChangeTwo"
-                  />
-                  <span class="file__name">{{ fileName2 }}</span>
-                </div>
-              </li>
-              <li>
-                <button class="register__btn">{{ $t("register") }}</button>
-              </li>
-            </ul>
-          </form>
-        </div>
       </div>
+    </div>
+    <div
+      class="contact__modal-one"
+      :class="[openModalOne ? 'active__modal_one' : '']"
+    >
+      <div class="contact__us">
+        <h2>{{ $t("contact") }}</h2>
+        <form @submit.prevent="contactSubmit">
+          <input
+            type="text"
+            placeholder="First name ..."
+            v-model="contactData.user_name_val"
+            :class="[contactData.user__name_check ? '' : 'error_warm']"
+            class="contact__us-input"
+          />
+          <input
+            type="text"
+            placeholder="Phone number ..."
+            v-model="contactData.phone_number"
+            :class="[contactData.phone_number ? '' : 'error_warm']"
+            class="contact__us-input"
+            maxlength="13"
+          />
+          <textarea
+            name=""
+            id=""
+            cols="30"
+            rows="10"
+            placeholder="Message ..."
+          ></textarea>
+          <button class="contact__submit">Submit</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="registration" id="registr">
+      <span class="circle-blue"></span>
+      <span class="circle-yellow"></span>
+
+      <form class="registration__form" @submit.prevent="handleSubmit">
+        <ul class="registration__list">
+          <li>
+            <h3>{{ $t("register") }}</h3>
+          </li>
+          <li>
+            <input
+              type="text"
+              :placeholder="$t('user_name')"
+              class="user__name"
+              v-model="userName.name"
+              :class="[userName.checkName ? '' : 'error_warm']"
+            />
+            <input
+              type="text"
+              :placeholder="$t('user_lastname')"
+              class="user__lastname"
+              v-model="lastName.last_name"
+              :class="[lastName.checkLastName ? '' : 'error_warm']"
+            />
+          </li>
+          <li>
+            <MazPhoneNumberInput
+              v-model="userNumber.number"
+              color="info"
+              default-country-code="UZ"
+              :only-countries="['UZ']"
+              @update="results = $event"
+              :success="results?.isValid"
+              size="lg"
+              style="width: 100%"
+              :translations="{
+                placeholder: 'Phone number',
+                autocomplate: 'off',
+              }"
+            />
+
+            <input
+              type="email"
+              placeholder="Email..."
+              class="user__email"
+              v-model="userEmail.email"
+              :class="[userEmail.checkEmail ? '' : 'error_warm']"
+            />
+          </li>
+          <li>
+            <div
+              class="choose__education"
+              :class="[checkEdu ? '' : 'error_warm']"
+            >
+              <label for="type__education">
+                <input
+                  type="text"
+                  class="education__value"
+                  ref="educationInput"
+                  :placeholder="$t('type_edu')"
+                  readonly
+                />
+                <IconBase
+                  name="down_icon"
+                  class="down__icon"
+                  :class="[chooseEducation ? 'open__modal' : '']"
+                  @click="handleToggle"
+                />
+              </label>
+              <div
+                class="choose__education-list"
+                :class="[chooseEducation ? 'open__education__list' : '']"
+              >
+                <span @click="handleToggle">Kunduzgi</span>
+                <span @click="handleToggle">Kechgi</span>
+                <span @click="handleToggle">Sirtqi</span>
+                <span @click="handleToggle">Zavuchniy</span>
+              </div>
+            </div>
+            <div
+              class="choose__faculty"
+              :class="[checkFacul ? '' : 'error_warm']"
+            >
+              <label
+                for="faculty__type"
+                :class="[checkFacul ? '' : 'error_warm']"
+              >
+                <input
+                  type="text"
+                  id="faculty__type"
+                  class="faculty__value"
+                  ref="facultyInput"
+                  :placeholder="$t('faculty')"
+                  readonly
+                />
+                <IconBase
+                  name="down_icon"
+                  class="down__icon"
+                  :class="[chooseFaculty ? 'open__modal' : '']"
+                  @click="handleToggleTwo"
+                />
+              </label>
+              <div
+                class="choose__faculty-list"
+                :class="[chooseFaculty ? 'faculty__list-active' : '']"
+              >
+                <span
+                  v-for="item in faculties"
+                  :key="item.id"
+                  @click="handleToggleTwo"
+                >
+                  {{ item.faculty }}
+                </span>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="atetsat__btn">
+              <label for="fileId">
+                <IconBase name="file_icon" />
+                <span>Atestatsiyani yuklash</span>
+              </label>
+              <input
+                type="file"
+                name="attachment[]"
+                id="fileId"
+                @change="onFileChange"
+              />
+              <span class="file__name">{{ fileName1 }}</span>
+            </div>
+            <div class="atetsat__btn">
+              <label for="fileId2">
+                <IconBase name="file_icon" />
+                <span>Pasport yuklash</span>
+              </label>
+              <input
+                type="file"
+                name="attachment[]"
+                id="fileId2"
+                @change="onFileChangeTwo"
+              />
+              <span class="file__name">{{ fileName2 }}</span>
+            </div>
+          </li>
+          <li>
+            <button class="register__btn">{{ $t("register") }}</button>
+          </li>
+        </ul>
+      </form>
     </div>
     <div
       class="contact__modal"
@@ -231,6 +233,7 @@ import logo from "@/assets/images/logo.svg";
 import { RouterLink } from "vue-router";
 import IconBase from "@/components/IconBase.vue";
 import { reactive, ref } from "@vue/reactivity";
+import { VueTelInput } from "vue-tel-input";
 const educationInput = ref(null);
 const facultyInput = ref(null);
 const chooseEducation = ref(false);
@@ -385,6 +388,12 @@ const faculties = [
 ];
 </script>
 <style scoped>
+.contact__wrapp {
+  background: url("@/assets/images/contact.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-top: 2rem;
+}
 .contact__modal {
   position: fixed;
   width: 100%;
@@ -490,7 +499,7 @@ const faculties = [
 }
 .contact__us input:focus,
 .contact__us textarea:focus {
-  border-color: aqua;
+  border-color: rgb(30, 186, 197);
 }
 .contact__submit {
   background: var(--main-blue);
@@ -501,14 +510,11 @@ const faculties = [
   align-self: flex-end;
 }
 
-.contact__section {
-  padding-top: 2rem;
-}
 .contact__title {
   font-weight: 600;
   font-size: 4rem;
   line-height: 140%;
-  color: #000;
+  color: #fff;
   position: relative;
   width: max-content;
   margin-bottom: 3rem;
@@ -525,8 +531,7 @@ const faculties = [
   display: block;
 }
 .conatact__img {
-  max-width: 800px;
-  border-radius: 12px;
+  max-width: 850px;
   overflow: hidden;
   margin: 0 auto;
   position: relative;
@@ -537,11 +542,9 @@ const faculties = [
   border-radius: 12px;
 }
 .contact__info {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
+  height: 500px;
   padding: 3rem 2rem;
 }
 .contact__info-header {
@@ -557,6 +560,18 @@ const faculties = [
   font-size: 1.2rem;
   line-height: 150%;
   font-weight: 700;
+  position: relative;
+}
+.logo__title::before {
+  content: "";
+  width: 2px;
+  height: 100%;
+  background: rgb(207, 172, 4);
+  /* background: #fece02; */
+  position: absolute;
+  top: 0;
+  left: -7px;
+  display: block;
 }
 .contact__btns {
   display: flex;
@@ -583,10 +598,9 @@ const faculties = [
 }
 
 .registration {
-  max-width: 800px;
+  max-width: 100%;
   margin: 3rem auto;
   padding: 5rem 7rem;
-  border-radius: 12px;
   position: relative;
   min-height: 350px;
   overflow: hidden;
@@ -598,25 +612,25 @@ const faculties = [
 /* #5b86e5 */
 /* #ff5f6d */
 .circle-blue {
-  width: 200px;
-  height: 200px;
+  width: 300px;
+  height: 250px;
   display: block;
-  background: #5b87e58e;
+  background: #5b87e57c;
   position: absolute;
-  top: -25px;
-  left: -25px;
+  top: 3%;
+  left: 3%;
   border-radius: 50%;
-  filter: blur(20px);
+  filter: blur(22px);
   z-index: 1;
 }
 .circle-yellow {
-  width: 200px;
-  height: 200px;
+  width: 300px;
+  height: 250px;
   display: block;
   background: rgba(255, 95, 109, 0.5);
   position: absolute;
-  bottom: -25px;
-  right: -25px;
+  bottom: -1%;
+  right: -1%;
   border-radius: 50%;
   filter: blur(20px);
   z-index: 1;
@@ -640,6 +654,8 @@ const faculties = [
 }
 .registration__form {
   border-radius: 12px;
+  max-width: 850px;
+  margin: 0 auto;
   position: relative;
   z-index: 5;
   border: 1px solid #999;
@@ -708,7 +724,7 @@ const faculties = [
 .user__email:focus,
 .user__number:focus,
 .user__name:focus {
-  border-color: aqua;
+  border-color: rgb(30, 186, 197);
 }
 .choose__education {
   padding: 0;
@@ -1028,5 +1044,22 @@ const faculties = [
 }
 .open__modal {
   transform: rotate(180deg);
+}
+.m-input-wrapper {
+  display: flex;
+  align-items: baseline;
+}
+.m-phone-number-input__input {
+  background: #ffff !important;
+  height: 100%;
+}
+
+.m-phone-number-input__country-flag {
+  position: absolute !important;
+  top: 30%;
+  left: 4px !important;
+}
+.m-input-label {
+  display: none !important;
 }
 </style>

@@ -91,7 +91,7 @@ const onSlideChange = () => {
 .header__section {
   min-height: 678px;
   max-height: 1000px;
-  max-width: 1770px;
+  max-width: 100%;
   position: relative;
   margin: 0 auto;
   overflow: hidden;

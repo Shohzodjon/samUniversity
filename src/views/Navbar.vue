@@ -8,7 +8,7 @@
       <div class="navbar__flex">
         <div class="nav__logo">
           <router-link to="/"> <img :src="logo" alt="nav_logo" /> </router-link>
-          <h2>
+          <h2 class="logo__title">
             OSIYO <br />
             INNOVATSION <br />
             UNIVERSITET
@@ -19,7 +19,9 @@
             <router-link to="/">{{ $t("home") }}</router-link>
           </li>
           <li>
-            <a href="/#about_us" ref="about">{{ $t("about_us") }}</a>
+            <router-link to="/#about_us" ref="about">
+              {{ $t("about_us") }}
+            </router-link>
           </li>
           <li>
             <router-link to="/faculty">{{ $t("faculty") }}</router-link>
@@ -66,7 +68,9 @@
         <router-link to="/" @click="openNav">{{ $t("home") }}</router-link>
       </li>
       <li>
-        <a href="/#about_us" @click="openNav">{{ $t("about_us") }}</a>
+        <router-link to="/#about_us" @click="openNav">{{
+          $t("about_us")
+        }}</router-link>
       </li>
 
       <li>
@@ -171,7 +175,7 @@ onMounted(() => {
   padding: 1rem 0;
   position: fixed;
   top: 0 !important;
-  max-width: 1770px;
+  max-width: 100%;
   left: 50%;
   transform: translateX(-50%);
   right: 0;
@@ -200,6 +204,18 @@ onMounted(() => {
   color: #fff;
   font-size: 1.1rem;
   line-height: 150%;
+  position: relative;
+}
+.logo__title::before {
+  content: "";
+  position: absolute;
+  width: 1px;
+  height: 100%;
+  background: #fece02;
+  top: 0;
+  left: -8px;
+  display: block;
+  z-index: 999;
 }
 .nav__link {
   display: flex;
