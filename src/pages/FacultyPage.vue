@@ -77,7 +77,7 @@ import img from "@/assets/images/nursery.png";
 </script>
 <style scoped>
 .faculty__page {
-  padding: 10rem 0 1rem;
+  padding: 13rem 0 1rem;
 }
 
 .faculty__title {

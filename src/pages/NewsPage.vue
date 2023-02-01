@@ -62,7 +62,7 @@ onMounted(() => {
 </script>
 <style scoped>
 .news__page {
-  padding-top: 11rem;
+  padding-top: 13rem;
   width: 100%;
   background: #fff;
   padding-bottom: 8rem;
