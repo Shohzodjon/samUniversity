@@ -30,7 +30,7 @@
             bo’lishadilar____________
           </li>
         </ul>
-        <register-btn link="#registr" />
+        <register-btn link="/contact" />
       </div>
     </div>
   </section>

@@ -1,8 +1,8 @@
 <template>
-  <a :href="link" class="section__btn">
+  <router-link :to="link" class="section__btn">
     <span>{{ $t("register") }} </span>
     <span> <IconBase name="small_arrow" class="small__arrow" /></span>
-  </a>
+  </router-link>
 </template>
 <script setup>
 import { RouterLink } from "vue-router";

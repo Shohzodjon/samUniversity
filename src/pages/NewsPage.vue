@@ -22,7 +22,7 @@
             ulashildi.
           </p>
         </div>
-        <register-btn link="/#registr" class="news__btn" />
+        <register-btn link="/contact" class="news__btn" />
       </div>
       <h2 class="news__info">{{ $t("go_on") }}</h2>
       <div class="news__grid">

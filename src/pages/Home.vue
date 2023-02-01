@@ -27,7 +27,6 @@
     </section>
     <FacultySection />
     <ImgSection />
-    <ContactSection />
     <FaqSection />
   </section>
 </template>
@@ -40,12 +39,11 @@ import IconBase from "@/components/IconBase.vue";
 import FacultySection from "@/views/FacultySection.vue";
 import ImgSection from "@/views/ImgSection.vue";
 import FaqSection from "../views/FaqSection.vue";
-import ContactSection from "@/views/ContactSection.vue";
 </script>
 <style scoped>
 .news__section {
   background: #fff;
-  margin-top: 160px;
+  margin-top: 40px;
   padding-bottom: 80px;
   overflow: hidden;
 }
@@ -108,7 +106,7 @@ import ContactSection from "@/views/ContactSection.vue";
 
 @media screen and (min-width: 300px) and (max-width: 576px) {
   .news__section {
-    margin-top: 50px;
+    margin-top: 30px;
     padding-bottom: 30px;
   }
   .news__title {
@@ -120,7 +118,7 @@ import ContactSection from "@/views/ContactSection.vue";
 }
 @media screen and (min-width: 577px) and (max-width: 768px) {
   .news__section {
-    margin-top: 70px;
+    margin-top: 30px;
     padding-bottom: 40px;
   }
   .news__title {
@@ -140,7 +138,7 @@ import ContactSection from "@/views/ContactSection.vue";
 }
 @media screen and (min-width: 769px) and (max-width: 900px) {
   .news__section {
-    margin-top: 70px;
+    margin-top: 40px;
     padding-bottom: 40px;
   }
   .news__title {
@@ -156,7 +154,7 @@ import ContactSection from "@/views/ContactSection.vue";
 }
 @media screen and (min-width: 901px) and (max-width: 1024px) {
   .news__section {
-    margin-top: 100px;
+    margin-top: 40px;
     padding-bottom: 60px;
   }
   .news__title {

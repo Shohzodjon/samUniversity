@@ -52,7 +52,7 @@
               <RouterLink to="/news">{{ $t("news") }}</RouterLink>
             </li>
             <li>
-              <RouterLink to="/#registr">
+              <RouterLink to="/contact">
                 {{ $t("register") }}
               </RouterLink>
             </li>

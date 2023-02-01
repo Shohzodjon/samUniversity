@@ -1,29 +1,28 @@
 <template>
   <section class="contact__section">
     <div class="contact__wrapp">
-      <div class="container">
-        <h2 class="contact__title">{{ $t("register") }}</h2>
-        <div class="conatact__img">
-          <div class="contact__info">
-            <router-link to="/" class="contact__info-header">
-              <img :src="logo" alt="logo" />
-              <h2 class="logo__title">
-                OSIYO<br />
-                INNOVATSION<br />
-                UNIVERSITET
-              </h2>
-            </router-link>
-            <div class="contact__btns">
-              <button class="contact__btn">
-                <a href="#registr">{{ $t("register") }}</a>
-              </button>
-              <button class="contact__btn" @click="handleSubmitOne">
-                {{ $t("contact") }}
-              </button>
-            </div>
+      <!-- <h2 class="contact__title">{{ $t("register") }}</h2> -->
+      <div class="conatact__img">
+        <div class="contact__info">
+          <router-link to="/" class="contact__info-header">
+            <img :src="logo" alt="logo" />
+            <h2 class="logo__title">
+              OSIYO<br />
+              INNOVATSION<br />
+              UNIVERSITET
+            </h2>
+          </router-link>
+          <div class="contact__btns">
+            <button class="contact__btn">
+              <a href="#registr">{{ $t("register") }}</a>
+            </button>
+            <button class="contact__btn" @click="handleSubmitOne">
+              {{ $t("contact") }}
+            </button>
           </div>
         </div>
       </div>
+      <!-- end  -->
     </div>
     <div
       class="contact__modal-one"
@@ -387,11 +386,15 @@ const faculties = [
 ];
 </script>
 <style scoped>
+.contact__section {
+  padding-top: 0rem;
+}
 .contact__wrapp {
   background: url("@/assets/images/contact.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  padding-top: 2rem;
+  padding-top: 14rem;
+  height: 700px;
 }
 .contact__modal {
   position: fixed;
@@ -489,7 +492,7 @@ const faculties = [
 .contact__us textarea {
   flex-grow: 1;
   border: 1px solid var(--main-blue);
-  padding: 6px 12px;
+  padding: 10px 12px;
   border-radius: 4px;
   font-size: 1.4rem;
 }
@@ -502,11 +505,12 @@ const faculties = [
 }
 .contact__submit {
   background: var(--main-blue);
-  padding: 8px 18px;
+  padding: 10px 18px;
   width: max-content;
   color: #fff;
   border-radius: 6px;
   align-self: flex-end;
+  font-size: 1.3rem;
 }
 
 .contact__title {
@@ -552,11 +556,12 @@ const faculties = [
   gap: 1rem;
 }
 .contact__info-header img {
-  width: 80px;
+  width: 100px !important;
+  height: 100px !important;
 }
 .contact__info-header h2 {
   color: #000;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   line-height: 150%;
   font-weight: 700;
   position: relative;

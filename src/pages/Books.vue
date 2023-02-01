@@ -198,7 +198,7 @@ const ddd = computed(() => {
   padding-top: 8rem;
 }
 .book__sidebar {
-  padding-top: 1rem;
+  padding-top: 4rem;
   display: flex;
   max-height: 700px;
   overflow-y: scroll;
@@ -227,7 +227,7 @@ const ddd = computed(() => {
   padding: 1rem 1.5rem;
   transform: translateX(-50%);
   width: 300px;
-  top: 2rem;
+  top: 4.7rem;
 }
 .search__bar label {
   display: flex;

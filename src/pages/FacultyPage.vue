@@ -63,7 +63,7 @@
             class="grid__item"
           />
         </div>
-        <div class="last__item"><register-btn link="/#registr" /></div>
+        <div class="last__item"><register-btn link="/contact" /></div>
       </div>
     </div>
   </section>

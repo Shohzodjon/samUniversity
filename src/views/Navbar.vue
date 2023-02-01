@@ -24,6 +24,9 @@
             </router-link>
           </li>
           <li>
+            <router-link to="/contact" ref="about"> Contact </router-link>
+          </li>
+          <li>
             <router-link to="/faculty">{{ $t("faculty") }}</router-link>
           </li>
           <li>
@@ -72,7 +75,9 @@
           $t("about_us")
         }}</router-link>
       </li>
-
+      <li>
+        <router-link to="/contact" @click="openNav">Contact</router-link>
+      </li>
       <li>
         <router-link to="/faculty" @click="openNav">{{
           $t("faculty")
@@ -172,7 +177,7 @@ onMounted(() => {
 <style scoped>
 .navbar {
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4));
-  padding: 1rem 0;
+  padding: 1.5rem 0;
   position: fixed;
   top: 0 !important;
   max-width: 100%;
@@ -197,12 +202,12 @@ onMounted(() => {
   gap: 1rem;
 }
 .nav__logo img {
-  width: 70px;
-  height: 70px;
+  width: 85px;
+  height: 85px;
 }
 .nav__logo h2 {
   color: #fff;
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   line-height: 150%;
   position: relative;
 }
@@ -227,7 +232,7 @@ onMounted(() => {
 }
 .nav__link li {
   font-weight: 600;
-  font-size: 1.6rem;
+  font-size: 1.7rem;
   line-height: 24px;
   color: #ffffff;
   transition: all linear 0.3s;
@@ -510,7 +515,7 @@ onMounted(() => {
     display: none;
   }
 }
-@media screen and (min-width: 769px) and (max-width: 991px) {
+@media screen and (min-width: 769px) and (max-width: 1000px) {
   .navbar {
     padding: 1rem 0;
   }
@@ -537,12 +542,15 @@ onMounted(() => {
     display: none !important;
   }
 }
-@media screen and (min-width: 992px) and (max-width: 1100px) {
+@media screen and (min-width: 1001px) and (max-width: 1100px) {
   .nav__logo img {
-    width: 80px;
-    height: 80px;
+    width: 75px;
+    height: 75px;
   }
 
+  .nav__logo h2 {
+    font-size: 1.1rem;
+  }
   .nav__link {
     display: flex;
     gap: 3rem;
