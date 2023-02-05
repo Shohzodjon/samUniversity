@@ -19,8 +19,10 @@
             <router-link to="/">{{ $t("home") }}</router-link>
           </li>
           <li>
-            <router-link to="/#about_us" ref="about">
-              {{ $t("about_us") }}
+            <router-link to="/" ref="about">
+              <a href="#about_us">
+                {{ $t("about_us") }}
+              </a>
             </router-link>
           </li>
           <li>
@@ -65,15 +67,14 @@
       </div>
     </div>
   </nav>
+  <!-- responsive navbar  -->
   <div class="responsive__nav" :class="[showNav ? 'show__res' : 'close__res']">
     <ul class="responsive__list">
       <li>
         <router-link to="/" @click="openNav">{{ $t("home") }}</router-link>
       </li>
       <li>
-        <router-link to="/#about_us" @click="openNav">{{
-          $t("about_us")
-        }}</router-link>
+        <a href="/#about_us" @click="openNav">{{ $t("about_us") }}</a>
       </li>
       <li>
         <router-link to="/contact" @click="openNav">Contact</router-link>
@@ -239,6 +240,9 @@ onMounted(() => {
 }
 .nav__link li:hover {
   color: var(--dark-blue);
+}
+.nav__link li:nth-child(2) .router-link-active {
+  color: #fff !important;
 }
 .nav__last {
   display: flex;
@@ -569,6 +573,20 @@ onMounted(() => {
   }
   .res__document {
     display: none !important;
+  }
+}
+
+@media screen and (min-width: 1101px) and (max-width: 1250px) {
+  .nav__logo img {
+    width: 75px;
+    height: 75px;
+  }
+  .nav__logo h2 {
+    font-size: 1.1rem;
+  }
+  .nav__link {
+    display: flex;
+    gap: 2.5rem;
   }
 }
 @media screen and (min-width: 1101px) and (max-width: 2000px) {

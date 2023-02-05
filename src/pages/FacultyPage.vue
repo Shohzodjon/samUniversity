@@ -53,7 +53,7 @@
     </div>
     <div class="grid__wrapp">
       <div class="container">
-        <h2 class="faculty__info">{{ $t("go_on") }}</h2>
+        <!-- <h2 class="faculty__info">{{ $t("go_on") }}</h2> -->
         <div class="slug__grid">
           <faculty-card
             v-for="i in facultyData"
@@ -174,6 +174,7 @@ import img from "@/assets/images/nursery.png";
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 3rem;
+  padding-top: 2rem;
 }
 .grid__item {
   border: 1px solid rgba(95, 95, 95, 0.5);
@@ -191,9 +192,13 @@ import img from "@/assets/images/nursery.png";
   display: flex;
   justify-content: end;
   align-items: flex-end;
-  margin-top: 3rem;
+  margin-top: 4rem;
+  margin-bottom: 1rem;
 }
 @media screen and (min-width: 300px) and (max-width: 450px) {
+  .faculty__page {
+    margin-bottom: -10px;
+  }
   .slug__grid {
     grid-template-columns: repeat(1, 280px);
     gap: 3rem;
@@ -205,6 +210,9 @@ import img from "@/assets/images/nursery.png";
   }
 }
 @media screen and (min-width: 451px) and (max-width: 576px) {
+  .faculty__page {
+    margin-bottom: -10px;
+  }
   .slug__grid {
     grid-template-columns: repeat(1, 350px);
     gap: 3rem;
@@ -256,6 +264,7 @@ import img from "@/assets/images/nursery.png";
 @media screen and (min-width: 577px) and (max-width: 768px) {
   .faculty__page {
     padding: 12rem 0 1rem;
+    margin-bottom: -10px;
   }
   .faculty__title {
     font-size: 3rem;
@@ -300,6 +309,7 @@ import img from "@/assets/images/nursery.png";
 @media screen and (min-width: 769px) and (max-width: 991px) {
   .faculty__page {
     padding: 12rem 0 1rem;
+    margin-bottom: -10px;
   }
   .faculty__title {
     font-size: 3.5rem;
@@ -336,6 +346,11 @@ import img from "@/assets/images/nursery.png";
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
     justify-content: center;
+  }
+}
+@media screen and (min-width: 992px) and (max-width: 3000px) {
+  .faculty__page {
+    margin-bottom: -11px;
   }
 }
 </style>

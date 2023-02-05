@@ -153,6 +153,7 @@ footer {
   gap: 8px;
   align-items: center;
   margin: 10px 0;
+  padding-left: 1rem;
 }
 .footer__link {
   font-weight: 500;

@@ -195,7 +195,7 @@ const ddd = computed(() => {
 </script>
 <style scoped>
 .books__section {
-  padding-top: 8rem;
+  padding-top: 7.5rem;
 }
 .book__sidebar {
   padding-top: 4rem;
@@ -227,7 +227,7 @@ const ddd = computed(() => {
   padding: 1rem 1.5rem;
   transform: translateX(-50%);
   width: 300px;
-  top: 4.7rem;
+  top: 6rem;
 }
 .search__bar label {
   display: flex;
@@ -243,6 +243,7 @@ const ddd = computed(() => {
 .search__bar input::placeholder {
   font-style: italic;
 }
+
 .search__bar i {
   cursor: pointer;
 }
@@ -299,7 +300,7 @@ const ddd = computed(() => {
 /*  right side bar */
 .right__sidebar {
   width: calc(100%-250px);
-  padding-top: 6rem;
+  padding-top: 7.5rem;
 }
 .book__grid {
   display: grid;
@@ -319,7 +320,7 @@ const ddd = computed(() => {
 
 @media screen and (min-width: 300px) and (max-width: 576px) {
   .books__section {
-    padding-top: 8rem;
+    padding-top: 6.5rem;
   }
   .book__sidebar {
     flex-direction: column;
@@ -357,8 +358,8 @@ const ddd = computed(() => {
   }
   .book__menu {
     display: block;
-    top: 95px;
-    left: 13px;
+    top: 100px;
+    left: 20px;
   }
   .left__sidebar ul {
     gap: 1rem;
@@ -376,7 +377,7 @@ const ddd = computed(() => {
 }
 @media screen and (min-width: 577px) and (max-width: 768px) {
   .books__section {
-    padding-top: 8rem;
+    padding-top: 6.5rem;
   }
   .book__sidebar {
     flex-direction: column;
@@ -409,6 +410,8 @@ const ddd = computed(() => {
   }
   .book__menu {
     display: block;
+    top: 100px;
+    left: 20px;
   }
   .left__sidebar ul {
     gap: 1rem;
@@ -426,7 +429,7 @@ const ddd = computed(() => {
 }
 @media screen and (min-width: 769px) and (max-width: 899px) {
   .books__section {
-    padding-top: 9rem;
+    padding-top: 6.5rem;
   }
   .container {
     padding-left: 0 !important;
@@ -459,7 +462,7 @@ const ddd = computed(() => {
 }
 @media screen and (min-width: 900px) and (max-width: 991px) {
   .books__section {
-    padding-top: 9rem;
+    padding-top: 6.5rem;
   }
   .container {
     padding-left: 0 !important;
@@ -490,7 +493,7 @@ const ddd = computed(() => {
 }
 @media screen and (min-width: 992px) and (max-width: 1100px) {
   .books__section {
-    padding-top: 9rem;
+    padding-top: 6.7rem;
   }
   .container {
     padding-left: 0 !important;
@@ -522,7 +525,7 @@ const ddd = computed(() => {
 }
 @media screen and (min-width: 1101px) and (max-width: 1250px) {
   .books__section {
-    padding-top: 9rem;
+    padding-top: 6.8rem;
   }
   .container {
     padding-left: 0 !important;
@@ -544,8 +547,8 @@ const ddd = computed(() => {
     width: 30%;
   }
   .book__grid {
-    grid-template-columns: repeat(4, 220px);
-    gap: 1.3rem;
+    grid-template-columns: repeat(4, 200px);
+    gap: 1rem;
   }
   .book__item {
     width: max-content;

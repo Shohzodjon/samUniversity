@@ -4,21 +4,13 @@
       <!-- <h2 class="contact__title">{{ $t("register") }}</h2> -->
       <div class="conatact__img">
         <div class="contact__info">
-          <router-link to="/" class="contact__info-header">
-            <img :src="logo" alt="logo" />
-            <h2 class="logo__title">
-              OSIYO<br />
-              INNOVATSION<br />
-              UNIVERSITET
-            </h2>
-          </router-link>
           <div class="contact__btns">
-            <button class="contact__btn">
+            <!-- <button class="contact__btn">
               <a href="#registr">{{ $t("register") }}</a>
             </button>
             <button class="contact__btn" @click="handleSubmitOne">
               {{ $t("contact") }}
-            </button>
+            </button> -->
           </div>
         </div>
       </div>
@@ -38,14 +30,21 @@
             :class="[contactData.user__name_check ? '' : 'error_warm']"
             class="contact__us-input"
           />
-          <input
-            type="text"
-            placeholder="Phone number ..."
+          <MazPhoneNumberInput
             v-model="contactData.phone_number"
-            :class="[contactData.phone_number ? '' : 'error_warm']"
-            class="contact__us-input"
-            maxlength="13"
+            color="info"
+            default-country-code="UZ"
+            :only-countries="['UZ']"
+            @update="results = $event"
+            :success="results?.isValid"
+            size="lg"
+            style="width: 100%"
+            :translations="{
+              placeholder: 'Phone number',
+              autocomplate: 'off',
+            }"
           />
+          <!-- class="contact__us-input" -->
           <textarea
             name=""
             id=""
@@ -203,7 +202,12 @@
             </div>
           </li>
           <li>
-            <button class="register__btn">{{ $t("register") }}</button>
+            <button class="register__btn" type="submit">
+              {{ $t("register") }}
+            </button>
+            <button class="contact__btn" type="button" @click="handleSubmitOne">
+              {{ $t("contact") }}
+            </button>
           </li>
         </ul>
       </form>
@@ -491,7 +495,7 @@ const faculties = [
 .contact__us .contact__us-input,
 .contact__us textarea {
   flex-grow: 1;
-  border: 1px solid var(--main-blue);
+  border: 1px solid rgba(196, 191, 191, 0.5);
   padding: 10px 12px;
   border-radius: 4px;
   font-size: 1.4rem;
@@ -586,12 +590,13 @@ const faculties = [
 }
 .contact__btn {
   border: 1px solid rgba(0, 0, 0, 0.3);
-  padding: 8px 14px;
   border-radius: 10px;
-  font-weight: 500;
-  font-size: 2rem;
-  line-height: 140%;
-  background: linear-gradient(90deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2));
+  font-weight: 400;
+  padding: 8px 14px;
+  font-size: 1.3rem;
+  border-radius: 6px;
+  /* background: linear-gradient(90deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)); */
+  background: var(--main-blue);
   color: #fff;
   transition: all linear 0.4s;
 }
@@ -666,8 +671,6 @@ const faculties = [
   padding: 1rem 2.5rem;
   background: rgba(255, 255, 255, 0.25);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  /* backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px); */
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
 }
