@@ -869,17 +869,13 @@ const faculties = [
     align-items: flex-start;
     gap: 1.5rem;
   }
-  /* .contact__us {
-    min-width: 290px;
-  }
-  .contact__us form {
-    width: 98%;
-    margin: 0 auto;
-  } */
 }
 @media screen and (min-width: 300px) and (max-width: 576px) {
   .success__modal {
     padding: 18px 10px;
+  }
+  .contact__wrapp {
+    background-size: 160% 100%;
   }
   .success__modal h2 {
     font-size: 1.7rem;
@@ -971,6 +967,9 @@ const faculties = [
     width: max-content;
     margin: 0 auto;
     margin-bottom: 3rem;
+  }
+  .contact__wrapp {
+    background-size: 140% 100%;
   }
   .conatact__img {
     min-height: 300px;
