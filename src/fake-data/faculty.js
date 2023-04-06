@@ -1,16 +1,16 @@
 const facultyData = [
+  // {
+  //   title: "care",
+  //   icon: "care_icon",
+  //   id: 1,
+  // },
+  // {
+  //   title: "biology",
+  //   icon: "bioligy_icon",
+  //   id: 2,
+  // },
   {
-    title: "care",
-    icon: "care_icon",
-    id: 1,
-  },
-  {
-    title: "biology",
-    icon: "bioligy_icon",
-    id: 2,
-  },
-  {
-    title: "psychology",
+    title: "Psixologiya (faoliyat turlari bo’yicha) ",
     icon: "psiholigy_icon",
     id: 3,
   },
@@ -25,18 +25,18 @@ const facultyData = [
     id: 5,
   },
   {
-    title: "history",
+    title: "Tarix (mamlakatlar va yo’nalishlar bo’yicha) ",
     icon: "history_icon",
     id: 6,
   },
   {
-    title: "Filologiya va tillarni o’qitish",
+    title: "Filologiya va tillarni o’qitish: o’zbek tili ",
     icon: "ears_icon",
     id: 7,
   },
   {
-    title: "tourism",
-    icon: "map_icon",
+    title: "Filologiya va tillarni o’qitish: rus tili ",
+    icon: "ears_icon",
     id: 8,
   },
   {

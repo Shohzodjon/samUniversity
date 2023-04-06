@@ -11,10 +11,10 @@
           <img :src="item.img" :alt="item.desc" />
         </div>
       </div>
-      <div class="arrow__wrapp">
+      <!-- <div class="arrow__wrapp">
         <IconBase name="big_arrow" class="arrow__left" />
         <IconBase name="big_arrow" class="arrow__right" />
-      </div>
+      </div> -->
     </div>
   </section>
 </template>

@@ -7,11 +7,6 @@
             <RouterLink to="/">
               <img :src="logo" alt="logo" class="logo"
             /></RouterLink>
-            <h4 class="logo__title">
-              OSIYO<br />
-              INNOVATSION <br />
-              UNIVERSITET
-            </h4>
           </li>
           <li class="contact__flex">
             <IconBase name="location_icon" class="social_icon" />
@@ -40,11 +35,11 @@
             <li>
               <RouterLink to="/">{{ $t("home") }}</RouterLink>
             </li>
-            <li>
+            <!-- <li>
               <RouterLink to="/#about_us">
                 {{ $t("about_us") }}
               </RouterLink>
-            </li>
+            </li> -->
             <li>
               <RouterLink to="/faculty">{{ $t("faculty") }} </RouterLink>
             </li>
@@ -63,12 +58,13 @@
           <div class="footer__map">
             <div style="position: relative; overflow: hidden">
               <iframe
-                src="https://yandex.uz/map-widget/v1/-/CCUj7-WjSB"
-                width="100%"
-                height="272px"
-                frameborder="1"
-                allowfullscreen="true"
-                style="position: relative"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d24565.97318769996!2d66.91465860818862!3d39.677913300000014!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3f4d1968bdb08207%3A0x3704dc07592f8fd3!2z0KLQtdC70LXQutC-0L3RgtCw0LrRgg!5e0!3m2!1sru!2s!4v1680801932088!5m2!1sru!2s"
+                width="600"
+                height="450"
+                style="border: 0"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
               ></iframe>
             </div>
           </div>
@@ -107,7 +103,7 @@
 <script setup>
 import { RouterLink } from "vue-router";
 import IconBase from "@/components/IconBase.vue";
-import logo from "@/assets/images/logo.svg";
+import logo from "@/assets/images/new_logo.png";
 </script>
 
 <style scoped>
@@ -129,25 +125,12 @@ footer {
   gap: 10px;
 }
 .footer__logo img {
-  width: 100px;
-  height: 100px;
+  width: auto;
+  height: 80px;
+  transform: scale(0.6);
+  margin-left: -35px;
 }
-.footer__logo h4 {
-  font-weight: 600;
-  font-size: 1.8rem;
-  line-height: 120%;
-  position: relative;
-}
-.logo__title::before {
-  content: "";
-  width: 1.5px;
-  height: 100%;
-  background: rgb(207, 172, 14);
-  display: block;
-  position: absolute;
-  left: -8px;
-  top: 0;
-}
+
 .contact__flex {
   display: flex;
   gap: 8px;
@@ -284,13 +267,11 @@ footer {
     align-items: center;
     justify-content: center;
   }
-  .footer__logo h4 {
-    font-size: 1.3rem;
-    line-height: 120%;
-  }
+
   .footer__logo img {
-    width: 6rem;
+    width: auto;
     height: 6rem;
+    margin-left: 10px;
   }
   .contact__flex {
     gap: 5px;
@@ -349,8 +330,9 @@ footer {
     justify-content: center;
   }
   .footer__logo img {
-    width: 70px;
+    width: auto;
     height: 70px;
+    transform: scale(0.6);
   }
   .contact__flex {
     gap: 8px;

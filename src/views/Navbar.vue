@@ -8,23 +8,18 @@
       <div class="navbar__flex">
         <div class="nav__logo">
           <router-link to="/"> <img :src="logo" alt="nav_logo" /> </router-link>
-          <h2 class="logo__title">
-            OSIYO <br />
-            INNOVATSION <br />
-            UNIVERSITET
-          </h2>
         </div>
         <ul class="nav__link">
           <li>
             <router-link to="/">{{ $t("home") }}</router-link>
           </li>
-          <li>
+          <!-- <li>
             <router-link to="/" ref="about">
               <a href="#about_us">
                 {{ $t("about_us") }}
               </a>
             </router-link>
-          </li>
+          </li> -->
           <li>
             <router-link to="/contact" ref="about"> Contact </router-link>
           </li>
@@ -73,9 +68,9 @@
       <li>
         <router-link to="/" @click="openNav">{{ $t("home") }}</router-link>
       </li>
-      <li>
+      <!-- <li>
         <a href="/#about_us" @click="openNav">{{ $t("about_us") }}</a>
-      </li>
+      </li> -->
       <li>
         <router-link to="/contact" @click="openNav">Contact</router-link>
       </li>
@@ -121,13 +116,13 @@
   </div>
 </template>
 <script setup>
-import logo from "@/assets/images/logo.svg";
+import logo from "@/assets/images/new_logo.png";
 import { RouterLink } from "vue-router";
 import IconBase from "@/components/IconBase.vue";
 import { useI18n } from "vue-i18n";
 import { onMounted, ref } from "vue";
 import i18n from "@/language/i18n.js";
-import document from "@/assets/images/document.pdf";
+import document from "@/assets/images/contract.pdf";
 import downloadIcon from "@/assets/images/download.svg";
 import { watch } from "vue";
 import { useRoute } from "vue-router";
@@ -200,29 +195,15 @@ onMounted(() => {
 .nav__logo {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  width: max-content !important;
+  max-width: 200px;
 }
 .nav__logo img {
-  width: 85px;
-  height: 85px;
+  width: auto;
+  height: 70px;
+  transform: scale(0.8);
 }
-.nav__logo h2 {
-  color: #fff;
-  font-size: 1.3rem;
-  line-height: 150%;
-  position: relative;
-}
-.logo__title::before {
-  content: "";
-  position: absolute;
-  width: 1px;
-  height: 100%;
-  background: #fece02;
-  top: 0;
-  left: -8px;
-  display: block;
-  z-index: 998;
-}
+
 .nav__link {
   display: flex;
   align-items: center;
@@ -437,11 +418,9 @@ onMounted(() => {
     top: 0;
   }
   .nav__logo img {
-    width: 5.8rem;
-    height: 5.8rem;
-  }
-  .nav__logo h2 {
-    font-size: 1rem;
+    width: auto;
+    height: 5rem;
+    transform: scale(0.8);
   }
   .nav__link {
     display: none;
@@ -491,12 +470,11 @@ onMounted(() => {
     padding: 1rem 0;
   }
   .nav__logo img {
-    width: 70px;
-    height: 70px;
+    width: auto;
+    height: 60px;
+    transform: scale(0.6);
   }
-  .nav__logo h2 {
-    font-size: 1.3rem;
-  }
+
   .nav__link {
     display: none;
   }
@@ -524,8 +502,9 @@ onMounted(() => {
     padding: 1rem 0;
   }
   .nav__logo img {
-    width: 80px;
+    width: auto;
     height: 80px;
+    transform: scale(0.65);
   }
   .nav__link {
     display: none;
@@ -548,16 +527,15 @@ onMounted(() => {
 }
 @media screen and (min-width: 1001px) and (max-width: 1100px) {
   .nav__logo img {
-    width: 75px;
+    width: auto;
     height: 75px;
+    transform: scale(0.6);
+    margin-left: -40px;
   }
 
-  .nav__logo h2 {
-    font-size: 1.1rem;
-  }
   .nav__link {
     display: flex;
-    gap: 3rem;
+    gap: 2rem;
   }
   .menu__icon {
     display: none;
@@ -578,11 +556,9 @@ onMounted(() => {
 
 @media screen and (min-width: 1101px) and (max-width: 1250px) {
   .nav__logo img {
-    width: 75px;
-    height: 75px;
-  }
-  .nav__logo h2 {
-    font-size: 1.1rem;
+    width: auto;
+    transform: scale(0.65);
+    height: 80px;
   }
   .nav__link {
     display: flex;

@@ -132,8 +132,6 @@
               >
                 <span @click="handleToggle">Kunduzgi</span>
                 <span @click="handleToggle">Kechgi</span>
-                <span @click="handleToggle">Sirtqi</span>
-                <span @click="handleToggle">Zavuchniy</span>
               </div>
             </div>
             <div
@@ -353,39 +351,28 @@ const handleSubmit = () => {
 const faculties = [
   {
     id: 1,
-    faculty: "Davolash ishi",
+    faculty: "Tarix (mamlakatlar va yo’nalishlar bo’yicha) ",
   },
   {
     id: 2,
-    faculty: "Biologiya",
+    faculty: "Psixologiya (faoliyat turlari bo’yicha) ",
   },
   {
     id: 3,
-    faculty: "Amaliy psixologiya",
+    faculty: "Boshlang’ich ta’lim ",
   },
+
   {
     id: 4,
-    faculty: "Boshlang’ich ta’lim",
-  },
-  {
-    id: 5,
     faculty: "Maktabgacha ta’lim",
   },
   {
     id: 6,
-    faculty: "Tarix",
+    faculty: "Filologiya va tillarni o’qitish: o’zbek tili ",
   },
   {
     id: 7,
-    faculty: "Filologiya va tillarni o’qitish",
-  },
-  {
-    id: 8,
-    faculty: "Turizm",
-  },
-  {
-    id: 9,
-    faculty: "Bank va ish audit",
+    faculty: "Filologiya va tillarni o’qitish: rus tili ",
   },
 ];
 </script>
@@ -575,7 +562,6 @@ const faculties = [
   width: 2px;
   height: 100%;
   background: rgb(207, 172, 4);
-  /* background: #fece02; */
   position: absolute;
   top: 0;
   left: -7px;
@@ -595,7 +581,6 @@ const faculties = [
   padding: 8px 14px;
   font-size: 1.3rem;
   border-radius: 6px;
-  /* background: linear-gradient(90deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)); */
   background: var(--main-blue);
   color: #fff;
   transition: all linear 0.4s;
@@ -618,8 +603,7 @@ const faculties = [
     rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px,
     rgba(0, 0, 0, 0.07) 0px 16px 16px;
 }
-/* #5b86e5 */
-/* #ff5f6d */
+
 .circle-blue {
   width: 300px;
   height: 250px;
@@ -751,7 +735,7 @@ const faculties = [
   transition: all 0.4s linear;
 }
 .open__education__list {
-  height: 127px;
+  height: 63px;
 }
 
 .choose__education-list span {

@@ -6,7 +6,7 @@
       :slides-per-view="1"
       :space-between="0"
       v-bind="settings"
-      :autoplay="false"
+      :loop="true"
       :navigation="{
         nextEl: '.swiper-next',
         prevEl: '.swiper-prev',
@@ -42,6 +42,26 @@
               <div>
                 <span class="header__line"></span>
                 <h1>
+                  O'rta Osiyo <br />
+                  Buyuk allomalar yurti hisobalanadi . <br />
+                  Al-Xorazmiy , Farobiy, Ibn Sino, Farg’oniy, <br />
+                  Beruniy, Imom al-Buxoriy ....
+                </h1>
+              </div>
+            </div>
+          </div>
+        </header>
+      </swiper-slide>
+      <swiper-slide>
+        <header>
+          <video id="video" autoplay muted loop>
+            <source :src="video3" type="video/mp4" />
+          </video>
+          <div class="header__title">
+            <div class="container">
+              <div>
+                <span class="header__line"></span>
+                <h1>
                   Jasorat bilan o'rganing. <br />
                   Ilhom berish uchun yashang. <br />
                   Faqat ilmiy daraja emas, <br />
@@ -69,8 +89,9 @@
 import { Navigation, Pagination, Autoplay } from "swiper";
 import IconBase from "@/components/IconBase.vue";
 import { Swiper, SwiperSlide } from "swiper/vue";
-import video1 from "@/assets/images/header_1.mp4";
-import video2 from "@/assets/images/header_2.mp4";
+import video1 from "@/assets/images/video_1.mp4";
+import video2 from "@/assets/images/video_2.mp4";
+import video3 from "@/assets/images/video_3.mp4";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -78,19 +99,15 @@ import "swiper/css/scrollbar";
 
 const modules = [Pagination, Navigation, Autoplay];
 const settings = {
-  loop: true,
-};
-const onSwiper = (swiper) => {
-  console.log(swiper);
-};
-const onSlideChange = () => {
-  console.log("slide change");
+  autoplay: {
+    delay: 5000,
+  },
 };
 </script>
 <style scoped>
 .header__section {
   min-height: 678px;
-  max-height: 1000px;
+  max-height: 1200px;
   max-width: 100%;
   position: relative;
   margin: 0 auto;

@@ -2,7 +2,7 @@
   <section class="home__page">
     <HeaderSection />
     <AboutSection />
-    <section class="news__section">
+    <!-- <section class="news__section">
       <div class="container">
         <h2 class="news__title">Yangiliklar</h2>
         <div class="news__grid">
@@ -24,8 +24,8 @@
           <IconBase name="big_arrow" class="arrow__right" />
         </div>
       </div>
-    </section>
-    <FacultySection />
+    </section> -->
+    <!-- <FacultySection /> -->
     <ImgSection />
     <FaqSection />
   </section>
